@@ -1,0 +1,78 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin": 0,
+
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "network",
+        "bluetooth",
+        "pulseaudio"
+    ],
+
+    
+    //---------------------------
+    // Workspaces
+    //---------------------------
+    "hyprland/workspaces": {
+        "active-only": false,
+        "disable-scroll": true,
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "active":  ""
+        },
+        "on-click": "activate"
+    },
+
+    //---------------------------
+    // Clock
+    //---------------------------
+    "clock": {
+        "format": "  {:%I:%M %p}",
+        "tooltip": false
+    },
+
+    //---------------------------
+    // Network (auto-detect)
+    //---------------------------
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󰈁  {ipaddr}",
+        "format-disconnected": "󱚼  Offline",
+        "tooltip": false
+    },
+
+    //---------------------------
+    // Bluetooth
+    //---------------------------
+    "bluetooth": {
+        "format": "󰂯  {status}",
+        "format-disabled": "󰂲  Off",
+        "format-connected": "󰂯  {device_alias}",
+        "tooltip": false,
+        "on-click": "blueman-manager"
+    },
+
+    //---------------------------
+    // Volume
+    //---------------------------
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "  {volume}%",
+        "format-muted": "  {volume}%",
+        "on-click":       "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up":   "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+        "tooltip": false
+    }
+
+}

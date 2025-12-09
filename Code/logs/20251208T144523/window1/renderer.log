@@ -1,0 +1,11 @@
+2025-12-08 14:45:23.989 [info] Started local extension host with pid 3663.
+2025-12-08 14:45:24.604 [info] MCP Registry configured: https://api.mcp.github.com
+2025-12-08 14:45:24.688 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2025-12-08 14:45:25.052 [error] [Extension Host] (node:3663) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `exe --trace-deprecation ...` to show where the warning was created)
+2025-12-08 14:45:25.052 [error] [Extension Host] (node:3663) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+2025-12-08 14:45:25.404 [error] chatParticipant must be declared in package.json: claude-code
+2025-12-08 14:45:25.422 [error] Error providing chat sessions: Canceled
+2025-12-08 14:45:25.422 [warning] Failed to update in-progress status for chat session type 'copilotcli': Canceled
+2025-12-08 14:45:25.422 [warning] Failed to update in-progress status for chat session type 'copilotcli': Canceled
+2025-12-08 14:45:25.422 [warning] Failed to update in-progress status for chat session type 'copilot-cloud-agent': Canceled

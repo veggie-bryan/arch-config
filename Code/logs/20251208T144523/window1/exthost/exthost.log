@@ -1,0 +1,21 @@
+2025-12-08 14:45:24.357 [info] Extension host with pid 3663 started
+2025-12-08 14:45:24.357 [info] Skipping acquiring lock for /home/bryan/.config/Code/User/workspaceStorage/ef77342c4e9431afd55f0305d6290586.
+2025-12-08 14:45:24.429 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-12-08 14:45:24.449 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-12-08 14:45:24.462 [info] ExtensionService#_doActivateExtension GitHub.copilot-chat, startup: false, activationEvent: 'onChatSession:copilotcli'
+2025-12-08 14:45:25.111 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: false, activationEvent: 'api', root cause: GitHub.copilot-chat
+2025-12-08 14:45:25.124 [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+2025-12-08 14:45:25.159 [info] ExtensionService#_doActivateExtension vscode.git, startup: false, activationEvent: 'api', root cause: GitHub.copilot-chat
+2025-12-08 14:45:25.403 [error] Error: chatParticipant must be declared in package.json: claude-code
+    at QKt.$registerAgent (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:511:6057)
+2025-12-08 14:45:25.514 [info] Extension host terminating: renderer closed the MessagePort
+2025-12-08 14:45:25.522 [error] ProxyResolver#resolveProxy DIRECT Canceled: Canceled
+	at new ij (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:120021)
+	at JS.U (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:124631)
+	at s.<computed>.n.charCodeAt.s.<computed> (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:122125)
+	at My.resolveProxy (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:111:76517)
+	at Object.resolveProxy (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:212:23219)
+	at useProxySettings (/opt/visual-studio-code/resources/app/node_modules/@vscode/proxy-agent/out/index.js:208:16)
+	at /opt/visual-studio-code/resources/app/node_modules/@vscode/proxy-agent/out/index.js:145:13
+	at /opt/visual-studio-code/resources/app/node_modules/@vscode/proxy-agent/out/index.js:791:13 
+2025-12-08 14:45:25.528 [info] Extension host with pid 3663 exiting with code 0

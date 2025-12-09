@@ -1,0 +1,8 @@
+2025-12-08 14:45:25.268 [info] [GitExtensionServiceImpl] Initializing Git extension service.
+2025-12-08 14:45:25.268 [info] [GitExtensionServiceImpl] Successfully activated the vscode.git extension.
+2025-12-08 14:45:25.268 [info] [GitExtensionServiceImpl] Enablement state of the vscode.git extension: true.
+2025-12-08 14:45:25.268 [info] [GitExtensionServiceImpl] Successfully registered Git commit message provider.
+2025-12-08 14:45:25.289 [info] Logged in as veggie-bryan
+2025-12-08 14:45:25.292 [info] Using the Electron fetcher.
+2025-12-08 14:45:25.387 [error] Copilot extension not found
+2025-12-08 14:45:25.388 [warning] Copilot API is undefined, unable to register context provider.

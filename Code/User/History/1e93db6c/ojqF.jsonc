@@ -1,0 +1,80 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin": 0,
+
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "network",
+        "bluetooth",
+        "pulseaudio"
+    ],
+
+    "tooltip": false
+
+    //---------------------------
+    // Workspaces
+    //---------------------------
+    ~/.config/waybar/config.jsonc: {
+        "active-only": false,
+        "disable-scroll": true,
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "active":  ""
+        },
+        "on-click": "activate"
+    },
+
+    //---------------------------
+    // Clock
+    //---------------------------
+    "clock": {
+        "format": "  {:%I:%M %p}",
+    },
+
+    //---------------------------
+    // Network (auto-detect)
+    //---------------------------
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󰈁  {ipaddr}",
+        "format-disconnected": "󱚼  Offline",
+    },
+
+    //---------------------------
+    // Bluetooth
+    //---------------------------
+    "bluetooth": {
+        "format": "󰂯  {status}",
+        "format-disabled": "󰂲  Off",
+        "format-connected": "󰂯  {device_alias}",
+        "on-click": "blueman-manager"
+    },
+
+    //---------------------------
+    // Volume
+    //---------------------------
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "  {volume}%",
+        "format-muted": "  {volume}%",
+        "on-click":       "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up":   "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+        "icons": {
+            "low":    "",
+            "medium": "",
+            "high":   "",
+            "muted":  ""
+        }
+    }
+}

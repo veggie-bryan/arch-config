@@ -1,0 +1,5 @@
+2W
+Incompressible
+Potentiometer
+Raspi
+checksum_v1 = 3bf98e8e604696b48ba4a3a5bbf5c0d2

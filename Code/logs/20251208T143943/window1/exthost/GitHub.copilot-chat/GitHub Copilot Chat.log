@@ -1,0 +1,20 @@
+2025-12-08 14:39:45.488 [info] [GitExtensionServiceImpl] Initializing Git extension service.
+2025-12-08 14:39:45.488 [info] [GitExtensionServiceImpl] Successfully activated the vscode.git extension.
+2025-12-08 14:39:45.488 [info] [GitExtensionServiceImpl] Enablement state of the vscode.git extension: true.
+2025-12-08 14:39:45.488 [info] [GitExtensionServiceImpl] Successfully registered Git commit message provider.
+2025-12-08 14:39:45.503 [info] Logged in as veggie-bryan
+2025-12-08 14:39:45.507 [info] Using the Electron fetcher.
+2025-12-08 14:39:45.655 [error] Copilot extension not found
+2025-12-08 14:39:45.656 [warning] Copilot API is undefined, unable to register context provider.
+2025-12-08 14:39:46.806 [info] Got Copilot token for veggie-bryan
+2025-12-08 14:39:46.807 [info] Copilot Chat: 0.33.4, VS Code: 1.106.3
+2025-12-08 14:39:46.814 [info] activationBlocker from 'languageModelAccess' took for 1178ms
+2025-12-08 14:39:46.855 [info] copilot token chat_enabled: true, sku: free_limited_copilot
+2025-12-08 14:39:46.855 [info] GitHub.vscode-pull-request-github extension is not yet activated.
+2025-12-08 14:39:46.865 [info] Registering default platform agent...
+2025-12-08 14:39:46.866 [info] [code-referencing] Public code references are enabled.
+2025-12-08 14:39:46.866 [info] activationBlocker from 'conversationFeature' took for 1234ms
+2025-12-08 14:39:46.882 [info] BYOK: Copilot Chat known models list fetched successfully.
+2025-12-08 14:39:47.212 [info] Fetched model metadata in 358ms 6b1bccdd-4e86-4882-b252-c6a0a96bbc26
+2025-12-08 14:39:47.275 [info] Latest entry: ccreq:latest.copilotmd
+2025-12-08 14:39:47.275 [info] ccreq:d50d8a01.copilotmd | markdown

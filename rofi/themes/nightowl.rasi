@@ -1,0 +1,74 @@
+/* ============================
+      Night Owl Rofi Theme
+   ============================ */
+
+* {
+    font: "JetBrainsMono Nerd Font 12";
+    background-color: transparent;
+    text-color: #d6deeb;
+}
+
+window {
+    background-color: #011627;
+    border: 2px;
+    border-color: #7fdbca;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+mainbox {
+    background-color: transparent;
+}
+
+inputbar {
+    background-color: #0b253a;
+    border: 2px;
+    border-color: #7fdbca;
+    border-radius: 10px;
+    padding: 6px;
+    text-color: #d6deeb;
+}
+
+prompt {
+    text-color: #e6b450;
+}
+
+entry {
+    padding: 6px;
+    text-color: #d6deeb;
+    background-color: transparent;
+}
+
+listview {
+    padding: 6px;
+    spacing: 6px;
+    text-color: #d6deeb;
+}
+
+element {
+    padding: 6px;
+    border-radius: 6px;
+    background-color: transparent;
+    text-color: #d6deeb;
+}
+
+element selected {
+    background-color: #0b253a;
+    border-left: 4px;
+    border-color: #e6b450;
+    text-color: #e6b450;
+}
+
+element-text {
+    text-color: #d6deeb;
+}
+
+element-text selected {
+    text-color: #e6b450;
+}
+
+scrollbar {
+    handle-color: #7fdbca;
+    border-radius: 8px;
+    width: 8px;
+}

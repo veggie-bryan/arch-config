@@ -1,0 +1,8 @@
+@theme "~/.config/rofi/themes/nightowl.rasi"
+
+configuration {
+    show-icons: true;
+    icon-theme: "Tela";
+    display-drun: "  Applications";
+    drun-display-format: "{icon}  {name}";
+}

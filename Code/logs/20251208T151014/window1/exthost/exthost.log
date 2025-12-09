@@ -1,0 +1,15 @@
+2025-12-08 15:10:15.770 [info] Extension host with pid 30208 started
+2025-12-08 15:10:15.770 [info] Skipping acquiring lock for /home/bryan/.config/Code/User/workspaceStorage/ef77342c4e9431afd55f0305d6290586.
+2025-12-08 15:10:15.797 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-12-08 15:10:15.817 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-12-08 15:10:15.830 [info] ExtensionService#_doActivateExtension GitHub.copilot-chat, startup: false, activationEvent: 'onChatSession:copilotcli'
+2025-12-08 15:10:16.480 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: false, activationEvent: 'api', root cause: GitHub.copilot-chat
+2025-12-08 15:10:16.494 [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+2025-12-08 15:10:16.526 [info] ExtensionService#_doActivateExtension vscode.git, startup: false, activationEvent: 'api', root cause: GitHub.copilot-chat
+2025-12-08 15:10:16.826 [error] Error: chatParticipant must be declared in package.json: claude-code
+    at QKt.$registerAgent (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:511:6057)
+2025-12-08 15:10:16.827 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-12-08 15:10:16.883 [info] Eager extensions activated
+2025-12-08 15:10:16.985 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-12-08 15:10:16.986 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-12-08 15:10:16.999 [info] ExtensionService#_doActivateExtension tonybaloney.vscode-pets, startup: false, activationEvent: 'onStartupFinished'
