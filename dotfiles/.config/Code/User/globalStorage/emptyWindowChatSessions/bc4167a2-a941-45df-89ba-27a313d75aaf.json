@@ -1,0 +1,21 @@
+{
+  "version": 3,
+  "requesterUsername": "veggie-bryan",
+  "requesterAvatarIconUri": {
+    "$mid": 1,
+    "path": "/u/125178040",
+    "scheme": "https",
+    "authority": "avatars.githubusercontent.com",
+    "query": "v=4"
+  },
+  "responderUsername": "GitHub Copilot",
+  "responderAvatarIconUri": {
+    "id": "copilot"
+  },
+  "initialLocation": "panel",
+  "requests": [],
+  "sessionId": "bc4167a2-a941-45df-89ba-27a313d75aaf",
+  "creationDate": 1764890392478,
+  "isImported": false,
+  "lastMessageDate": 1764890392478
+}

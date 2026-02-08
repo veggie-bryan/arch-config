@@ -1,0 +1,273 @@
+2026-01-19 17:07:53.201 [info] Started local extension host with pid 156944.
+2026-01-19 17:07:53.556 [warning] [mainThreadStorage] large extension state detected (extensionId: ms-vscode-remote.remote-ssh, global: true): 19541.5068359375kb. Consider to use 'storageUri' or 'globalStorageUri' to store this data on disk instead.
+2026-01-19 17:07:53.633 [error] navigator is now a global in nodejs, please see https://aka.ms/vscode-extensions/navigator for additional info on this error.: PendingMigrationError: navigator is now a global in nodejs, please see https://aka.ms/vscode-extensions/navigator for additional info on this error.
+    at get (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:402:6611)
+    at Object.<anonymous> (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:486184)
+    at 19534 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:504894)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 92839 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:466959)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 49424 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:465816)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 17130 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:596135)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 87631 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:576866)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 65861 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:600705)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 91577 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:856974)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 94111 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:819912)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 35187 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:690327)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 64417 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:846572)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 24847 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:828930)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 54788 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:788284)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 30729 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:682648)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 24430 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:837945)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 52584 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:811300)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 69480 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:800490)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 71535 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:680397)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1109251
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1117584
+    at Object.<anonymous> (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1117690)
+    at Module._compile (node:internal/modules/cjs/loader:1714:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1848:10)
+    at Module.load (node:internal/modules/cjs/loader:1448:32)
+    at Module._load (node:internal/modules/cjs/loader:1270:12)
+    at c._load (node:electron/js2c/node_init:2:17993)
+    at e._load (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:402:5984)
+    at t._load (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:220:22582)
+    at r._load (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:212:24094)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+    at Module.require (node:internal/modules/cjs/loader:1470:12)
+    at require (node:internal/modules/helpers:147:16)
+    at kX.Cb (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:251:1253)
+2026-01-19 17:07:53.874 [error] navigator is now a global in nodejs, please see https://aka.ms/vscode-extensions/navigator for additional info on this error.: PendingMigrationError: navigator is now a global in nodejs, please see https://aka.ms/vscode-extensions/navigator for additional info on this error.
+    at get (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:402:6611)
+    at g (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:283829)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:283674
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:285048)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:285217
+    at Object.get (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:284567)
+    at _ (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:284134)
+    at O (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:229826)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:163430
+    at Object.p [as use] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:205291)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:206959
+    at s.<computed> [as watch] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:206970)
+    at B (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:207589)
+    at e.<computed> [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:162741)
+    at e.n [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:275397)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:170519
+    at g (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:239634)
+    at e.<computed> [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:169778)
+    at t.n [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:275397)
+    at Array.<anonymous> (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:244943)
+    at o (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:280977)
+    at u (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:244904)
+    at ge (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:213632)
+    at e.<computed> (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:216146)
+    at Object.initialize (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:276131)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:140366
+    at g (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:239634)
+    at e.<computed> [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:140291)
+    at t.n [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:275397)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:339701
+    at async t.oneDataSystemClientFactory (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:339100)
+2026-01-19 17:07:53.876 [info] Invoking resolveAuthority(ssh-remote)...
+2026-01-19 17:07:53.876 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][0ms] obtaining proxy...
+2026-01-19 17:07:53.882 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][5ms] invoking...
+2026-01-19 17:07:54.019 [warning] [mainThreadStorage] large extension state detected (extensionId: ms-vscode-remote.remote-ssh, global: true): 19506.423828125kb. Consider to use 'storageUri' or 'globalStorageUri' to store this data on disk instead.
+2026-01-19 17:07:54.882 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][1006ms] waiting...
+2026-01-19 17:07:55.172 [info] MCP Registry configured: https://api.mcp.github.com
+2026-01-19 17:07:55.882 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][2006ms] waiting...
+2026-01-19 17:07:56.296 [warning] [mainThreadStorage] large extension state detected (extensionId: ms-vscode-remote.remote-ssh, global: true): 19513.689453125kb. Consider to use 'storageUri' or 'globalStorageUri' to store this data on disk instead.
+2026-01-19 17:07:56.846 [warning] [mainThreadStorage] large extension state detected (extensionId: ms-vscode-remote.remote-ssh, global: true): 19506.59765625kb. Consider to use 'storageUri' or 'globalStorageUri' to store this data on disk instead.
+2026-01-19 17:07:56.934 [warning] [mainThreadStorage] large extension state detected (extensionId: ms-vscode-remote.remote-ssh, global: true): 19513.689453125kb. Consider to use 'storageUri' or 'globalStorageUri' to store this data on disk instead.
+2026-01-19 17:07:57.254 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-19 17:07:57.254 [error] [/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.122.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0.
+2026-01-19 17:07:57.254 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][3309ms] waiting...
+2026-01-19 17:07:57.268 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.2]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-19 17:07:57.272 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.36.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.108.0.
+2026-01-19 17:07:57.272 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.36.1]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.108.0.
+2026-01-19 17:07:57.504 [warning] [mainThreadStorage] large extension state detected (extensionId: ms-vscode-remote.remote-ssh, global: true): 19506.59765625kb. Consider to use 'storageUri' or 'globalStorageUri' to store this data on disk instead.
+2026-01-19 17:07:57.882 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][4006ms] waiting...
+2026-01-19 17:07:58.882 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][5006ms] waiting...
+2026-01-19 17:07:59.882 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][6006ms] waiting...
+2026-01-19 17:08:00.882 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][7006ms] waiting...
+2026-01-19 17:08:01.227 [error] [LocalProcess0][resolveAuthority(ssh-remote,1)][7351ms] returned an error {"code":"NotAvailable","message":"No route to host","detail":true}
+2026-01-19 17:08:01.227 [error] resolveAuthority(ssh-remote) returned an error after 7351 ms No route to host
+2026-01-19 17:08:01.228 [error] Error received from starting extension host (kind: Remote)
+2026-01-19 17:08:01.228 [error] CodeExpectedError: No route to host
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-19 17:08:01.228 [error] [remote-connection][attempt 1] An error occurred in initial connection! Will retry... Error:
+2026-01-19 17:08:01.228 [error] CodeExpectedError: No route to host
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-19 17:08:01.229 [error] [remote-connection][attempt 2] An error occurred in initial connection! Will retry... Error:
+2026-01-19 17:08:01.229 [error] CodeExpectedError: No route to host
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-19 17:08:01.234 [error] [remote-connection][attempt 3] An error occurred in initial connection! Will retry... Error:
+2026-01-19 17:08:01.234 [error] CodeExpectedError: No route to host
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-19 17:08:01.288 [error] [remote-connection][attempt 4] An error occurred in initial connection! Will retry... Error:
+2026-01-19 17:08:01.289 [error] CodeExpectedError: No route to host
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-19 17:08:01.292 [error] [remote-connection][attempt 5]  An error occurred in initial connection! It will be treated as a permanent error. Error:
+2026-01-19 17:08:01.292 [error] CodeExpectedError: No route to host
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-19 17:08:01.294 [error] CodeExpectedError: No route to host
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-19 17:08:01.294 [warning] Error getting remote process MCP environment No route to host
+2026-01-19 17:08:01.294 [error] Cannot register remote filesystem provider. Error while fetching remote environment. No route to host
+2026-01-19 17:08:01.294 [error] CodeExpectedError: No route to host
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-19 17:08:01.294 [error] CodeExpectedError: No route to host
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-19 17:08:01.295 [error] CodeExpectedError: No route to host
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-19 17:08:01.295 [error] CodeExpectedError: No route to host
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-19 17:08:01.296 [error] CodeExpectedError: No route to host
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-19 17:08:01.297 [warning] Ignoring the error while validating workspace folder vscode-remote://ssh-remote%2Bpi-zero/home/bryan/PICAM - ENOPRO: No file system provider found for resource 'vscode-remote://ssh-remote%2Bpi-zero/home/bryan/PICAM'
+2026-01-19 17:08:01.297 [error] CodeExpectedError
+    at Kkt.j (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:60758)
+    at async Kkt.cb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:71449)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:71175
+2026-01-19 17:08:01.298 [error] ENOPRO: No file system provider found for resource 'vscode-remote://ssh-remote%2Bpi-zero/home/bryan/PICAM/.git/config': CodeExpectedError
+    at Kkt.j (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:60758)
+    at async Kkt.exists (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:62887)
+    at async Promise.all (index 0)
+2026-01-19 17:08:01.300 [warning] Failed to get installed servers from vscode-remote://ssh-remote%2Bpi-zero/home/bryan/PICAM/.vscode/mcp.json ENOPRO: No file system provider found for resource 'vscode-remote://ssh-remote%2Bpi-zero/home/bryan/PICAM/.vscode/mcp.json'
+2026-01-19 17:08:01.300 [error] CodeExpectedError
+    at Kkt.j (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:60758)
+    at async Kkt.cb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:71449)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:71175
+2026-01-19 17:08:01.301 [error] CodeExpectedError
+    at Kkt.j (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:60758)
+    at async Kkt.m (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:60837)
+    at async Kkt.readFileStream (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:65215)
+    at async hxt.L (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3833:9998)
+    at async hxt.readStream (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3833:9773)
+    at async kye.Eb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:1313:12359)
+    at async kye.resolve (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:1313:10834)
+    at async axt.W (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3833:6644)
+    at async ont.jb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:1972:18720)
+    at async $Le.setInput (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:2723:80879)
+2026-01-19 17:08:01.311 [error] ENOPRO: No file system provider found for resource 'vscode-remote://ssh-remote%2Bpi-zero/home/bryan/PICAM/pom.xml': CodeExpectedError
+    at Kkt.j (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:60758)
+    at async Kkt.exists (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:62887)
+    at async Promise.all (index 0)
+2026-01-19 17:08:01.318 [error] CodeExpectedError
+    at Kkt.j (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:60758)
+    at async Kkt.cb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:71449)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:71175
+2026-01-19 17:08:01.337 [error] No route to host: CodeExpectedError: No route to host
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-19 17:08:01.338 [error] ENOPRO: No file system provider found for resource 'vscode-remote://ssh-remote%2Bpi-zero/home/bryan/PICAM': CodeExpectedError
+    at Kkt.j (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:60758)
+    at async Kkt.r (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:61448)
+    at async Kkt.resolve (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:61329)
+    at async PSt.j (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3791:27372)
+2026-01-19 17:08:01.338 [error] ENOPRO: No file system provider found for resource 'vscode-remote://ssh-remote%2Bpi-zero/home/bryan/PICAM/.vscode': CodeExpectedError
+    at Kkt.j (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:60758)
+    at async Kkt.exists (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:62887)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:577:21793
+    at async Promise.all (index 0)
+    at async Z_e.v (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:577:21900)
+2026-01-19 17:08:01.432 [warning] [mainThreadStorage] large extension state detected (extensionId: ms-vscode-remote.remote-ssh, global: true): 19528.99609375kb. Consider to use 'storageUri' or 'globalStorageUri' to store this data on disk instead.
+2026-01-19 17:08:01.793 [error] No route to host: CodeExpectedError: No route to host
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-19 17:08:01.814 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2026-01-19 17:08:02.012 [error] CodeExpectedError: No route to host
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-19 17:08:03.330 [error] No route to host: CodeExpectedError: No route to host
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-19 17:08:21.295 [error] No route to host: CodeExpectedError: No route to host
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-19 17:08:22.724 [info] Auto updating outdated extensions. github.copilot-chat, ms-vscode-remote.remote-ssh
+2026-01-19 17:08:22.894 [error] No route to host: CodeExpectedError: No route to host
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-19 17:08:23.955 [error] Cannot read the extension from /home/bryan/.vscode/extensions/github.copilot-chat-0.36.1: ScanningExtension: Cannot read the extension from /home/bryan/.vscode/extensions/github.copilot-chat-0.36.1
+    at Gh.scanLocalExtension (file:///opt/visual-studio-code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:74:75166)
+2026-01-19 17:08:24.886 [error] No route to host: CodeExpectedError: No route to host
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-19 17:08:26.269 [error] Cannot read the extension from /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.122.0: ScanningExtension: Cannot read the extension from /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.122.0
+    at Gh.scanLocalExtension (file:///opt/visual-studio-code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:74:75166)
+2026-01-19 17:08:56.533 [info] Started local extension host with pid 157412.
+2026-01-19 17:08:56.622 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-19 17:08:56.629 [error] [/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.122.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0.
+2026-01-19 17:08:56.630 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.2]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-19 17:08:56.632 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.36.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.108.0.
+2026-01-19 17:08:56.633 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.36.1]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.108.0.
+2026-01-19 17:08:57.024 [info] MCP Registry configured: https://api.mcp.github.com
+2026-01-19 17:08:57.094 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2026-01-19 17:08:59.198 [info] [perf] Render performance baseline is 16ms

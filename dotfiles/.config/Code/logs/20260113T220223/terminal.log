@@ -1,0 +1,37 @@
+2026-01-13 22:02:25.505 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.40ms
+window<->ptyhostservice<->ptyhost: 0.80ms
+ptyhostservice<->ptyhost: 0.29ms []
+2026-01-13 22:02:41.662 [warning] Exception occurred during terminal shutdown [{"name":"CodeExpectedError","_message":"Connecting was canceled","_code":"NotAvailable","_detail":true,"isHandled":true}]
+2026-01-13 22:08:03.894 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.40ms
+window<->ptyhostservice<->ptyhost: 0.90ms
+ptyhostservice<->ptyhost: 0.34ms []
+2026-01-13 22:08:26.445 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 772.10ms
+ptyhostservice<->ptyhost: 11.15ms []
+2026-01-13 22:08:26.445 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 772.30ms
+ptyhostservice<->ptyhost: 5.33ms []
+2026-01-13 22:08:26.445 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 772.40ms
+ptyhostservice<->ptyhost: 3.63ms []
+2026-01-13 22:08:26.464 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 791.70ms
+ptyhostservice<->ptyhost: 2.82ms []
+2026-01-13 22:08:36.746 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.30ms
+window<->ptyhostservice<->ptyhost: 0.70ms
+ptyhostservice<->ptyhost: 0.26ms []
+2026-01-13 22:08:59.194 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 570.00ms
+ptyhostservice<->ptyhost: 3.89ms []
+2026-01-13 22:08:59.194 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 370.20ms
+ptyhostservice<->ptyhost: 2.09ms []
+2026-01-13 22:09:01.182 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 1990.20ms
+ptyhostservice<->ptyhost: 5.39ms []
+2026-01-13 22:09:01.223 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 2030.50ms
+ptyhostservice<->ptyhost: 44.87ms []

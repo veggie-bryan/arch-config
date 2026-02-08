@@ -1,0 +1,11 @@
+{
+    "vscode-pets.petSize": "medium",
+    "vscode-pets.petType": "horse",
+    "vscode-pets.theme": "autumn",
+    "vscode-pets.throwBallWithMouse": true,
+    "workbench.colorTheme": "Night Owl",
+    "workbench.editor.empty.hint": "hidden",
+    "python.defaultInterpreterPath": "/sbin/python3.14",
+    "chat.disableAIFeatures": true,
+    "remote.SSH.useLocalServer": false
+}

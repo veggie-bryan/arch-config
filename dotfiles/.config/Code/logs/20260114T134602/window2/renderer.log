@@ -1,0 +1,16 @@
+2026-01-14 13:46:49.007 [error] Error: The editor could not be opened because the file was not found.
+    at $Le.gc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:2723:82078)
+    at async $Le.setInput (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:2723:81236)
+    at async rJe.S (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:697:58520)
+    at async rJe.L (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:697:57080)
+    at async rJe.openEditor (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:697:56162)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:809:23355
+2026-01-14 13:46:49.034 [info] Started local extension host with pid 6291.
+2026-01-14 13:46:49.144 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-14 13:46:49.147 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.2]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-14 13:46:49.151 [error] [/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.122.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0.
+2026-01-14 13:46:49.163 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.36.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.108.0.
+2026-01-14 13:46:49.166 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.36.1]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.108.0.
+2026-01-14 13:46:49.743 [info] MCP Registry configured: https://api.mcp.github.com
+2026-01-14 13:46:49.829 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2026-01-14 13:46:51.710 [info] [perf] Render performance baseline is 16ms

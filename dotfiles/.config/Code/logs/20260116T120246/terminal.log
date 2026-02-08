@@ -1,0 +1,175 @@
+2026-01-16 12:06:40.674 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.30ms
+window<->ptyhostservice<->ptyhost: 0.80ms
+ptyhostservice<->ptyhost: 0.28ms []
+2026-01-16 12:07:17.504 [info] The pty host became responsive again []
+2026-01-16 12:07:17.747 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 1721.50ms
+ptyhostservice<->ptyhost: 49.66ms []
+2026-01-16 12:07:17.747 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 1721.70ms
+ptyhostservice<->ptyhost: 3.65ms []
+2026-01-16 12:07:17.750 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 1724.40ms
+ptyhostservice<->ptyhost: 5.68ms []
+2026-01-16 12:07:17.758 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 1732.40ms
+ptyhostservice<->ptyhost: 6.50ms []
+2026-01-16 12:07:32.319 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.40ms
+window<->ptyhostservice<->ptyhost: 0.50ms
+ptyhostservice<->ptyhost: 0.29ms []
+2026-01-16 12:07:50.589 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 255.80ms
+ptyhostservice<->ptyhost: 3.64ms []
+2026-01-16 12:07:50.589 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 255.80ms
+ptyhostservice<->ptyhost: 3.08ms []
+2026-01-16 12:07:50.779 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 192.00ms
+ptyhostservice<->ptyhost: 88.92ms []
+2026-01-16 12:07:50.910 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 322.50ms
+ptyhostservice<->ptyhost: 11.84ms []
+2026-01-16 12:28:40.962 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.20ms
+window<->ptyhostservice<->ptyhost: 0.80ms
+ptyhostservice<->ptyhost: 0.32ms []
+2026-01-16 12:28:49.633 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.40ms
+window<->ptyhostservice<->ptyhost: 0.60ms
+ptyhostservice<->ptyhost: 0.28ms []
+2026-01-16 12:28:55.070 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.20ms
+window<->ptyhostservice<->ptyhost: 0.60ms
+ptyhostservice<->ptyhost: 0.23ms []
+2026-01-16 12:29:05.493 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.30ms
+window<->ptyhostservice<->ptyhost: 0.50ms
+ptyhostservice<->ptyhost: 0.27ms []
+2026-01-16 12:29:16.862 [warning] Exception occurred during terminal shutdown [{"name":"CodeExpectedError","_message":"No route to host","_code":"NotAvailable","_detail":true,"isHandled":true}]
+2026-01-16 12:29:24.505 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.30ms
+window<->ptyhostservice<->ptyhost: 0.60ms
+ptyhostservice<->ptyhost: 0.26ms []
+2026-01-16 12:29:32.176 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.30ms
+window<->ptyhostservice<->ptyhost: 0.50ms
+ptyhostservice<->ptyhost: 0.25ms []
+2026-01-16 12:29:42.926 [warning] Exception occurred during terminal shutdown [{"name":"CodeExpectedError","_message":"No route to host","_code":"NotAvailable","_detail":true,"isHandled":true}]
+2026-01-16 12:29:59.405 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.30ms
+window<->ptyhostservice<->ptyhost: 0.70ms
+ptyhostservice<->ptyhost: 0.27ms []
+2026-01-16 12:30:06.228 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.20ms
+window<->ptyhostservice<->ptyhost: 0.50ms
+ptyhostservice<->ptyhost: 0.24ms []
+2026-01-16 12:30:11.881 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.30ms
+window<->ptyhostservice<->ptyhost: 0.50ms
+ptyhostservice<->ptyhost: 0.20ms []
+2026-01-16 12:30:54.057 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 821.20ms
+ptyhostservice<->ptyhost: 6.22ms []
+2026-01-16 12:30:54.058 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 322.50ms
+ptyhostservice<->ptyhost: 4.60ms []
+2026-01-16 12:30:54.059 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 322.50ms
+ptyhostservice<->ptyhost: 3.66ms []
+2026-01-16 12:30:54.059 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 322.90ms
+ptyhostservice<->ptyhost: 9.40ms []
+2026-01-16 12:31:00.357 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.30ms
+window<->ptyhostservice<->ptyhost: 0.60ms
+ptyhostservice<->ptyhost: 0.20ms []
+2026-01-16 12:31:11.960 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 447.10ms
+ptyhostservice<->ptyhost: 54.34ms []
+2026-01-16 12:31:12.095 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 581.50ms
+ptyhostservice<->ptyhost: 5.65ms []
+2026-01-16 12:31:12.095 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 581.70ms
+ptyhostservice<->ptyhost: 9.32ms []
+2026-01-16 12:31:12.097 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 583.30ms
+ptyhostservice<->ptyhost: 3.14ms []
+2026-01-16 12:43:15.086 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.30ms
+window<->ptyhostservice<->ptyhost: 0.70ms
+ptyhostservice<->ptyhost: 0.29ms []
+2026-01-16 12:43:27.894 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.20ms
+window<->ptyhostservice<->ptyhost: 0.60ms
+ptyhostservice<->ptyhost: 0.21ms []
+2026-01-16 12:43:36.330 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.20ms
+window<->ptyhostservice<->ptyhost: 0.50ms
+ptyhostservice<->ptyhost: 0.21ms []
+2026-01-16 12:43:49.787 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.30ms
+window<->ptyhostservice<->ptyhost: 0.70ms
+ptyhostservice<->ptyhost: 0.23ms []
+2026-01-16 12:44:03.212 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.20ms
+window<->ptyhostservice<->ptyhost: 0.70ms
+ptyhostservice<->ptyhost: 0.25ms []
+2026-01-16 12:44:25.926 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.20ms
+window<->ptyhostservice<->ptyhost: 0.60ms
+ptyhostservice<->ptyhost: 0.24ms []
+2026-01-16 12:44:45.296 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 259.90ms
+ptyhostservice<->ptyhost: 5.91ms []
+2026-01-16 12:44:45.854 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 557.70ms
+ptyhostservice<->ptyhost: 4.03ms []
+2026-01-16 12:44:45.896 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 599.90ms
+ptyhostservice<->ptyhost: 35.53ms []
+2026-01-16 12:44:46.088 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 791.70ms
+ptyhostservice<->ptyhost: 36.67ms []
+2026-01-16 12:45:25.709 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.30ms
+window<->ptyhostservice<->ptyhost: 0.60ms
+ptyhostservice<->ptyhost: 0.26ms []
+2026-01-16 12:45:45.418 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.30ms
+window<->ptyhostservice<->ptyhost: 0.60ms
+ptyhostservice<->ptyhost: 0.30ms []
+2026-01-16 12:45:53.856 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.20ms
+window<->ptyhostservice<->ptyhost: 0.60ms
+ptyhostservice<->ptyhost: 0.25ms []
+2026-01-16 12:46:11.900 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.20ms
+window<->ptyhostservice<->ptyhost: 0.50ms
+ptyhostservice<->ptyhost: 0.24ms []
+2026-01-16 12:46:53.796 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 155.00ms
+ptyhostservice<->ptyhost: 26.40ms []
+2026-01-16 12:46:53.796 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 155.00ms
+ptyhostservice<->ptyhost: 25.45ms []
+2026-01-16 12:46:53.796 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 154.90ms
+ptyhostservice<->ptyhost: 23.09ms []
+2026-01-16 12:46:53.796 [info] Latency measurements for ssh-remote+pi-zero backend
+window<->ptyhostservice<->ptyhost: 154.30ms
+ptyhostservice<->ptyhost: 13.12ms []
+2026-01-16 16:17:16.923 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.40ms
+window<->ptyhostservice<->ptyhost: 0.70ms
+ptyhostservice<->ptyhost: 0.31ms []
+2026-01-16 22:09:39.309 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.10ms
+window<->ptyhostservice<->ptyhost: 0.70ms
+ptyhostservice<->ptyhost: 0.23ms []
+2026-01-16 22:09:47.781 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.30ms
+window<->ptyhostservice<->ptyhost: 0.50ms
+ptyhostservice<->ptyhost: 0.21ms []

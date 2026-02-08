@@ -1,0 +1,16 @@
+configuration {
+    show-icons: true;
+    icon-theme: "Tela";
+
+    modi: "drun,window,run,ssh";
+    combi-modi: "drun,window,run,ssh";
+    show: "combi";
+
+    display-combi: "  Launcher";
+    display-drun: "  Apps";
+    display-window: "󰖯  Windows";
+    display-run: "  Run";
+    display-ssh: "󰣀  SSH";
+
+    drun-display-format: "{icon}  {name}";
+}

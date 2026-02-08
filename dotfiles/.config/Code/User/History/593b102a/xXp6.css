@@ -1,0 +1,31 @@
+window {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+button {
+    border: none;
+    color: #ffffff;
+    background: rgba(30, 30, 30, 0.8);
+    margin: 20px;
+    padding: 30px;
+    border-radius: 12px;
+    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font";
+    font-size: 32px;
+}
+
+button:hover {
+    background: rgba(70, 70, 70, 0.9);
+}
+
+button:active {
+    background: rgba(90, 90, 90, 0.9);
+}
+
+button > image {
+    margin-bottom: 10px;
+}
+
+#text-label {
+    font-size: 16px;
+    margin-top: 5px;
+}

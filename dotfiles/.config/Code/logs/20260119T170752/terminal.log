@@ -1,0 +1,5 @@
+2026-01-19 17:07:57.690 [info] Latency measurements for local backend
+window<->ptyhost (message port): 0.80ms
+window<->ptyhostservice<->ptyhost: 6.10ms
+ptyhostservice<->ptyhost: 0.35ms []
+2026-01-19 17:08:56.056 [warning] Exception occurred during terminal shutdown [{"name":"CodeExpectedError","_message":"No route to host","_code":"NotAvailable","_detail":true,"isHandled":true}]

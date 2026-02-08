@@ -1,0 +1,14 @@
+@theme "~/.config/rofi/themes/nightowl.rasi"
+
+configuration {
+    show-icons: true;
+
+    /* This affects icon lookup, not icon size. Keep if you use Tela. */
+    icon-theme: "Tela";
+
+    /* Make icons render larger (rofi respects this on most builds) */
+    drun-icon-theme: "Tela";
+    drun-display-format: "{icon}  {name}";
+
+    display-drun: "  Applications";
+}

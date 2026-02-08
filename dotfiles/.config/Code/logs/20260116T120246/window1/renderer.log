@@ -1,0 +1,24 @@
+2026-01-16 12:02:47.291 [info] Started local extension host with pid 42484.
+2026-01-16 12:02:47.776 [info] MCP Registry configured: https://api.mcp.github.com
+2026-01-16 12:02:48.004 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2026-01-16 12:02:49.877 [info] [perf] Render performance baseline is 16ms
+2026-01-16 12:02:50.385 [info] Auto updating outdated extensions. ms-python.debugpy
+2026-01-16 12:02:50.436 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-16 12:02:50.438 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.2]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-16 12:02:50.440 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.36.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.108.0.
+2026-01-16 12:02:50.440 [error] [/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.122.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0.
+2026-01-16 12:02:50.441 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.36.1]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.108.0.
+2026-01-16 12:03:16.675 [info] Auto updating outdated extensions. github.copilot-chat, ms-vscode-remote.remote-ssh
+2026-01-16 12:03:17.842 [error] Cannot read the extension from /home/bryan/.vscode/extensions/github.copilot-chat-0.36.1: ScanningExtension: Cannot read the extension from /home/bryan/.vscode/extensions/github.copilot-chat-0.36.1
+    at Gh.scanLocalExtension (file:///opt/visual-studio-code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:74:75166)
+2026-01-16 12:03:17.849 [error] Cannot read the extension from /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.122.0: ScanningExtension: Cannot read the extension from /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.122.0
+    at Gh.scanLocalExtension (file:///opt/visual-studio-code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:74:75166)
+2026-01-16 12:06:32.487 [info] Started local extension host with pid 43772.
+2026-01-16 12:06:32.575 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-16 12:06:32.578 [error] [/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.122.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0.
+2026-01-16 12:06:32.581 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.2]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-16 12:06:32.582 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.36.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.108.0.
+2026-01-16 12:06:32.583 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.36.1]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.108.0.
+2026-01-16 12:06:32.966 [info] MCP Registry configured: https://api.mcp.github.com
+2026-01-16 12:06:33.029 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2026-01-16 12:06:35.148 [info] [perf] Render performance baseline is 17ms

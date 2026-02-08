@@ -1,0 +1,15 @@
+2026-01-22 17:05:13.936 [info] Started local extension host with pid 4374.
+2026-01-22 17:05:14.268 [info] MCP Registry configured: https://api.mcp.github.com
+2026-01-22 17:05:14.454 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2026-01-22 17:05:16.554 [info] [perf] Render performance baseline is 19ms
+2026-01-22 17:05:17.075 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-22 17:05:17.077 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.2]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-22 17:05:17.077 [error] [/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.122.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0.
+2026-01-22 17:05:17.078 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.36.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.108.0.
+2026-01-22 17:05:17.079 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.36.1]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.108.0.
+2026-01-22 17:05:43.375 [info] Auto updating outdated extensions. github.copilot-chat, ms-vscode-remote.remote-ssh
+2026-01-22 17:05:44.639 [error] Cannot read the extension from /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.122.0: ScanningExtension: Cannot read the extension from /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.122.0
+    at Gh.scanLocalExtension (file:///opt/visual-studio-code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:74:75166)
+2026-01-22 17:05:47.706 [error] Cannot read the extension from /home/bryan/.vscode/extensions/github.copilot-chat-0.36.2: ScanningExtension: Cannot read the extension from /home/bryan/.vscode/extensions/github.copilot-chat-0.36.2
+    at Gh.scanLocalExtension (file:///opt/visual-studio-code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:74:75166)
+    at async Hh.h (file:///opt/visual-studio-code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:74:80408)

@@ -1,0 +1,62 @@
+{
+  "layer": "top",
+  "position": "top",
+  "exclusive": false,
+
+  "margin-top": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "margin-bottom": 0,
+
+  "modules-left": [
+    "custom/media"
+  ],
+
+  "modules-center": [
+    "hyprland/workspaces",
+    "clock"
+  ],
+
+  "modules-right": [
+    "pulseaudio",
+    "network",
+    "bluetooth"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "on-click": "activate"
+  },
+
+  "clock": {
+    "format": " {:%H:%M}",
+    "tooltip-format": "{:%A, %d %B %Y}"
+  },
+
+  "pulseaudio": {
+    "format": " {volume}%",
+    "format-muted": " muted"
+  },
+
+  "network": {
+    "format-wifi": " {signalStrength}%",
+    "format-ethernet": "󰈀 wired",
+    "format-disconnected": "⚠ offline"
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-disabled": ""
+  },
+
+  "custom/media": {
+    "format": "      {}",
+    "return-type": "json",
+    "exec": "playerctl -f '{\"text\":\"{{artist}} – {{title}}\"}' metadata --follow",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "max-length": 40,
+    "escape": true
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "label": "lock",
+    "action": "loginctl lock-session",
+    "text": "Lock",
+    "image": "/home/bryan/.config/wlogout/icons/lock.png"
+  },
+  {
+    "label": "sleep",
+    "action": "systemctl suspend",
+    "text": "Sleep",
+    "image": "/home/bryan/.config/wlogout/icons/suspend.png"
+  },
+  {
+    "label": "reboot",
+    "action": "systemctl reboot",
+    "text": "Restart",
+    "image": "/home/bryan/.config/wlogout/icons/reboot.png"
+  },
+  {
+    "label": "poweroff",
+    "action": "systemctl poweroff",
+    "text": "Shutdown",
+    "image": "/home/bryan/.config/wlogout/icons/power.png"
+  }
+]

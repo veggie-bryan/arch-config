@@ -1,0 +1,2940 @@
+[12:44:25.705] Log Level: 2
+[12:44:25.728] VS Code version: 1.106.3
+[12:44:25.730] Remote-SSH version: remote-ssh@0.120.0
+[12:44:25.731] linux x64
+[12:44:25.734] SSH Resolver called for "ssh-remote+pi-zero", attempt 1
+[12:44:25.738] remote.SSH.useLocalServer = false
+[12:44:25.740] remote.SSH.useExecServer = false
+[12:44:25.742] remote.SSH.bindHost = {}
+[12:44:25.743] remote.SSH.showLoginTerminal = false
+[12:44:25.746] remote.SSH.remotePlatform = {"pi-zero":"linux"}
+[12:44:25.748] remote.SSH.path = 
+[12:44:25.749] remote.SSH.configFile = 
+[12:44:25.751] remote.SSH.useFlock = true
+[12:44:25.752] remote.SSH.lockfilesInTmp = false
+[12:44:25.754] remote.SSH.localServerDownload = auto
+[12:44:25.756] remote.SSH.remoteServerListenOnSocket = false
+[12:44:25.757] remote.SSH.defaultExtensions = []
+[12:44:25.759] remote.SSH.defaultExtensionsIfInstalledLocally = []
+[12:44:25.761] remote.SSH.loglevel = 2
+[12:44:25.762] remote.SSH.enableDynamicForwarding = true
+[12:44:25.764] remote.SSH.enableRemoteCommand = false
+[12:44:25.766] remote.SSH.serverPickPortsFromRange = {}
+[12:44:25.767] remote.SSH.serverInstallPath = {}
+[12:44:25.769] remote.SSH.permitPtyAllocation = true
+[12:44:25.771] remote.SSH.preferredLocalPortRange = undefined
+[12:44:25.773] remote.SSH.useCurlAndWgetConfigurationFiles = false
+[12:44:25.774] remote.SSH.experimental.chat = true
+[12:44:25.776] remote.SSH.experimental.enhancedSessionLogs = true
+[12:44:25.779] remote.SSH.httpProxy = {"*":""}
+[12:44:25.781] remote.SSH.httpsProxy = {"*":""}
+[12:44:25.794] SSH Resolver called for host: pi-zero
+[12:44:25.794] Setting up SSH remote "pi-zero"
+[12:44:25.799] Using commit id "bf9252a2fb45be6893dd8870c0bf37e2e1766d61" and quality "stable" for server
+[12:44:25.799] Extensions to install: 
+[12:44:25.802] Install and start server if needed
+[12:44:25.803] PATH: /usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+[12:44:25.803] Checking ssh with "ssh -V"
+[12:44:25.809] > OpenSSH_10.2p1, OpenSSL 3.6.0 1 Oct 2025
+
+[12:44:25.811] Running script with connection command: ssh -D 43553 -o ConnectTimeout=15 'pi-zero' bash
+[12:44:25.811] Generated SSH command: 'ssh -D 43553 -o ConnectTimeout=15 'pi-zero' bash << 'EOSSH'
+
+echo "b397f5981fed: running"
+
+#
+# Setup
+#
+VSC_TMP="${XDG_RUNTIME_DIR:-`echo /tmp`}"
+COMMIT_ID="bf9252a2fb45be6893dd8870c0bf37e2e1766d61"
+SERVER_APP_NAME="code-server"
+EXTENSIONS=""
+TELEMETRY="--telemetry-level all"
+VSCODE_AGENT_FOLDER=$HOME/.vscode-server
+ALLOW_CLIENT_DOWNLOAD="1"
+FORCE_CLIENT_DOWNLOAD="0"
+MANUAL_BOOTSTRAP="0"
+now=`date +%s`
+VERBOSE="0"
+
+
+
+PORT_FLAG=--port=0
+
+SERVER_LISTEN_FLAG=
+UNPACK_RESULT=
+DID_LOCAL_DOWNLOAD=0
+DOWNLOAD_TIME=
+INSTALL_TIME=
+EXT_INSTALL_TIME=
+SERVER_START_TIME=
+CONNECTION_TOKEN=
+
+VSCH_DIR="$VSCODE_AGENT_FOLDER/bin/$COMMIT_ID"
+VSCH_SERVER_SCRIPT="$VSCH_DIR/bin/$SERVER_APP_NAME"
+VSCH_SERVER_PREREQ_SCRIPT="$VSCH_DIR/bin/helpers/check-requirements.sh"
+VSCH_LOGFILE="$VSCODE_AGENT_FOLDER/.$COMMIT_ID.log"
+VSCH_PIDFILE="$VSCODE_AGENT_FOLDER/.$COMMIT_ID.pid"
+VSCH_TOKENFILE="$VSCODE_AGENT_FOLDER/.$COMMIT_ID.token"
+
+fail_with_exitcode() {
+	echo "b397f5981fed: start"
+	echo "exitCode==$1=="
+	echo_common_results
+	echo "b397f5981fed: end"
+	exit 0
+}
+
+echo_common_results() {
+	echo "listeningOn==$LISTENING_ON=="
+	echo "osReleaseId==$OSRELEASEID=="
+	echo "arch==$ARCH=="
+	echo "vscodeArch==$VSCODE_ARCH=="
+	echo "bitness==$BITNESS=="
+	echo "tmpDir==$VSC_TMP=="
+	echo "platform==$PLATFORM=="
+	echo "unpackResult==$UNPACK_RESULT=="
+	echo "didLocalDownload==$DID_LOCAL_DOWNLOAD=="
+	echo "downloadTime==$DOWNLOAD_TIME=="
+	echo "installTime==$INSTALL_TIME=="
+	echo "extInstallTime==$EXT_INSTALL_TIME=="
+	echo "serverStartTime==$SERVER_START_TIME=="
+}
+
+
+millis() {
+	if [[ $PLATFORM == linux ]]; then
+		echo $(($(date +%s%N)/1000000))
+	else
+		# Can't get actual millis on mac
+		echo $(($(date +%s)*1000))
+	fi
+}
+
+elapsed() {
+	echo $(($(millis) - $1))
+}
+
+do_create_install_dir() {
+	if [[ ! -d "$VSCH_DIR" ]]; then
+		mkdir -p "$VSCH_DIR"
+
+		if (( $? > 0 ))
+		then
+			echo "Creating the server install dir failed..."
+			fail_with_exitcode 202
+		fi
+	fi
+}
+do_create_install_dir
+
+printenv_indent() {
+	if [[ $VERBOSE == "1" ]]; then
+		echo "printenv:"
+		printenv | sed 's/^/    /'
+	fi
+}
+
+
+
+#
+# Get OS name
+#
+OSRELEASEID=`cat /etc/os-release 2>/dev/null | grep -a -E '^ID=' | sed 's/^[Ii][Dd]=//g' | sed 's/"//g'`
+if [[ -z $OSRELEASEID ]]
+then
+	OSRELEASEID=`cat /usr/lib/os-release 2>/dev/null | grep -a -E '^ID=' | sed 's/^[Ii][Dd]=//g' | sed 's/"//g'`
+	if [[ -z $OSRELEASEID ]]
+	then
+		OSRELEASEID=`uname -s`
+	fi
+fi
+
+
+#
+# Get host platform/architecture
+#
+UNAME=$(uname -s)
+case $UNAME in
+	Linux) PLATFORM=linux;;
+	Darwin) PLATFORM=macOS;;
+	*)
+		echo "Unsupported platform: $UNAME"
+		fail_with_exitcode 203
+		;;
+esac
+
+BITNESS=$(getconf LONG_BIT)
+ARCH=$(uname -m)
+case $ARCH in
+	x86_64) VSCODE_ARCH="x64";;
+	armv7l | armv8l)
+		VSCODE_ARCH="armhf"
+		;;
+	arm64 | aarch64)
+		if [[ $BITNESS == 32 ]]; then
+			# Can have 32-bit userland on 64-bit kernel
+			VSCODE_ARCH="armhf"
+		else
+			VSCODE_ARCH="arm64"
+		fi
+		;;
+	*)
+		OSRELEASE=$(uname -r)
+		case $OSRELEASE in
+			*x86_64*) VSCODE_ARCH="x64";;
+			*)
+				echo "Unsupported architecture: $ARCH"
+				fail_with_exitcode 196
+			;;
+		esac
+		;;
+esac
+
+if [[ $PLATFORM == linux ]]; then
+	PLATFORM_DOWNLOAD_PATH=server-linux-$VSCODE_ARCH
+elif [[ $VSCODE_ARCH == "arm64" ]]; then
+	PLATFORM_DOWNLOAD_PATH=server-darwin-arm64
+else
+	PLATFORM_DOWNLOAD_PATH=server-darwin
+fi
+
+#
+# Acquire install lock
+#
+MAIN_LOCKFD=99
+CLEANUP_LOCKFD=98
+
+
+	use_flock=1
+	if [[ $PLATFORM == "macOS" ]]; then
+		use_flock=0
+	fi
+
+	## Copyright (C) 2009 Przemyslaw Pawelczyk <przemoc@gmail.com>
+	## This script is licensed under the terms of the MIT license.
+	## https://opensource.org/licenses/MIT
+
+	get_lockfile() {
+		lockfiles_in_tmp=0
+		lockfile_name=vscode-remote-lock.$USER.$1
+		if [[ $lockfiles_in_tmp == "1" ]]; then
+			echo "$VSC_TMP/$lockfile_name"
+		else
+			echo "$VSCODE_AGENT_FOLDER/bin/$1/$lockfile_name"
+		fi
+	}
+
+	# PRIVATE
+	_lock() { flock -$1 $2; }
+
+	_no_more_locking() {
+		if [[ $use_flock == "1" ]]; then
+			_lock u $2
+			_lock xn $2 && rm -f $(get_lockfile $1)
+		else
+			lockfile_name=$(get_lockfile $1)
+			rm -f "$lockfile_name"
+			rm -f "$lockfile_name.target"
+		fi
+	}
+
+	# PUBLIC - all take lock FD
+
+	setup_locking() {
+		if [[ $use_flock == "1" ]]; then
+			eval "exec $2>\"$(get_lockfile $1)\"";
+			trap "_no_more_locking $1 $2" EXIT
+		fi
+	}
+
+	setup_lock_cleanup()  {
+		if [[ $use_flock == "0" ]]; then
+			trap "_no_more_locking $1" EXIT
+		fi
+	}
+
+	# obtain an exclusive lock immediately or fail
+	exlock_now() {
+		if [[ $use_flock == "1" ]]; then
+			_lock xn $1
+		else
+			lockfile_name=$(get_lockfile $2)
+			touch "$lockfile_name.target"
+			echo \\ln \"$lockfile_name.target\" \"$lockfile_name\"
+			\ln "$lockfile_name.target" "$lockfile_name"
+		fi
+	}
+
+	# drop a lock
+	unlock() {
+		if [[ $use_flock == "1" ]]; then
+			_lock u $1
+		else
+			_no_more_locking $2
+		fi
+	}
+
+setup_locking $COMMIT_ID $MAIN_LOCKFD
+
+echo "Acquiring lock on `get_lockfile $COMMIT_ID`"
+exlock_now $MAIN_LOCKFD $COMMIT_ID
+if (( $? > 0 ))
+then
+	echo "Installation already in progress..."
+	echo "If you continue to see this message, you can try toggling the remote.SSH.useFlock setting"
+	fail_with_exitcode 192
+fi
+
+setup_lock_cleanup $COMMIT_ID $MAIN_LOCKFD
+
+#
+# Delete old servers if needed
+#
+
+TO_DELETE=$(ls -1 -t "$VSCODE_AGENT_FOLDER/bin" | tail -n +6)
+for COMMIT_TO_DELETE in $TO_DELETE; do
+	echo "Found old VS Code install $COMMIT_TO_DELETE, attempting to clean up"
+
+	setup_locking $COMMIT_TO_DELETE $CLEANUP_LOCKFD
+	exlock_now $CLEANUP_LOCKFD $COMMIT_TO_DELETE
+	if (( $? == 0 )); then
+		setup_lock_cleanup $COMMIT_TO_DELETE $CLEANUP_LOCKFD
+		RUNNING="`ps ax | grep $COMMIT_TO_DELETE | grep -v grep | wc -l | tr -d '[:space:]'`"
+		if [[ $RUNNING == 0 ]]; then
+			echo "Deleting old install from $VSCODE_AGENT_FOLDER/bin/$COMMIT_TO_DELETE"
+			rm -rf "$VSCODE_AGENT_FOLDER/bin/$COMMIT_TO_DELETE"
+
+			echo "Deleting old log file from $VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.log"
+			rm "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.log"
+			if [[ -f "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.pid" ]]; then
+				rm "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.pid"
+			fi
+			if [[ -f "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.token" ]]; then
+				rm "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.token"
+			fi
+		else
+			echo "Install still has running processes, not deleting: $COMMIT_TO_DELETE"
+		fi
+	else
+		echo "Failed to acquire lock for install, not deleting: $COMMIT_TO_DELETE"
+	fi
+done
+
+do_manual_bootstrap() {
+	ALLOW_CLIENT_DOWNLOAD="0"
+	FORCE_CLIENT_DOWNLOAD="0"
+	DID_LOCAL_DOWNLOAD="1"
+
+	echo "Trigger local (bootstrap) server download"
+	echo b397f5981fed:trigger_server_download
+	echo artifact==$PLATFORM_DOWNLOAD_PATH==
+	echo destFolder==$VSCODE_AGENT_FOLDER/bin/==
+	echo destFolder2==$COMMIT_ID/vscode-server.tar.gz==
+	echo b397f5981fed:trigger_server_download_end
+	echo "Waiting for client to transfer server archive..."
+	echo "Waiting for $VSCH_DIR/vscode-server.tar.gz.done and vscode-server.tar.gz to exist"
+
+	while true; do
+		if [[ -f "$VSCH_DIR/vscode-server.tar.gz.done" ]]; then
+			if [[ ! -f "$VSCH_DIR/vscode-server.tar.gz" ]]; then
+				echo "Found flag but not server tar - server transfer failed"
+				fail_with_exitcode 199
+			fi
+
+			echo "Found flag and server on host"
+			rm "$VSCH_DIR/vscode-server.tar.gz.done"
+			break
+		else
+			echo -n ' '
+			sleep 3
+		fi
+	done
+}
+
+do_client_download() {
+	DID_LOCAL_DOWNLOAD=1
+	echo "Trigger local server download"
+	echo b397f5981fed:trigger_server_download
+	echo artifact==$PLATFORM_DOWNLOAD_PATH==
+	echo destFolder==$VSCODE_AGENT_FOLDER/bin/==
+	echo destFolder2==$COMMIT_ID/vscode-server.tar.gz==
+	echo b397f5981fed:trigger_server_download_end
+	echo "Waiting for client to transfer server archive..."
+	echo "Waiting for $VSCH_DIR/vscode-server.tar.gz.done and vscode-server.tar.gz to exist"
+
+	while true; do
+		if [[ -f "$VSCH_DIR/vscode-server.tar.gz.done" ]]; then
+			if [[ ! -f "$VSCH_DIR/vscode-server.tar.gz" ]]; then
+				echo "Found flag but not server tar - server transfer failed"
+				fail_with_exitcode 199
+			fi
+
+			echo "Found flag and server on host"
+			rm "$VSCH_DIR/vscode-server.tar.gz.done"
+			break
+		else
+			echo -n ' '
+			sleep 3
+		fi
+	done
+}
+
+do_client_download_or_fail() {
+	if [[ $DID_LOCAL_DOWNLOAD == "1" ]]; then
+		echo "Already attempted local download, failing"
+		fail_with_exitcode $1
+	elif [[ $ALLOW_CLIENT_DOWNLOAD == "1" ]]; then
+		do_client_download
+		LOCAL_DOWNLOAD_RESULT=success
+	else
+		fail_with_exitcode $1
+	fi
+}
+
+do_host_download() {
+	start=$(millis)
+	echo 'b397f5981fed%%1%%'
+
+	DOWNLOAD_URL=https://update.code.visualstudio.com/commit:$COMMIT_ID/$PLATFORM_DOWNLOAD_PATH/stable
+
+	wget --version &> /dev/null
+	if (( $? == 0 ))
+	then
+		echo "Downloading with wget"
+		WGET_ERRORS=$(2>&1 wget --no-config --tries=1 --connect-timeout=7 --dns-timeout=7 -nv -O vscode-server.tar.gz $DOWNLOAD_URL)
+		if (( $? != 0 ))
+		then
+			echo "wget download failed"
+			echo $WGET_ERRORS
+			printenv_indent
+
+			do_client_download_or_fail 193
+		else
+			echo "Download complete"
+			DOWNLOAD_TIME=$(elapsed $start)
+		fi
+	else
+		curl --version &> /dev/null
+		if (( $? == 0 ))
+		then
+			echo "Downloading with curl"
+			CURL_OUTPUT=$(curl --disable --connect-timeout 7 -L $DOWNLOAD_URL --output vscode-server.tar.gz -w "%{http_code}")
+			if [[ ($? != 0) || ($CURL_OUTPUT != 2??) ]]
+			then
+				echo "curl download failed"
+				echo $CURL_OUTPUT
+				printenv_indent
+
+				do_client_download_or_fail 193
+			else
+				echo "Download complete"
+				DOWNLOAD_TIME=$(elapsed $start)
+			fi
+		else
+			printenv_indent
+			echo "Neither wget nor curl is installed"
+
+			do_client_download_or_fail 194
+		fi
+	fi
+}
+
+do_install() {
+	start=$(millis)
+	echo 'b397f5981fed%%2%%'
+	UNPACK_RESULT=success
+	echo 'tar --version:'
+	tar --version
+	tar -xf vscode-server.tar.gz --no-same-owner
+	TAR_EXIT=$?
+	INSTALL_TIME=$(elapsed $start)
+
+	if (( $TAR_EXIT > 0 ))
+	then
+		echo "ERROR: tar exited with non-0 exit code: $?"
+		UNPACK_RESULT=error
+		do_client_download_or_fail 205
+		do_install
+		return
+	fi
+
+	mv vscode-server*/* .
+
+	# cheap sanity check
+	if [[ ! -f "$VSCH_DIR/node" || ! -f "$VSCH_SERVER_SCRIPT" ]]
+	then
+		UNPACK_RESULT=missingFiles
+		echo "ERROR: $VSCH_DIR/node or $VSCH_SERVER_SCRIPT don't exist"
+		do_client_download_or_fail 205
+		do_install
+		return
+	fi
+
+	if [[ "$PLATFORM" == "linux" && ! -f "$VSCH_SERVER_PREREQ_SCRIPT" ]]
+	then
+		UNPACK_RESULT=missingFiles
+		echo "ERROR: $VSCH_SERVER_PREREQ_SCRIPT doesn't exist"
+		do_client_download_or_fail 205
+		do_install
+		return
+	fi
+
+	# Delete the leftover folder which might have -web prefix, and the .tar.gz
+	rm -rf vscode-server*
+}
+
+do_extension_install() {
+	# install extensions
+	if [[ ! -z $EXTENSIONS ]]
+	then
+		echo "Installing extensions..."
+		start=$(millis)
+		"$VSCH_SERVER_SCRIPT" $TELEMETRY $EXTENSIONS
+		EXT_INSTALL_TIME=$(elapsed $start)
+	fi
+}
+
+#
+# Install if needed
+#
+if [[ ! -f "$VSCH_SERVER_SCRIPT" ]]
+then
+	echo "Installing to $VSCH_DIR..."
+	STASHED_WORKING_DIR="`pwd`"
+	cd "$VSCH_DIR"
+
+	if [[ $MANUAL_BOOTSTRAP == "1" ]]; then
+		do_manual_bootstrap
+	else
+		if [[ $FORCE_CLIENT_DOWNLOAD == "1" ]]; then
+			do_client_download
+		else
+			do_host_download
+		fi
+	fi
+
+	do_install
+
+	#
+	# Verify linux prereqs
+	#
+	if [[ $PLATFORM == linux ]]; then
+		cd "$STASHED_WORKING_DIR"
+		"$VSCH_SERVER_PREREQ_SCRIPT"
+		PREREQ_EXIT_CODE=$?
+		if (( $PREREQ_EXIT_CODE == 99 )); then
+			fail_with_exitcode 207
+		elif (( $PREREQ_EXIT_CODE == 100 )); then
+			if [[ $FORCE_CLIENT_DOWNLOAD != "1" ]]; then
+				PLATFORM_DOWNLOAD_PATH=server-linux-legacy-$VSCODE_ARCH
+				rm -rf "$VSCH_DIR"
+				do_create_install_dir
+				cd "$VSCH_DIR"
+				do_host_download
+				do_install
+			fi
+		fi
+	fi
+	cd "$STASHED_WORKING_DIR"
+else
+	echo "Found existing installation at $VSCH_DIR..."
+fi
+
+
+#
+# Generate a new connection token
+#
+write_connection_token() {
+	rm "$VSCH_TOKENFILE"
+	CONNECTION_TOKEN="01abf2ce-af39-4021-a0d2-c73be3b3775d"
+	touch "$VSCH_TOKENFILE"
+	chmod 0700 "$VSCH_TOKENFILE"
+	echo $CONNECTION_TOKEN > "$VSCH_TOKENFILE"
+}
+
+#
+# Start the server
+#
+start_server() {
+	echo "Starting VS Code Server... \"$VSCH_SERVER_SCRIPT\" --start-server --server-data-dir \"$VSCODE_AGENT_FOLDER\" --host=127.0.0.1 --accept-server-license-terms --enable-remote-auto-shutdown $PORT_FLAG $TELEMETRY $SERVER_LISTEN_FLAG $EXTENSIONS &> \"$VSCH_LOGFILE\" < /dev/null"
+	echo "The VS Code Server log file is $VSCH_LOGFILE"
+	printenv_indent
+	start=$(millis)
+	write_connection_token
+	if [[ -f $VSCH_LOGFILE ]]; then
+		echo "Removing old logfile at $VSCH_LOGFILE"
+		rm "$VSCH_LOGFILE" # See #6265
+	fi
+	"$VSCH_SERVER_SCRIPT" --start-server --server-data-dir "$VSCODE_AGENT_FOLDER" --host=127.0.0.1 --accept-server-license-terms --enable-remote-auto-shutdown $PORT_FLAG $TELEMETRY $SERVER_LISTEN_FLAG $EXTENSIONS --connection-token-file "$VSCH_TOKENFILE" &> "$VSCH_LOGFILE" < /dev/null &
+	echo $! > "$VSCH_PIDFILE"
+	echo "Spawned remote server: $!"
+
+	stopTime=$((SECONDS+15))
+
+	while (($SECONDS < $stopTime))
+	do
+		LISTENING_ON=`cat "$VSCH_LOGFILE" | grep -a -E 'Extension host agent listening on .+' | grep -v grep | sed 's/Extension host agent listening on //'`
+		if [[ $LISTENING_ON != '' ]]
+		then
+			break
+		fi
+
+		echo "Waiting for server log..."
+		sleep .03
+	done
+
+	SERVER_START_TIME=$(elapsed $start)
+}
+
+echo "Checking $VSCH_LOGFILE and $VSCH_PIDFILE for a running server"
+if [[ -f "$VSCH_PIDFILE" ]]; then
+	SERVER_PID=`cat "$VSCH_PIDFILE"`
+	echo "Looking for server with pid: $SERVER_PID"
+	ALL_PROCS=`ps ax | grep "^\s*$SERVER_PID\s"`
+else
+	ALL_PROCS=`ps ax`
+fi
+
+RUNNING="`echo $ALL_PROCS | grep "$VSCH_SERVER_SCRIPT" | grep -v grep | wc -l | tr -d '[:space:]'`"
+if [[ $RUNNING == 0 ]]; then
+	start_server
+elif [[ ! -f "$VSCH_LOGFILE" ]]; then
+	echo "WARNING: VS Code Server is running but its logfile is missing. Don't delete the VS Code Server manually, run the command 'Uninstall VS Code Server'."
+	start_server
+else
+	echo "Found running server..."
+	do_extension_install
+	if [[ -f "$VSCH_TOKENFILE" ]]; then
+		CONNECTION_TOKEN=`cat "$VSCH_TOKENFILE"`
+	fi
+fi
+
+echo " "
+echo "*"
+echo "* Visual Studio Code Server"
+echo "*"
+echo "* By using the software, you agree to"
+echo "* the Visual Studio Code Server License Terms (https://aka.ms/vscode-server-license) and"
+echo "* the Microsoft Privacy Statement (https://privacy.microsoft.com/en-US/privacystatement)."
+echo "*"
+echo " "
+
+LISTENING_ON=`cat "$VSCH_LOGFILE" | grep -a -E 'Extension host agent listening on .+' | grep -v grep | sed 's/Extension host agent listening on //'`
+WEBUITOKEN=`cat "$VSCH_LOGFILE" | grep -a -E 'Web UI available at' | grep -o -E 'tkn=[0-9a-f-]+' | grep -o -E '[0-9a-f-]+'`
+if [[ -z $LISTENING_ON ]]
+then
+	echo "Server did not start successfully. Full server log at $VSCH_LOGFILE >>>"
+	cat "$VSCH_LOGFILE"
+	echo "<<< End of server log"
+	fail_with_exitcode 200
+fi
+
+#
+# If the server was already running, ensure that it won't shut down in the near future
+#
+if [[ $RUNNING != 0 ]]; then
+	# In case the server is close to timing out and shutting down, ask it to delay shutdown
+
+	wget --version &> /dev/null
+	if [[ $? == 0 && $LISTENING_ON =~ (^[[:digit:]]+$) ]]
+	then
+		echo "Checking server status on port $LISTENING_ON with wget"
+		WGET_OUT=$(wget --no-config --no-proxy -nv -O - http://127.0.0.1:$LISTENING_ON/delay-shutdown 2>&1)
+		if [[ $? != 0 ]]; then
+			echo $WGET_OUT
+			fail_with_exitcode 197
+		fi
+	else
+		curl --version &> /dev/null
+		if (( $? == 0 ))
+		then
+			if [[ $LISTENING_ON =~ (^[[:digit:]]+$) ]]
+			then
+				echo "Checking server status on port $LISTENING_ON with curl"
+				CURL_OUTPUT=$(curl --disable --noproxy 127.0.0.1 -s http://127.0.0.1:$LISTENING_ON/delay-shutdown -w " %{http_code}")
+			else
+				echo "Checking server status on socket $LISTENING_ON with curl"
+				CURL_OUTPUT=$(curl --disable --noproxy 127.0.0.1 -s --unix-socket $LISTENING_ON http://127.0.0.1/delay-shutdown -w " %{http_code}")
+			fi
+
+			if [[ ($? != 0) || ($CURL_OUTPUT != "OK 200") ]]; then
+				echo $CURL_OUTPUT
+				fail_with_exitcode 197
+			fi
+		else
+			echo "Neither wget nor curl is installed"
+			fail_with_exitcode 194
+		fi
+	fi
+fi
+
+
+# What we echo below cannot be wider than 80 characters
+echo "b397f5981fed: start"
+echo SSH_AUTH_SOCK==$SSH_AUTH_SOCK==
+echo DISPLAY==$DISPLAY==
+echo "webUiAccessToken==$WEBUITOKEN=="
+echo_common_results
+echo "connectionToken==$CONNECTION_TOKEN=="
+echo "b397f5981fed: end"
+
+unlock $MAIN_LOCKFD $COMMIT_ID
+
+while true; do sleep 180; echo -n ' '; done
+
+EOSSH'
+[12:44:25.812] Using connect timeout of 17 seconds
+[12:44:30.527] > bryan@192.168.1.75's password: 
+[12:44:30.528] Got some output, clearing connection timeout
+[12:44:30.528] Showing password prompt
+[12:44:33.113] Got password response
+[12:44:33.113] "install" wrote data to terminal: "*********"
+[12:44:33.124] > 
+[12:44:35.168] > b397f5981fed: running
+[12:44:35.273] > Acquiring lock on /home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/vscode-remote-lock.bryan.bf9252a2fb45be6893dd8870c0bf37e2e1766d61
+[12:44:35.314] > Found existing installation at /home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61...
+> Checking /home/bryan/.vscode-server/.bf9252a2fb45be6893dd8870c0bf37e2e1766d61.log and /home/bryan/.vscode-server/.bf9252a2fb45be6893dd8870c0bf37e2e1766d61.pid for a running server
+[12:44:35.322] > Looking for server with pid: 1489
+[12:44:35.403] > Found running server...
+>  
+[12:44:35.411] > *
+> * Visual Studio Code Server
+> *
+> * By using the software, you agree to
+> * the Visual Studio Code Server License Terms (https://aka.ms/vscode-server-license) and
+> * the Microsoft Privacy Statement (https://privacy.microsoft.com/en-US/privacystatement).
+> *
+>  
+[12:44:35.708] > Checking server status on port 35867 with wget
+> b397f5981fed: start
+> SSH_AUTH_SOCK====
+> DISPLAY====
+> webUiAccessToken====
+> listeningOn==35867==
+> osReleaseId==raspbian==
+> arch==armv7l==
+> vscodeArch==armhf==
+> bitness==32==
+> tmpDir==/run/user/1000==
+> platform==linux==
+> unpackResult====
+[12:44:35.716] > didLocalDownload==0==
+> downloadTime====
+> installTime====
+> extInstallTime====
+> serverStartTime====
+> connectionToken==1a111a11-a1aa-111a-1a11-a1111aaaa1aa==
+> b397f5981fed: end
+[12:44:35.717] Received install output: 
+SSH_AUTH_SOCK====
+DISPLAY====
+webUiAccessToken====
+listeningOn==35867==
+osReleaseId==raspbian==
+arch==armv7l==
+vscodeArch==armhf==
+bitness==32==
+tmpDir==/run/user/1000==
+platform==linux==
+unpackResult====
+didLocalDownload==0==
+downloadTime====
+installTime====
+extInstallTime====
+serverStartTime====
+connectionToken==1a111a11-a1aa-111a-1a11-a1111aaaa1aa==
+
+[12:44:35.717] Remote server is listening on port 35867
+[12:44:35.717] Parsed server configuration: {"serverConfiguration":{"remoteListeningOn":{"port":35867},"osReleaseId":"raspbian","arch":"armv7l","webUiAccessToken":"","sshAuthSock":"","display":"","tmpDir":"/run/user/1000","platform":"linux","connectionToken":"1a111a11-a1aa-111a-1a11-a1111aaaa1aa"},"installUnpackCode":""}
+[12:44:35.720] Starting forwarding server. local port 33351 -> socksPort 43553 -> remotePort 35867
+[12:44:35.720] Forwarding server listening on port 33351
+[12:44:35.720] Waiting for ssh tunnel to be ready
+[12:44:35.722] [Forwarding server port 33351] Got connection 0
+[12:44:35.723] Tunneled port 35867 to local port 33351
+[12:44:35.723] Resolved "ssh-remote+pi-zero" to "port 33351"
+[12:44:35.731] ------
+
+
+
+
+[12:44:35.733] No hints found in the recent session.
+[12:44:35.742] [Forwarding server port 33351] Got connection 1
+[12:44:35.764] [Forwarding server port 33351] Got connection 2
+[12:45:25.583] ------
+
+
+
+
+[12:45:25.583] SSH Resolver called for "ssh-remote+pi-zero", attempt 2, (Reconnection)
+[12:45:25.584] SSH Resolver called for host: pi-zero
+[12:45:25.584] Setting up SSH remote "pi-zero"
+[12:45:25.586] Using commit id "bf9252a2fb45be6893dd8870c0bf37e2e1766d61" and quality "stable" for server
+[12:45:25.586] Extensions to install: 
+[12:45:25.588] Install and start server if needed
+[12:45:25.589] Running script with connection command: ssh -D 39043 -o ConnectTimeout=15 'pi-zero' bash
+[12:45:25.589] Generated SSH command: 'ssh -D 39043 -o ConnectTimeout=15 'pi-zero' bash << 'EOSSH'
+
+echo "f543189c5621: running"
+
+#
+# Setup
+#
+VSC_TMP="${XDG_RUNTIME_DIR:-`echo /tmp`}"
+COMMIT_ID="bf9252a2fb45be6893dd8870c0bf37e2e1766d61"
+SERVER_APP_NAME="code-server"
+EXTENSIONS=""
+TELEMETRY="--telemetry-level all"
+VSCODE_AGENT_FOLDER=$HOME/.vscode-server
+ALLOW_CLIENT_DOWNLOAD="1"
+FORCE_CLIENT_DOWNLOAD="0"
+MANUAL_BOOTSTRAP="0"
+now=`date +%s`
+VERBOSE="0"
+
+
+
+PORT_FLAG=--port=0
+
+SERVER_LISTEN_FLAG=
+UNPACK_RESULT=
+DID_LOCAL_DOWNLOAD=0
+DOWNLOAD_TIME=
+INSTALL_TIME=
+EXT_INSTALL_TIME=
+SERVER_START_TIME=
+CONNECTION_TOKEN=
+
+VSCH_DIR="$VSCODE_AGENT_FOLDER/bin/$COMMIT_ID"
+VSCH_SERVER_SCRIPT="$VSCH_DIR/bin/$SERVER_APP_NAME"
+VSCH_SERVER_PREREQ_SCRIPT="$VSCH_DIR/bin/helpers/check-requirements.sh"
+VSCH_LOGFILE="$VSCODE_AGENT_FOLDER/.$COMMIT_ID.log"
+VSCH_PIDFILE="$VSCODE_AGENT_FOLDER/.$COMMIT_ID.pid"
+VSCH_TOKENFILE="$VSCODE_AGENT_FOLDER/.$COMMIT_ID.token"
+
+fail_with_exitcode() {
+	echo "f543189c5621: start"
+	echo "exitCode==$1=="
+	echo_common_results
+	echo "f543189c5621: end"
+	exit 0
+}
+
+echo_common_results() {
+	echo "listeningOn==$LISTENING_ON=="
+	echo "osReleaseId==$OSRELEASEID=="
+	echo "arch==$ARCH=="
+	echo "vscodeArch==$VSCODE_ARCH=="
+	echo "bitness==$BITNESS=="
+	echo "tmpDir==$VSC_TMP=="
+	echo "platform==$PLATFORM=="
+	echo "unpackResult==$UNPACK_RESULT=="
+	echo "didLocalDownload==$DID_LOCAL_DOWNLOAD=="
+	echo "downloadTime==$DOWNLOAD_TIME=="
+	echo "installTime==$INSTALL_TIME=="
+	echo "extInstallTime==$EXT_INSTALL_TIME=="
+	echo "serverStartTime==$SERVER_START_TIME=="
+}
+
+
+millis() {
+	if [[ $PLATFORM == linux ]]; then
+		echo $(($(date +%s%N)/1000000))
+	else
+		# Can't get actual millis on mac
+		echo $(($(date +%s)*1000))
+	fi
+}
+
+elapsed() {
+	echo $(($(millis) - $1))
+}
+
+do_create_install_dir() {
+	if [[ ! -d "$VSCH_DIR" ]]; then
+		mkdir -p "$VSCH_DIR"
+
+		if (( $? > 0 ))
+		then
+			echo "Creating the server install dir failed..."
+			fail_with_exitcode 202
+		fi
+	fi
+}
+do_create_install_dir
+
+printenv_indent() {
+	if [[ $VERBOSE == "1" ]]; then
+		echo "printenv:"
+		printenv | sed 's/^/    /'
+	fi
+}
+
+
+
+#
+# Get OS name
+#
+OSRELEASEID=`cat /etc/os-release 2>/dev/null | grep -a -E '^ID=' | sed 's/^[Ii][Dd]=//g' | sed 's/"//g'`
+if [[ -z $OSRELEASEID ]]
+then
+	OSRELEASEID=`cat /usr/lib/os-release 2>/dev/null | grep -a -E '^ID=' | sed 's/^[Ii][Dd]=//g' | sed 's/"//g'`
+	if [[ -z $OSRELEASEID ]]
+	then
+		OSRELEASEID=`uname -s`
+	fi
+fi
+
+
+#
+# Get host platform/architecture
+#
+UNAME=$(uname -s)
+case $UNAME in
+	Linux) PLATFORM=linux;;
+	Darwin) PLATFORM=macOS;;
+	*)
+		echo "Unsupported platform: $UNAME"
+		fail_with_exitcode 203
+		;;
+esac
+
+BITNESS=$(getconf LONG_BIT)
+ARCH=$(uname -m)
+case $ARCH in
+	x86_64) VSCODE_ARCH="x64";;
+	armv7l | armv8l)
+		VSCODE_ARCH="armhf"
+		;;
+	arm64 | aarch64)
+		if [[ $BITNESS == 32 ]]; then
+			# Can have 32-bit userland on 64-bit kernel
+			VSCODE_ARCH="armhf"
+		else
+			VSCODE_ARCH="arm64"
+		fi
+		;;
+	*)
+		OSRELEASE=$(uname -r)
+		case $OSRELEASE in
+			*x86_64*) VSCODE_ARCH="x64";;
+			*)
+				echo "Unsupported architecture: $ARCH"
+				fail_with_exitcode 196
+			;;
+		esac
+		;;
+esac
+
+if [[ $PLATFORM == linux ]]; then
+	PLATFORM_DOWNLOAD_PATH=server-linux-$VSCODE_ARCH
+elif [[ $VSCODE_ARCH == "arm64" ]]; then
+	PLATFORM_DOWNLOAD_PATH=server-darwin-arm64
+else
+	PLATFORM_DOWNLOAD_PATH=server-darwin
+fi
+
+#
+# Acquire install lock
+#
+MAIN_LOCKFD=99
+CLEANUP_LOCKFD=98
+
+
+	use_flock=1
+	if [[ $PLATFORM == "macOS" ]]; then
+		use_flock=0
+	fi
+
+	## Copyright (C) 2009 Przemyslaw Pawelczyk <przemoc@gmail.com>
+	## This script is licensed under the terms of the MIT license.
+	## https://opensource.org/licenses/MIT
+
+	get_lockfile() {
+		lockfiles_in_tmp=0
+		lockfile_name=vscode-remote-lock.$USER.$1
+		if [[ $lockfiles_in_tmp == "1" ]]; then
+			echo "$VSC_TMP/$lockfile_name"
+		else
+			echo "$VSCODE_AGENT_FOLDER/bin/$1/$lockfile_name"
+		fi
+	}
+
+	# PRIVATE
+	_lock() { flock -$1 $2; }
+
+	_no_more_locking() {
+		if [[ $use_flock == "1" ]]; then
+			_lock u $2
+			_lock xn $2 && rm -f $(get_lockfile $1)
+		else
+			lockfile_name=$(get_lockfile $1)
+			rm -f "$lockfile_name"
+			rm -f "$lockfile_name.target"
+		fi
+	}
+
+	# PUBLIC - all take lock FD
+
+	setup_locking() {
+		if [[ $use_flock == "1" ]]; then
+			eval "exec $2>\"$(get_lockfile $1)\"";
+			trap "_no_more_locking $1 $2" EXIT
+		fi
+	}
+
+	setup_lock_cleanup()  {
+		if [[ $use_flock == "0" ]]; then
+			trap "_no_more_locking $1" EXIT
+		fi
+	}
+
+	# obtain an exclusive lock immediately or fail
+	exlock_now() {
+		if [[ $use_flock == "1" ]]; then
+			_lock xn $1
+		else
+			lockfile_name=$(get_lockfile $2)
+			touch "$lockfile_name.target"
+			echo \\ln \"$lockfile_name.target\" \"$lockfile_name\"
+			\ln "$lockfile_name.target" "$lockfile_name"
+		fi
+	}
+
+	# drop a lock
+	unlock() {
+		if [[ $use_flock == "1" ]]; then
+			_lock u $1
+		else
+			_no_more_locking $2
+		fi
+	}
+
+setup_locking $COMMIT_ID $MAIN_LOCKFD
+
+echo "Acquiring lock on `get_lockfile $COMMIT_ID`"
+exlock_now $MAIN_LOCKFD $COMMIT_ID
+if (( $? > 0 ))
+then
+	echo "Installation already in progress..."
+	echo "If you continue to see this message, you can try toggling the remote.SSH.useFlock setting"
+	fail_with_exitcode 192
+fi
+
+setup_lock_cleanup $COMMIT_ID $MAIN_LOCKFD
+
+#
+# Delete old servers if needed
+#
+
+TO_DELETE=$(ls -1 -t "$VSCODE_AGENT_FOLDER/bin" | tail -n +6)
+for COMMIT_TO_DELETE in $TO_DELETE; do
+	echo "Found old VS Code install $COMMIT_TO_DELETE, attempting to clean up"
+
+	setup_locking $COMMIT_TO_DELETE $CLEANUP_LOCKFD
+	exlock_now $CLEANUP_LOCKFD $COMMIT_TO_DELETE
+	if (( $? == 0 )); then
+		setup_lock_cleanup $COMMIT_TO_DELETE $CLEANUP_LOCKFD
+		RUNNING="`ps ax | grep $COMMIT_TO_DELETE | grep -v grep | wc -l | tr -d '[:space:]'`"
+		if [[ $RUNNING == 0 ]]; then
+			echo "Deleting old install from $VSCODE_AGENT_FOLDER/bin/$COMMIT_TO_DELETE"
+			rm -rf "$VSCODE_AGENT_FOLDER/bin/$COMMIT_TO_DELETE"
+
+			echo "Deleting old log file from $VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.log"
+			rm "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.log"
+			if [[ -f "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.pid" ]]; then
+				rm "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.pid"
+			fi
+			if [[ -f "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.token" ]]; then
+				rm "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.token"
+			fi
+		else
+			echo "Install still has running processes, not deleting: $COMMIT_TO_DELETE"
+		fi
+	else
+		echo "Failed to acquire lock for install, not deleting: $COMMIT_TO_DELETE"
+	fi
+done
+
+do_manual_bootstrap() {
+	ALLOW_CLIENT_DOWNLOAD="0"
+	FORCE_CLIENT_DOWNLOAD="0"
+	DID_LOCAL_DOWNLOAD="1"
+
+	echo "Trigger local (bootstrap) server download"
+	echo f543189c5621:trigger_server_download
+	echo artifact==$PLATFORM_DOWNLOAD_PATH==
+	echo destFolder==$VSCODE_AGENT_FOLDER/bin/==
+	echo destFolder2==$COMMIT_ID/vscode-server.tar.gz==
+	echo f543189c5621:trigger_server_download_end
+	echo "Waiting for client to transfer server archive..."
+	echo "Waiting for $VSCH_DIR/vscode-server.tar.gz.done and vscode-server.tar.gz to exist"
+
+	while true; do
+		if [[ -f "$VSCH_DIR/vscode-server.tar.gz.done" ]]; then
+			if [[ ! -f "$VSCH_DIR/vscode-server.tar.gz" ]]; then
+				echo "Found flag but not server tar - server transfer failed"
+				fail_with_exitcode 199
+			fi
+
+			echo "Found flag and server on host"
+			rm "$VSCH_DIR/vscode-server.tar.gz.done"
+			break
+		else
+			echo -n ' '
+			sleep 3
+		fi
+	done
+}
+
+do_client_download() {
+	DID_LOCAL_DOWNLOAD=1
+	echo "Trigger local server download"
+	echo f543189c5621:trigger_server_download
+	echo artifact==$PLATFORM_DOWNLOAD_PATH==
+	echo destFolder==$VSCODE_AGENT_FOLDER/bin/==
+	echo destFolder2==$COMMIT_ID/vscode-server.tar.gz==
+	echo f543189c5621:trigger_server_download_end
+	echo "Waiting for client to transfer server archive..."
+	echo "Waiting for $VSCH_DIR/vscode-server.tar.gz.done and vscode-server.tar.gz to exist"
+
+	while true; do
+		if [[ -f "$VSCH_DIR/vscode-server.tar.gz.done" ]]; then
+			if [[ ! -f "$VSCH_DIR/vscode-server.tar.gz" ]]; then
+				echo "Found flag but not server tar - server transfer failed"
+				fail_with_exitcode 199
+			fi
+
+			echo "Found flag and server on host"
+			rm "$VSCH_DIR/vscode-server.tar.gz.done"
+			break
+		else
+			echo -n ' '
+			sleep 3
+		fi
+	done
+}
+
+do_client_download_or_fail() {
+	if [[ $DID_LOCAL_DOWNLOAD == "1" ]]; then
+		echo "Already attempted local download, failing"
+		fail_with_exitcode $1
+	elif [[ $ALLOW_CLIENT_DOWNLOAD == "1" ]]; then
+		do_client_download
+		LOCAL_DOWNLOAD_RESULT=success
+	else
+		fail_with_exitcode $1
+	fi
+}
+
+do_host_download() {
+	start=$(millis)
+	echo 'f543189c5621%%1%%'
+
+	DOWNLOAD_URL=https://update.code.visualstudio.com/commit:$COMMIT_ID/$PLATFORM_DOWNLOAD_PATH/stable
+
+	wget --version &> /dev/null
+	if (( $? == 0 ))
+	then
+		echo "Downloading with wget"
+		WGET_ERRORS=$(2>&1 wget --no-config --tries=1 --connect-timeout=7 --dns-timeout=7 -nv -O vscode-server.tar.gz $DOWNLOAD_URL)
+		if (( $? != 0 ))
+		then
+			echo "wget download failed"
+			echo $WGET_ERRORS
+			printenv_indent
+
+			do_client_download_or_fail 193
+		else
+			echo "Download complete"
+			DOWNLOAD_TIME=$(elapsed $start)
+		fi
+	else
+		curl --version &> /dev/null
+		if (( $? == 0 ))
+		then
+			echo "Downloading with curl"
+			CURL_OUTPUT=$(curl --disable --connect-timeout 7 -L $DOWNLOAD_URL --output vscode-server.tar.gz -w "%{http_code}")
+			if [[ ($? != 0) || ($CURL_OUTPUT != 2??) ]]
+			then
+				echo "curl download failed"
+				echo $CURL_OUTPUT
+				printenv_indent
+
+				do_client_download_or_fail 193
+			else
+				echo "Download complete"
+				DOWNLOAD_TIME=$(elapsed $start)
+			fi
+		else
+			printenv_indent
+			echo "Neither wget nor curl is installed"
+
+			do_client_download_or_fail 194
+		fi
+	fi
+}
+
+do_install() {
+	start=$(millis)
+	echo 'f543189c5621%%2%%'
+	UNPACK_RESULT=success
+	echo 'tar --version:'
+	tar --version
+	tar -xf vscode-server.tar.gz --no-same-owner
+	TAR_EXIT=$?
+	INSTALL_TIME=$(elapsed $start)
+
+	if (( $TAR_EXIT > 0 ))
+	then
+		echo "ERROR: tar exited with non-0 exit code: $?"
+		UNPACK_RESULT=error
+		do_client_download_or_fail 205
+		do_install
+		return
+	fi
+
+	mv vscode-server*/* .
+
+	# cheap sanity check
+	if [[ ! -f "$VSCH_DIR/node" || ! -f "$VSCH_SERVER_SCRIPT" ]]
+	then
+		UNPACK_RESULT=missingFiles
+		echo "ERROR: $VSCH_DIR/node or $VSCH_SERVER_SCRIPT don't exist"
+		do_client_download_or_fail 205
+		do_install
+		return
+	fi
+
+	if [[ "$PLATFORM" == "linux" && ! -f "$VSCH_SERVER_PREREQ_SCRIPT" ]]
+	then
+		UNPACK_RESULT=missingFiles
+		echo "ERROR: $VSCH_SERVER_PREREQ_SCRIPT doesn't exist"
+		do_client_download_or_fail 205
+		do_install
+		return
+	fi
+
+	# Delete the leftover folder which might have -web prefix, and the .tar.gz
+	rm -rf vscode-server*
+}
+
+do_extension_install() {
+	# install extensions
+	if [[ ! -z $EXTENSIONS ]]
+	then
+		echo "Installing extensions..."
+		start=$(millis)
+		"$VSCH_SERVER_SCRIPT" $TELEMETRY $EXTENSIONS
+		EXT_INSTALL_TIME=$(elapsed $start)
+	fi
+}
+
+#
+# Install if needed
+#
+if [[ ! -f "$VSCH_SERVER_SCRIPT" ]]
+then
+	echo "Installing to $VSCH_DIR..."
+	STASHED_WORKING_DIR="`pwd`"
+	cd "$VSCH_DIR"
+
+	if [[ $MANUAL_BOOTSTRAP == "1" ]]; then
+		do_manual_bootstrap
+	else
+		if [[ $FORCE_CLIENT_DOWNLOAD == "1" ]]; then
+			do_client_download
+		else
+			do_host_download
+		fi
+	fi
+
+	do_install
+
+	#
+	# Verify linux prereqs
+	#
+	if [[ $PLATFORM == linux ]]; then
+		cd "$STASHED_WORKING_DIR"
+		"$VSCH_SERVER_PREREQ_SCRIPT"
+		PREREQ_EXIT_CODE=$?
+		if (( $PREREQ_EXIT_CODE == 99 )); then
+			fail_with_exitcode 207
+		elif (( $PREREQ_EXIT_CODE == 100 )); then
+			if [[ $FORCE_CLIENT_DOWNLOAD != "1" ]]; then
+				PLATFORM_DOWNLOAD_PATH=server-linux-legacy-$VSCODE_ARCH
+				rm -rf "$VSCH_DIR"
+				do_create_install_dir
+				cd "$VSCH_DIR"
+				do_host_download
+				do_install
+			fi
+		fi
+	fi
+	cd "$STASHED_WORKING_DIR"
+else
+	echo "Found existing installation at $VSCH_DIR..."
+fi
+
+
+#
+# Generate a new connection token
+#
+write_connection_token() {
+	rm "$VSCH_TOKENFILE"
+	CONNECTION_TOKEN="ff186e29-0e4a-4ebe-968d-40fb9877f666"
+	touch "$VSCH_TOKENFILE"
+	chmod 0700 "$VSCH_TOKENFILE"
+	echo $CONNECTION_TOKEN > "$VSCH_TOKENFILE"
+}
+
+#
+# Start the server
+#
+start_server() {
+	echo "Starting VS Code Server... \"$VSCH_SERVER_SCRIPT\" --start-server --server-data-dir \"$VSCODE_AGENT_FOLDER\" --host=127.0.0.1 --accept-server-license-terms --enable-remote-auto-shutdown $PORT_FLAG $TELEMETRY $SERVER_LISTEN_FLAG $EXTENSIONS &> \"$VSCH_LOGFILE\" < /dev/null"
+	echo "The VS Code Server log file is $VSCH_LOGFILE"
+	printenv_indent
+	start=$(millis)
+	write_connection_token
+	if [[ -f $VSCH_LOGFILE ]]; then
+		echo "Removing old logfile at $VSCH_LOGFILE"
+		rm "$VSCH_LOGFILE" # See #6265
+	fi
+	"$VSCH_SERVER_SCRIPT" --start-server --server-data-dir "$VSCODE_AGENT_FOLDER" --host=127.0.0.1 --accept-server-license-terms --enable-remote-auto-shutdown $PORT_FLAG $TELEMETRY $SERVER_LISTEN_FLAG $EXTENSIONS --connection-token-file "$VSCH_TOKENFILE" &> "$VSCH_LOGFILE" < /dev/null &
+	echo $! > "$VSCH_PIDFILE"
+	echo "Spawned remote server: $!"
+
+	stopTime=$((SECONDS+15))
+
+	while (($SECONDS < $stopTime))
+	do
+		LISTENING_ON=`cat "$VSCH_LOGFILE" | grep -a -E 'Extension host agent listening on .+' | grep -v grep | sed 's/Extension host agent listening on //'`
+		if [[ $LISTENING_ON != '' ]]
+		then
+			break
+		fi
+
+		echo "Waiting for server log..."
+		sleep .03
+	done
+
+	SERVER_START_TIME=$(elapsed $start)
+}
+
+echo "Checking $VSCH_LOGFILE and $VSCH_PIDFILE for a running server"
+if [[ -f "$VSCH_PIDFILE" ]]; then
+	SERVER_PID=`cat "$VSCH_PIDFILE"`
+	echo "Looking for server with pid: $SERVER_PID"
+	ALL_PROCS=`ps ax | grep "^\s*$SERVER_PID\s"`
+else
+	ALL_PROCS=`ps ax`
+fi
+
+RUNNING="`echo $ALL_PROCS | grep "$VSCH_SERVER_SCRIPT" | grep -v grep | wc -l | tr -d '[:space:]'`"
+if [[ $RUNNING == 0 ]]; then
+	start_server
+elif [[ ! -f "$VSCH_LOGFILE" ]]; then
+	echo "WARNING: VS Code Server is running but its logfile is missing. Don't delete the VS Code Server manually, run the command 'Uninstall VS Code Server'."
+	start_server
+else
+	echo "Found running server..."
+	do_extension_install
+	if [[ -f "$VSCH_TOKENFILE" ]]; then
+		CONNECTION_TOKEN=`cat "$VSCH_TOKENFILE"`
+	fi
+fi
+
+echo " "
+echo "*"
+echo "* Visual Studio Code Server"
+echo "*"
+echo "* By using the software, you agree to"
+echo "* the Visual Studio Code Server License Terms (https://aka.ms/vscode-server-license) and"
+echo "* the Microsoft Privacy Statement (https://privacy.microsoft.com/en-US/privacystatement)."
+echo "*"
+echo " "
+
+LISTENING_ON=`cat "$VSCH_LOGFILE" | grep -a -E 'Extension host agent listening on .+' | grep -v grep | sed 's/Extension host agent listening on //'`
+WEBUITOKEN=`cat "$VSCH_LOGFILE" | grep -a -E 'Web UI available at' | grep -o -E 'tkn=[0-9a-f-]+' | grep -o -E '[0-9a-f-]+'`
+if [[ -z $LISTENING_ON ]]
+then
+	echo "Server did not start successfully. Full server log at $VSCH_LOGFILE >>>"
+	cat "$VSCH_LOGFILE"
+	echo "<<< End of server log"
+	fail_with_exitcode 200
+fi
+
+#
+# If the server was already running, ensure that it won't shut down in the near future
+#
+if [[ $RUNNING != 0 ]]; then
+	# In case the server is close to timing out and shutting down, ask it to delay shutdown
+
+	wget --version &> /dev/null
+	if [[ $? == 0 && $LISTENING_ON =~ (^[[:digit:]]+$) ]]
+	then
+		echo "Checking server status on port $LISTENING_ON with wget"
+		WGET_OUT=$(wget --no-config --no-proxy -nv -O - http://127.0.0.1:$LISTENING_ON/delay-shutdown 2>&1)
+		if [[ $? != 0 ]]; then
+			echo $WGET_OUT
+			fail_with_exitcode 197
+		fi
+	else
+		curl --version &> /dev/null
+		if (( $? == 0 ))
+		then
+			if [[ $LISTENING_ON =~ (^[[:digit:]]+$) ]]
+			then
+				echo "Checking server status on port $LISTENING_ON with curl"
+				CURL_OUTPUT=$(curl --disable --noproxy 127.0.0.1 -s http://127.0.0.1:$LISTENING_ON/delay-shutdown -w " %{http_code}")
+			else
+				echo "Checking server status on socket $LISTENING_ON with curl"
+				CURL_OUTPUT=$(curl --disable --noproxy 127.0.0.1 -s --unix-socket $LISTENING_ON http://127.0.0.1/delay-shutdown -w " %{http_code}")
+			fi
+
+			if [[ ($? != 0) || ($CURL_OUTPUT != "OK 200") ]]; then
+				echo $CURL_OUTPUT
+				fail_with_exitcode 197
+			fi
+		else
+			echo "Neither wget nor curl is installed"
+			fail_with_exitcode 194
+		fi
+	fi
+fi
+
+
+# What we echo below cannot be wider than 80 characters
+echo "f543189c5621: start"
+echo SSH_AUTH_SOCK==$SSH_AUTH_SOCK==
+echo DISPLAY==$DISPLAY==
+echo "webUiAccessToken==$WEBUITOKEN=="
+echo_common_results
+echo "connectionToken==$CONNECTION_TOKEN=="
+echo "f543189c5621: end"
+
+unlock $MAIN_LOCKFD $COMMIT_ID
+
+while true; do sleep 180; echo -n ' '; done
+
+EOSSH'
+[12:45:25.590] Using connect timeout of 17 seconds
+[12:45:39.974] > ssh: connect to host 192.168.1.75 port 22: No route to host
+[12:45:39.974] Got some output, clearing connection timeout
+[12:45:40.216] "install" terminal command done
+[12:45:40.216] Install terminal quit with output: ssh: connect to host 192.168.1.75 port 22: No route to host
+[12:45:40.217] Received install output: ssh: connect to host 192.168.1.75 port 22: No route to host
+[12:45:40.217] WARN: $PLATFORM is undefined in installation script output.  Errors may be dropped.
+[12:45:40.218] Resolver error: Error: No route to host
+	at y.Offline (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:744802)
+	at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:741290
+	at t.handleInstallOutput (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:741433)
+	at t.tryInstall (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:865534)
+	at async /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:824246
+	at async t.withShowDetailsEvent (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:827501)
+	at async A (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:820760)
+	at async t.resolve (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:824898)
+	at async /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1113660
+[12:45:40.221] ------
+
+
+
+
+[12:45:40.222]  ---------- [Session Summary] ----------- 
+[12:45:40.222] [OfflineError]: Error: OfflineError (No route to host)
+[12:45:40.223]  ---------------------------------------- 
+[12:45:45.288] ------
+
+
+
+
+[12:45:45.288] SSH Resolver called for "ssh-remote+pi-zero", attempt 3, (Reconnection)
+[12:45:45.289] SSH Resolver called for host: pi-zero
+[12:45:45.289] Setting up SSH remote "pi-zero"
+[12:45:45.290] Using commit id "bf9252a2fb45be6893dd8870c0bf37e2e1766d61" and quality "stable" for server
+[12:45:45.290] Extensions to install: 
+[12:45:45.292] Install and start server if needed
+[12:45:45.293] Running script with connection command: ssh -D 33713 -o ConnectTimeout=15 'pi-zero' bash
+[12:45:45.294] Generated SSH command: 'ssh -D 33713 -o ConnectTimeout=15 'pi-zero' bash << 'EOSSH'
+
+echo "efab135bb53d: running"
+
+#
+# Setup
+#
+VSC_TMP="${XDG_RUNTIME_DIR:-`echo /tmp`}"
+COMMIT_ID="bf9252a2fb45be6893dd8870c0bf37e2e1766d61"
+SERVER_APP_NAME="code-server"
+EXTENSIONS=""
+TELEMETRY="--telemetry-level all"
+VSCODE_AGENT_FOLDER=$HOME/.vscode-server
+ALLOW_CLIENT_DOWNLOAD="1"
+FORCE_CLIENT_DOWNLOAD="0"
+MANUAL_BOOTSTRAP="0"
+now=`date +%s`
+VERBOSE="0"
+
+
+
+PORT_FLAG=--port=0
+
+SERVER_LISTEN_FLAG=
+UNPACK_RESULT=
+DID_LOCAL_DOWNLOAD=0
+DOWNLOAD_TIME=
+INSTALL_TIME=
+EXT_INSTALL_TIME=
+SERVER_START_TIME=
+CONNECTION_TOKEN=
+
+VSCH_DIR="$VSCODE_AGENT_FOLDER/bin/$COMMIT_ID"
+VSCH_SERVER_SCRIPT="$VSCH_DIR/bin/$SERVER_APP_NAME"
+VSCH_SERVER_PREREQ_SCRIPT="$VSCH_DIR/bin/helpers/check-requirements.sh"
+VSCH_LOGFILE="$VSCODE_AGENT_FOLDER/.$COMMIT_ID.log"
+VSCH_PIDFILE="$VSCODE_AGENT_FOLDER/.$COMMIT_ID.pid"
+VSCH_TOKENFILE="$VSCODE_AGENT_FOLDER/.$COMMIT_ID.token"
+
+fail_with_exitcode() {
+	echo "efab135bb53d: start"
+	echo "exitCode==$1=="
+	echo_common_results
+	echo "efab135bb53d: end"
+	exit 0
+}
+
+echo_common_results() {
+	echo "listeningOn==$LISTENING_ON=="
+	echo "osReleaseId==$OSRELEASEID=="
+	echo "arch==$ARCH=="
+	echo "vscodeArch==$VSCODE_ARCH=="
+	echo "bitness==$BITNESS=="
+	echo "tmpDir==$VSC_TMP=="
+	echo "platform==$PLATFORM=="
+	echo "unpackResult==$UNPACK_RESULT=="
+	echo "didLocalDownload==$DID_LOCAL_DOWNLOAD=="
+	echo "downloadTime==$DOWNLOAD_TIME=="
+	echo "installTime==$INSTALL_TIME=="
+	echo "extInstallTime==$EXT_INSTALL_TIME=="
+	echo "serverStartTime==$SERVER_START_TIME=="
+}
+
+
+millis() {
+	if [[ $PLATFORM == linux ]]; then
+		echo $(($(date +%s%N)/1000000))
+	else
+		# Can't get actual millis on mac
+		echo $(($(date +%s)*1000))
+	fi
+}
+
+elapsed() {
+	echo $(($(millis) - $1))
+}
+
+do_create_install_dir() {
+	if [[ ! -d "$VSCH_DIR" ]]; then
+		mkdir -p "$VSCH_DIR"
+
+		if (( $? > 0 ))
+		then
+			echo "Creating the server install dir failed..."
+			fail_with_exitcode 202
+		fi
+	fi
+}
+do_create_install_dir
+
+printenv_indent() {
+	if [[ $VERBOSE == "1" ]]; then
+		echo "printenv:"
+		printenv | sed 's/^/    /'
+	fi
+}
+
+
+
+#
+# Get OS name
+#
+OSRELEASEID=`cat /etc/os-release 2>/dev/null | grep -a -E '^ID=' | sed 's/^[Ii][Dd]=//g' | sed 's/"//g'`
+if [[ -z $OSRELEASEID ]]
+then
+	OSRELEASEID=`cat /usr/lib/os-release 2>/dev/null | grep -a -E '^ID=' | sed 's/^[Ii][Dd]=//g' | sed 's/"//g'`
+	if [[ -z $OSRELEASEID ]]
+	then
+		OSRELEASEID=`uname -s`
+	fi
+fi
+
+
+#
+# Get host platform/architecture
+#
+UNAME=$(uname -s)
+case $UNAME in
+	Linux) PLATFORM=linux;;
+	Darwin) PLATFORM=macOS;;
+	*)
+		echo "Unsupported platform: $UNAME"
+		fail_with_exitcode 203
+		;;
+esac
+
+BITNESS=$(getconf LONG_BIT)
+ARCH=$(uname -m)
+case $ARCH in
+	x86_64) VSCODE_ARCH="x64";;
+	armv7l | armv8l)
+		VSCODE_ARCH="armhf"
+		;;
+	arm64 | aarch64)
+		if [[ $BITNESS == 32 ]]; then
+			# Can have 32-bit userland on 64-bit kernel
+			VSCODE_ARCH="armhf"
+		else
+			VSCODE_ARCH="arm64"
+		fi
+		;;
+	*)
+		OSRELEASE=$(uname -r)
+		case $OSRELEASE in
+			*x86_64*) VSCODE_ARCH="x64";;
+			*)
+				echo "Unsupported architecture: $ARCH"
+				fail_with_exitcode 196
+			;;
+		esac
+		;;
+esac
+
+if [[ $PLATFORM == linux ]]; then
+	PLATFORM_DOWNLOAD_PATH=server-linux-$VSCODE_ARCH
+elif [[ $VSCODE_ARCH == "arm64" ]]; then
+	PLATFORM_DOWNLOAD_PATH=server-darwin-arm64
+else
+	PLATFORM_DOWNLOAD_PATH=server-darwin
+fi
+
+#
+# Acquire install lock
+#
+MAIN_LOCKFD=99
+CLEANUP_LOCKFD=98
+
+
+	use_flock=1
+	if [[ $PLATFORM == "macOS" ]]; then
+		use_flock=0
+	fi
+
+	## Copyright (C) 2009 Przemyslaw Pawelczyk <przemoc@gmail.com>
+	## This script is licensed under the terms of the MIT license.
+	## https://opensource.org/licenses/MIT
+
+	get_lockfile() {
+		lockfiles_in_tmp=0
+		lockfile_name=vscode-remote-lock.$USER.$1
+		if [[ $lockfiles_in_tmp == "1" ]]; then
+			echo "$VSC_TMP/$lockfile_name"
+		else
+			echo "$VSCODE_AGENT_FOLDER/bin/$1/$lockfile_name"
+		fi
+	}
+
+	# PRIVATE
+	_lock() { flock -$1 $2; }
+
+	_no_more_locking() {
+		if [[ $use_flock == "1" ]]; then
+			_lock u $2
+			_lock xn $2 && rm -f $(get_lockfile $1)
+		else
+			lockfile_name=$(get_lockfile $1)
+			rm -f "$lockfile_name"
+			rm -f "$lockfile_name.target"
+		fi
+	}
+
+	# PUBLIC - all take lock FD
+
+	setup_locking() {
+		if [[ $use_flock == "1" ]]; then
+			eval "exec $2>\"$(get_lockfile $1)\"";
+			trap "_no_more_locking $1 $2" EXIT
+		fi
+	}
+
+	setup_lock_cleanup()  {
+		if [[ $use_flock == "0" ]]; then
+			trap "_no_more_locking $1" EXIT
+		fi
+	}
+
+	# obtain an exclusive lock immediately or fail
+	exlock_now() {
+		if [[ $use_flock == "1" ]]; then
+			_lock xn $1
+		else
+			lockfile_name=$(get_lockfile $2)
+			touch "$lockfile_name.target"
+			echo \\ln \"$lockfile_name.target\" \"$lockfile_name\"
+			\ln "$lockfile_name.target" "$lockfile_name"
+		fi
+	}
+
+	# drop a lock
+	unlock() {
+		if [[ $use_flock == "1" ]]; then
+			_lock u $1
+		else
+			_no_more_locking $2
+		fi
+	}
+
+setup_locking $COMMIT_ID $MAIN_LOCKFD
+
+echo "Acquiring lock on `get_lockfile $COMMIT_ID`"
+exlock_now $MAIN_LOCKFD $COMMIT_ID
+if (( $? > 0 ))
+then
+	echo "Installation already in progress..."
+	echo "If you continue to see this message, you can try toggling the remote.SSH.useFlock setting"
+	fail_with_exitcode 192
+fi
+
+setup_lock_cleanup $COMMIT_ID $MAIN_LOCKFD
+
+#
+# Delete old servers if needed
+#
+
+TO_DELETE=$(ls -1 -t "$VSCODE_AGENT_FOLDER/bin" | tail -n +6)
+for COMMIT_TO_DELETE in $TO_DELETE; do
+	echo "Found old VS Code install $COMMIT_TO_DELETE, attempting to clean up"
+
+	setup_locking $COMMIT_TO_DELETE $CLEANUP_LOCKFD
+	exlock_now $CLEANUP_LOCKFD $COMMIT_TO_DELETE
+	if (( $? == 0 )); then
+		setup_lock_cleanup $COMMIT_TO_DELETE $CLEANUP_LOCKFD
+		RUNNING="`ps ax | grep $COMMIT_TO_DELETE | grep -v grep | wc -l | tr -d '[:space:]'`"
+		if [[ $RUNNING == 0 ]]; then
+			echo "Deleting old install from $VSCODE_AGENT_FOLDER/bin/$COMMIT_TO_DELETE"
+			rm -rf "$VSCODE_AGENT_FOLDER/bin/$COMMIT_TO_DELETE"
+
+			echo "Deleting old log file from $VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.log"
+			rm "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.log"
+			if [[ -f "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.pid" ]]; then
+				rm "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.pid"
+			fi
+			if [[ -f "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.token" ]]; then
+				rm "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.token"
+			fi
+		else
+			echo "Install still has running processes, not deleting: $COMMIT_TO_DELETE"
+		fi
+	else
+		echo "Failed to acquire lock for install, not deleting: $COMMIT_TO_DELETE"
+	fi
+done
+
+do_manual_bootstrap() {
+	ALLOW_CLIENT_DOWNLOAD="0"
+	FORCE_CLIENT_DOWNLOAD="0"
+	DID_LOCAL_DOWNLOAD="1"
+
+	echo "Trigger local (bootstrap) server download"
+	echo efab135bb53d:trigger_server_download
+	echo artifact==$PLATFORM_DOWNLOAD_PATH==
+	echo destFolder==$VSCODE_AGENT_FOLDER/bin/==
+	echo destFolder2==$COMMIT_ID/vscode-server.tar.gz==
+	echo efab135bb53d:trigger_server_download_end
+	echo "Waiting for client to transfer server archive..."
+	echo "Waiting for $VSCH_DIR/vscode-server.tar.gz.done and vscode-server.tar.gz to exist"
+
+	while true; do
+		if [[ -f "$VSCH_DIR/vscode-server.tar.gz.done" ]]; then
+			if [[ ! -f "$VSCH_DIR/vscode-server.tar.gz" ]]; then
+				echo "Found flag but not server tar - server transfer failed"
+				fail_with_exitcode 199
+			fi
+
+			echo "Found flag and server on host"
+			rm "$VSCH_DIR/vscode-server.tar.gz.done"
+			break
+		else
+			echo -n ' '
+			sleep 3
+		fi
+	done
+}
+
+do_client_download() {
+	DID_LOCAL_DOWNLOAD=1
+	echo "Trigger local server download"
+	echo efab135bb53d:trigger_server_download
+	echo artifact==$PLATFORM_DOWNLOAD_PATH==
+	echo destFolder==$VSCODE_AGENT_FOLDER/bin/==
+	echo destFolder2==$COMMIT_ID/vscode-server.tar.gz==
+	echo efab135bb53d:trigger_server_download_end
+	echo "Waiting for client to transfer server archive..."
+	echo "Waiting for $VSCH_DIR/vscode-server.tar.gz.done and vscode-server.tar.gz to exist"
+
+	while true; do
+		if [[ -f "$VSCH_DIR/vscode-server.tar.gz.done" ]]; then
+			if [[ ! -f "$VSCH_DIR/vscode-server.tar.gz" ]]; then
+				echo "Found flag but not server tar - server transfer failed"
+				fail_with_exitcode 199
+			fi
+
+			echo "Found flag and server on host"
+			rm "$VSCH_DIR/vscode-server.tar.gz.done"
+			break
+		else
+			echo -n ' '
+			sleep 3
+		fi
+	done
+}
+
+do_client_download_or_fail() {
+	if [[ $DID_LOCAL_DOWNLOAD == "1" ]]; then
+		echo "Already attempted local download, failing"
+		fail_with_exitcode $1
+	elif [[ $ALLOW_CLIENT_DOWNLOAD == "1" ]]; then
+		do_client_download
+		LOCAL_DOWNLOAD_RESULT=success
+	else
+		fail_with_exitcode $1
+	fi
+}
+
+do_host_download() {
+	start=$(millis)
+	echo 'efab135bb53d%%1%%'
+
+	DOWNLOAD_URL=https://update.code.visualstudio.com/commit:$COMMIT_ID/$PLATFORM_DOWNLOAD_PATH/stable
+
+	wget --version &> /dev/null
+	if (( $? == 0 ))
+	then
+		echo "Downloading with wget"
+		WGET_ERRORS=$(2>&1 wget --no-config --tries=1 --connect-timeout=7 --dns-timeout=7 -nv -O vscode-server.tar.gz $DOWNLOAD_URL)
+		if (( $? != 0 ))
+		then
+			echo "wget download failed"
+			echo $WGET_ERRORS
+			printenv_indent
+
+			do_client_download_or_fail 193
+		else
+			echo "Download complete"
+			DOWNLOAD_TIME=$(elapsed $start)
+		fi
+	else
+		curl --version &> /dev/null
+		if (( $? == 0 ))
+		then
+			echo "Downloading with curl"
+			CURL_OUTPUT=$(curl --disable --connect-timeout 7 -L $DOWNLOAD_URL --output vscode-server.tar.gz -w "%{http_code}")
+			if [[ ($? != 0) || ($CURL_OUTPUT != 2??) ]]
+			then
+				echo "curl download failed"
+				echo $CURL_OUTPUT
+				printenv_indent
+
+				do_client_download_or_fail 193
+			else
+				echo "Download complete"
+				DOWNLOAD_TIME=$(elapsed $start)
+			fi
+		else
+			printenv_indent
+			echo "Neither wget nor curl is installed"
+
+			do_client_download_or_fail 194
+		fi
+	fi
+}
+
+do_install() {
+	start=$(millis)
+	echo 'efab135bb53d%%2%%'
+	UNPACK_RESULT=success
+	echo 'tar --version:'
+	tar --version
+	tar -xf vscode-server.tar.gz --no-same-owner
+	TAR_EXIT=$?
+	INSTALL_TIME=$(elapsed $start)
+
+	if (( $TAR_EXIT > 0 ))
+	then
+		echo "ERROR: tar exited with non-0 exit code: $?"
+		UNPACK_RESULT=error
+		do_client_download_or_fail 205
+		do_install
+		return
+	fi
+
+	mv vscode-server*/* .
+
+	# cheap sanity check
+	if [[ ! -f "$VSCH_DIR/node" || ! -f "$VSCH_SERVER_SCRIPT" ]]
+	then
+		UNPACK_RESULT=missingFiles
+		echo "ERROR: $VSCH_DIR/node or $VSCH_SERVER_SCRIPT don't exist"
+		do_client_download_or_fail 205
+		do_install
+		return
+	fi
+
+	if [[ "$PLATFORM" == "linux" && ! -f "$VSCH_SERVER_PREREQ_SCRIPT" ]]
+	then
+		UNPACK_RESULT=missingFiles
+		echo "ERROR: $VSCH_SERVER_PREREQ_SCRIPT doesn't exist"
+		do_client_download_or_fail 205
+		do_install
+		return
+	fi
+
+	# Delete the leftover folder which might have -web prefix, and the .tar.gz
+	rm -rf vscode-server*
+}
+
+do_extension_install() {
+	# install extensions
+	if [[ ! -z $EXTENSIONS ]]
+	then
+		echo "Installing extensions..."
+		start=$(millis)
+		"$VSCH_SERVER_SCRIPT" $TELEMETRY $EXTENSIONS
+		EXT_INSTALL_TIME=$(elapsed $start)
+	fi
+}
+
+#
+# Install if needed
+#
+if [[ ! -f "$VSCH_SERVER_SCRIPT" ]]
+then
+	echo "Installing to $VSCH_DIR..."
+	STASHED_WORKING_DIR="`pwd`"
+	cd "$VSCH_DIR"
+
+	if [[ $MANUAL_BOOTSTRAP == "1" ]]; then
+		do_manual_bootstrap
+	else
+		if [[ $FORCE_CLIENT_DOWNLOAD == "1" ]]; then
+			do_client_download
+		else
+			do_host_download
+		fi
+	fi
+
+	do_install
+
+	#
+	# Verify linux prereqs
+	#
+	if [[ $PLATFORM == linux ]]; then
+		cd "$STASHED_WORKING_DIR"
+		"$VSCH_SERVER_PREREQ_SCRIPT"
+		PREREQ_EXIT_CODE=$?
+		if (( $PREREQ_EXIT_CODE == 99 )); then
+			fail_with_exitcode 207
+		elif (( $PREREQ_EXIT_CODE == 100 )); then
+			if [[ $FORCE_CLIENT_DOWNLOAD != "1" ]]; then
+				PLATFORM_DOWNLOAD_PATH=server-linux-legacy-$VSCODE_ARCH
+				rm -rf "$VSCH_DIR"
+				do_create_install_dir
+				cd "$VSCH_DIR"
+				do_host_download
+				do_install
+			fi
+		fi
+	fi
+	cd "$STASHED_WORKING_DIR"
+else
+	echo "Found existing installation at $VSCH_DIR..."
+fi
+
+
+#
+# Generate a new connection token
+#
+write_connection_token() {
+	rm "$VSCH_TOKENFILE"
+	CONNECTION_TOKEN="5290db08-45c7-48bc-8d95-399cb11f999a"
+	touch "$VSCH_TOKENFILE"
+	chmod 0700 "$VSCH_TOKENFILE"
+	echo $CONNECTION_TOKEN > "$VSCH_TOKENFILE"
+}
+
+#
+# Start the server
+#
+start_server() {
+	echo "Starting VS Code Server... \"$VSCH_SERVER_SCRIPT\" --start-server --server-data-dir \"$VSCODE_AGENT_FOLDER\" --host=127.0.0.1 --accept-server-license-terms --enable-remote-auto-shutdown $PORT_FLAG $TELEMETRY $SERVER_LISTEN_FLAG $EXTENSIONS &> \"$VSCH_LOGFILE\" < /dev/null"
+	echo "The VS Code Server log file is $VSCH_LOGFILE"
+	printenv_indent
+	start=$(millis)
+	write_connection_token
+	if [[ -f $VSCH_LOGFILE ]]; then
+		echo "Removing old logfile at $VSCH_LOGFILE"
+		rm "$VSCH_LOGFILE" # See #6265
+	fi
+	"$VSCH_SERVER_SCRIPT" --start-server --server-data-dir "$VSCODE_AGENT_FOLDER" --host=127.0.0.1 --accept-server-license-terms --enable-remote-auto-shutdown $PORT_FLAG $TELEMETRY $SERVER_LISTEN_FLAG $EXTENSIONS --connection-token-file "$VSCH_TOKENFILE" &> "$VSCH_LOGFILE" < /dev/null &
+	echo $! > "$VSCH_PIDFILE"
+	echo "Spawned remote server: $!"
+
+	stopTime=$((SECONDS+15))
+
+	while (($SECONDS < $stopTime))
+	do
+		LISTENING_ON=`cat "$VSCH_LOGFILE" | grep -a -E 'Extension host agent listening on .+' | grep -v grep | sed 's/Extension host agent listening on //'`
+		if [[ $LISTENING_ON != '' ]]
+		then
+			break
+		fi
+
+		echo "Waiting for server log..."
+		sleep .03
+	done
+
+	SERVER_START_TIME=$(elapsed $start)
+}
+
+echo "Checking $VSCH_LOGFILE and $VSCH_PIDFILE for a running server"
+if [[ -f "$VSCH_PIDFILE" ]]; then
+	SERVER_PID=`cat "$VSCH_PIDFILE"`
+	echo "Looking for server with pid: $SERVER_PID"
+	ALL_PROCS=`ps ax | grep "^\s*$SERVER_PID\s"`
+else
+	ALL_PROCS=`ps ax`
+fi
+
+RUNNING="`echo $ALL_PROCS | grep "$VSCH_SERVER_SCRIPT" | grep -v grep | wc -l | tr -d '[:space:]'`"
+if [[ $RUNNING == 0 ]]; then
+	start_server
+elif [[ ! -f "$VSCH_LOGFILE" ]]; then
+	echo "WARNING: VS Code Server is running but its logfile is missing. Don't delete the VS Code Server manually, run the command 'Uninstall VS Code Server'."
+	start_server
+else
+	echo "Found running server..."
+	do_extension_install
+	if [[ -f "$VSCH_TOKENFILE" ]]; then
+		CONNECTION_TOKEN=`cat "$VSCH_TOKENFILE"`
+	fi
+fi
+
+echo " "
+echo "*"
+echo "* Visual Studio Code Server"
+echo "*"
+echo "* By using the software, you agree to"
+echo "* the Visual Studio Code Server License Terms (https://aka.ms/vscode-server-license) and"
+echo "* the Microsoft Privacy Statement (https://privacy.microsoft.com/en-US/privacystatement)."
+echo "*"
+echo " "
+
+LISTENING_ON=`cat "$VSCH_LOGFILE" | grep -a -E 'Extension host agent listening on .+' | grep -v grep | sed 's/Extension host agent listening on //'`
+WEBUITOKEN=`cat "$VSCH_LOGFILE" | grep -a -E 'Web UI available at' | grep -o -E 'tkn=[0-9a-f-]+' | grep -o -E '[0-9a-f-]+'`
+if [[ -z $LISTENING_ON ]]
+then
+	echo "Server did not start successfully. Full server log at $VSCH_LOGFILE >>>"
+	cat "$VSCH_LOGFILE"
+	echo "<<< End of server log"
+	fail_with_exitcode 200
+fi
+
+#
+# If the server was already running, ensure that it won't shut down in the near future
+#
+if [[ $RUNNING != 0 ]]; then
+	# In case the server is close to timing out and shutting down, ask it to delay shutdown
+
+	wget --version &> /dev/null
+	if [[ $? == 0 && $LISTENING_ON =~ (^[[:digit:]]+$) ]]
+	then
+		echo "Checking server status on port $LISTENING_ON with wget"
+		WGET_OUT=$(wget --no-config --no-proxy -nv -O - http://127.0.0.1:$LISTENING_ON/delay-shutdown 2>&1)
+		if [[ $? != 0 ]]; then
+			echo $WGET_OUT
+			fail_with_exitcode 197
+		fi
+	else
+		curl --version &> /dev/null
+		if (( $? == 0 ))
+		then
+			if [[ $LISTENING_ON =~ (^[[:digit:]]+$) ]]
+			then
+				echo "Checking server status on port $LISTENING_ON with curl"
+				CURL_OUTPUT=$(curl --disable --noproxy 127.0.0.1 -s http://127.0.0.1:$LISTENING_ON/delay-shutdown -w " %{http_code}")
+			else
+				echo "Checking server status on socket $LISTENING_ON with curl"
+				CURL_OUTPUT=$(curl --disable --noproxy 127.0.0.1 -s --unix-socket $LISTENING_ON http://127.0.0.1/delay-shutdown -w " %{http_code}")
+			fi
+
+			if [[ ($? != 0) || ($CURL_OUTPUT != "OK 200") ]]; then
+				echo $CURL_OUTPUT
+				fail_with_exitcode 197
+			fi
+		else
+			echo "Neither wget nor curl is installed"
+			fail_with_exitcode 194
+		fi
+	fi
+fi
+
+
+# What we echo below cannot be wider than 80 characters
+echo "efab135bb53d: start"
+echo SSH_AUTH_SOCK==$SSH_AUTH_SOCK==
+echo DISPLAY==$DISPLAY==
+echo "webUiAccessToken==$WEBUITOKEN=="
+echo_common_results
+echo "connectionToken==$CONNECTION_TOKEN=="
+echo "efab135bb53d: end"
+
+unlock $MAIN_LOCKFD $COMMIT_ID
+
+while true; do sleep 180; echo -n ' '; done
+
+EOSSH'
+[12:45:45.294] Using connect timeout of 17 seconds
+[12:45:48.486] > ssh: connect to host 192.168.1.75 port 22: No route to host
+[12:45:48.486] Got some output, clearing connection timeout
+[12:45:48.728] "install" terminal command done
+[12:45:48.728] Install terminal quit with output: ssh: connect to host 192.168.1.75 port 22: No route to host
+[12:45:48.728] Received install output: ssh: connect to host 192.168.1.75 port 22: No route to host
+[12:45:48.728] WARN: $PLATFORM is undefined in installation script output.  Errors may be dropped.
+[12:45:48.729] Resolver error: Error: No route to host
+	at y.Offline (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:744802)
+	at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:741290
+	at t.handleInstallOutput (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:741433)
+	at t.tryInstall (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:865534)
+	at async /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:824246
+	at async t.withShowDetailsEvent (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:827501)
+	at async A (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:820760)
+	at async t.resolve (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:824898)
+	at async /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1113660
+[12:45:48.732] ------
+
+
+
+
+[12:45:48.734]  ---------- [Session Summary] ----------- 
+[12:45:48.734] [OfflineError]: Error: OfflineError (No route to host)
+[12:45:48.734] [OfflineError]: Error: OfflineError (No route to host)
+[12:45:48.734]  ---------------------------------------- 
+[12:45:53.737] ------
+
+
+
+
+[12:45:53.737] SSH Resolver called for "ssh-remote+pi-zero", attempt 4, (Reconnection)
+[12:45:53.737] SSH Resolver called for host: pi-zero
+[12:45:53.737] Setting up SSH remote "pi-zero"
+[12:45:53.738] Using commit id "bf9252a2fb45be6893dd8870c0bf37e2e1766d61" and quality "stable" for server
+[12:45:53.738] Extensions to install: 
+[12:45:53.740] Install and start server if needed
+[12:45:53.741] Running script with connection command: ssh -D 38653 -o ConnectTimeout=15 'pi-zero' bash
+[12:45:53.742] Generated SSH command: 'ssh -D 38653 -o ConnectTimeout=15 'pi-zero' bash << 'EOSSH'
+
+echo "392475ae2f59: running"
+
+#
+# Setup
+#
+VSC_TMP="${XDG_RUNTIME_DIR:-`echo /tmp`}"
+COMMIT_ID="bf9252a2fb45be6893dd8870c0bf37e2e1766d61"
+SERVER_APP_NAME="code-server"
+EXTENSIONS=""
+TELEMETRY="--telemetry-level all"
+VSCODE_AGENT_FOLDER=$HOME/.vscode-server
+ALLOW_CLIENT_DOWNLOAD="1"
+FORCE_CLIENT_DOWNLOAD="0"
+MANUAL_BOOTSTRAP="0"
+now=`date +%s`
+VERBOSE="0"
+
+
+
+PORT_FLAG=--port=0
+
+SERVER_LISTEN_FLAG=
+UNPACK_RESULT=
+DID_LOCAL_DOWNLOAD=0
+DOWNLOAD_TIME=
+INSTALL_TIME=
+EXT_INSTALL_TIME=
+SERVER_START_TIME=
+CONNECTION_TOKEN=
+
+VSCH_DIR="$VSCODE_AGENT_FOLDER/bin/$COMMIT_ID"
+VSCH_SERVER_SCRIPT="$VSCH_DIR/bin/$SERVER_APP_NAME"
+VSCH_SERVER_PREREQ_SCRIPT="$VSCH_DIR/bin/helpers/check-requirements.sh"
+VSCH_LOGFILE="$VSCODE_AGENT_FOLDER/.$COMMIT_ID.log"
+VSCH_PIDFILE="$VSCODE_AGENT_FOLDER/.$COMMIT_ID.pid"
+VSCH_TOKENFILE="$VSCODE_AGENT_FOLDER/.$COMMIT_ID.token"
+
+fail_with_exitcode() {
+	echo "392475ae2f59: start"
+	echo "exitCode==$1=="
+	echo_common_results
+	echo "392475ae2f59: end"
+	exit 0
+}
+
+echo_common_results() {
+	echo "listeningOn==$LISTENING_ON=="
+	echo "osReleaseId==$OSRELEASEID=="
+	echo "arch==$ARCH=="
+	echo "vscodeArch==$VSCODE_ARCH=="
+	echo "bitness==$BITNESS=="
+	echo "tmpDir==$VSC_TMP=="
+	echo "platform==$PLATFORM=="
+	echo "unpackResult==$UNPACK_RESULT=="
+	echo "didLocalDownload==$DID_LOCAL_DOWNLOAD=="
+	echo "downloadTime==$DOWNLOAD_TIME=="
+	echo "installTime==$INSTALL_TIME=="
+	echo "extInstallTime==$EXT_INSTALL_TIME=="
+	echo "serverStartTime==$SERVER_START_TIME=="
+}
+
+
+millis() {
+	if [[ $PLATFORM == linux ]]; then
+		echo $(($(date +%s%N)/1000000))
+	else
+		# Can't get actual millis on mac
+		echo $(($(date +%s)*1000))
+	fi
+}
+
+elapsed() {
+	echo $(($(millis) - $1))
+}
+
+do_create_install_dir() {
+	if [[ ! -d "$VSCH_DIR" ]]; then
+		mkdir -p "$VSCH_DIR"
+
+		if (( $? > 0 ))
+		then
+			echo "Creating the server install dir failed..."
+			fail_with_exitcode 202
+		fi
+	fi
+}
+do_create_install_dir
+
+printenv_indent() {
+	if [[ $VERBOSE == "1" ]]; then
+		echo "printenv:"
+		printenv | sed 's/^/    /'
+	fi
+}
+
+
+
+#
+# Get OS name
+#
+OSRELEASEID=`cat /etc/os-release 2>/dev/null | grep -a -E '^ID=' | sed 's/^[Ii][Dd]=//g' | sed 's/"//g'`
+if [[ -z $OSRELEASEID ]]
+then
+	OSRELEASEID=`cat /usr/lib/os-release 2>/dev/null | grep -a -E '^ID=' | sed 's/^[Ii][Dd]=//g' | sed 's/"//g'`
+	if [[ -z $OSRELEASEID ]]
+	then
+		OSRELEASEID=`uname -s`
+	fi
+fi
+
+
+#
+# Get host platform/architecture
+#
+UNAME=$(uname -s)
+case $UNAME in
+	Linux) PLATFORM=linux;;
+	Darwin) PLATFORM=macOS;;
+	*)
+		echo "Unsupported platform: $UNAME"
+		fail_with_exitcode 203
+		;;
+esac
+
+BITNESS=$(getconf LONG_BIT)
+ARCH=$(uname -m)
+case $ARCH in
+	x86_64) VSCODE_ARCH="x64";;
+	armv7l | armv8l)
+		VSCODE_ARCH="armhf"
+		;;
+	arm64 | aarch64)
+		if [[ $BITNESS == 32 ]]; then
+			# Can have 32-bit userland on 64-bit kernel
+			VSCODE_ARCH="armhf"
+		else
+			VSCODE_ARCH="arm64"
+		fi
+		;;
+	*)
+		OSRELEASE=$(uname -r)
+		case $OSRELEASE in
+			*x86_64*) VSCODE_ARCH="x64";;
+			*)
+				echo "Unsupported architecture: $ARCH"
+				fail_with_exitcode 196
+			;;
+		esac
+		;;
+esac
+
+if [[ $PLATFORM == linux ]]; then
+	PLATFORM_DOWNLOAD_PATH=server-linux-$VSCODE_ARCH
+elif [[ $VSCODE_ARCH == "arm64" ]]; then
+	PLATFORM_DOWNLOAD_PATH=server-darwin-arm64
+else
+	PLATFORM_DOWNLOAD_PATH=server-darwin
+fi
+
+#
+# Acquire install lock
+#
+MAIN_LOCKFD=99
+CLEANUP_LOCKFD=98
+
+
+	use_flock=1
+	if [[ $PLATFORM == "macOS" ]]; then
+		use_flock=0
+	fi
+
+	## Copyright (C) 2009 Przemyslaw Pawelczyk <przemoc@gmail.com>
+	## This script is licensed under the terms of the MIT license.
+	## https://opensource.org/licenses/MIT
+
+	get_lockfile() {
+		lockfiles_in_tmp=0
+		lockfile_name=vscode-remote-lock.$USER.$1
+		if [[ $lockfiles_in_tmp == "1" ]]; then
+			echo "$VSC_TMP/$lockfile_name"
+		else
+			echo "$VSCODE_AGENT_FOLDER/bin/$1/$lockfile_name"
+		fi
+	}
+
+	# PRIVATE
+	_lock() { flock -$1 $2; }
+
+	_no_more_locking() {
+		if [[ $use_flock == "1" ]]; then
+			_lock u $2
+			_lock xn $2 && rm -f $(get_lockfile $1)
+		else
+			lockfile_name=$(get_lockfile $1)
+			rm -f "$lockfile_name"
+			rm -f "$lockfile_name.target"
+		fi
+	}
+
+	# PUBLIC - all take lock FD
+
+	setup_locking() {
+		if [[ $use_flock == "1" ]]; then
+			eval "exec $2>\"$(get_lockfile $1)\"";
+			trap "_no_more_locking $1 $2" EXIT
+		fi
+	}
+
+	setup_lock_cleanup()  {
+		if [[ $use_flock == "0" ]]; then
+			trap "_no_more_locking $1" EXIT
+		fi
+	}
+
+	# obtain an exclusive lock immediately or fail
+	exlock_now() {
+		if [[ $use_flock == "1" ]]; then
+			_lock xn $1
+		else
+			lockfile_name=$(get_lockfile $2)
+			touch "$lockfile_name.target"
+			echo \\ln \"$lockfile_name.target\" \"$lockfile_name\"
+			\ln "$lockfile_name.target" "$lockfile_name"
+		fi
+	}
+
+	# drop a lock
+	unlock() {
+		if [[ $use_flock == "1" ]]; then
+			_lock u $1
+		else
+			_no_more_locking $2
+		fi
+	}
+
+setup_locking $COMMIT_ID $MAIN_LOCKFD
+
+echo "Acquiring lock on `get_lockfile $COMMIT_ID`"
+exlock_now $MAIN_LOCKFD $COMMIT_ID
+if (( $? > 0 ))
+then
+	echo "Installation already in progress..."
+	echo "If you continue to see this message, you can try toggling the remote.SSH.useFlock setting"
+	fail_with_exitcode 192
+fi
+
+setup_lock_cleanup $COMMIT_ID $MAIN_LOCKFD
+
+#
+# Delete old servers if needed
+#
+
+TO_DELETE=$(ls -1 -t "$VSCODE_AGENT_FOLDER/bin" | tail -n +6)
+for COMMIT_TO_DELETE in $TO_DELETE; do
+	echo "Found old VS Code install $COMMIT_TO_DELETE, attempting to clean up"
+
+	setup_locking $COMMIT_TO_DELETE $CLEANUP_LOCKFD
+	exlock_now $CLEANUP_LOCKFD $COMMIT_TO_DELETE
+	if (( $? == 0 )); then
+		setup_lock_cleanup $COMMIT_TO_DELETE $CLEANUP_LOCKFD
+		RUNNING="`ps ax | grep $COMMIT_TO_DELETE | grep -v grep | wc -l | tr -d '[:space:]'`"
+		if [[ $RUNNING == 0 ]]; then
+			echo "Deleting old install from $VSCODE_AGENT_FOLDER/bin/$COMMIT_TO_DELETE"
+			rm -rf "$VSCODE_AGENT_FOLDER/bin/$COMMIT_TO_DELETE"
+
+			echo "Deleting old log file from $VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.log"
+			rm "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.log"
+			if [[ -f "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.pid" ]]; then
+				rm "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.pid"
+			fi
+			if [[ -f "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.token" ]]; then
+				rm "$VSCODE_AGENT_FOLDER/.$COMMIT_TO_DELETE.token"
+			fi
+		else
+			echo "Install still has running processes, not deleting: $COMMIT_TO_DELETE"
+		fi
+	else
+		echo "Failed to acquire lock for install, not deleting: $COMMIT_TO_DELETE"
+	fi
+done
+
+do_manual_bootstrap() {
+	ALLOW_CLIENT_DOWNLOAD="0"
+	FORCE_CLIENT_DOWNLOAD="0"
+	DID_LOCAL_DOWNLOAD="1"
+
+	echo "Trigger local (bootstrap) server download"
+	echo 392475ae2f59:trigger_server_download
+	echo artifact==$PLATFORM_DOWNLOAD_PATH==
+	echo destFolder==$VSCODE_AGENT_FOLDER/bin/==
+	echo destFolder2==$COMMIT_ID/vscode-server.tar.gz==
+	echo 392475ae2f59:trigger_server_download_end
+	echo "Waiting for client to transfer server archive..."
+	echo "Waiting for $VSCH_DIR/vscode-server.tar.gz.done and vscode-server.tar.gz to exist"
+
+	while true; do
+		if [[ -f "$VSCH_DIR/vscode-server.tar.gz.done" ]]; then
+			if [[ ! -f "$VSCH_DIR/vscode-server.tar.gz" ]]; then
+				echo "Found flag but not server tar - server transfer failed"
+				fail_with_exitcode 199
+			fi
+
+			echo "Found flag and server on host"
+			rm "$VSCH_DIR/vscode-server.tar.gz.done"
+			break
+		else
+			echo -n ' '
+			sleep 3
+		fi
+	done
+}
+
+do_client_download() {
+	DID_LOCAL_DOWNLOAD=1
+	echo "Trigger local server download"
+	echo 392475ae2f59:trigger_server_download
+	echo artifact==$PLATFORM_DOWNLOAD_PATH==
+	echo destFolder==$VSCODE_AGENT_FOLDER/bin/==
+	echo destFolder2==$COMMIT_ID/vscode-server.tar.gz==
+	echo 392475ae2f59:trigger_server_download_end
+	echo "Waiting for client to transfer server archive..."
+	echo "Waiting for $VSCH_DIR/vscode-server.tar.gz.done and vscode-server.tar.gz to exist"
+
+	while true; do
+		if [[ -f "$VSCH_DIR/vscode-server.tar.gz.done" ]]; then
+			if [[ ! -f "$VSCH_DIR/vscode-server.tar.gz" ]]; then
+				echo "Found flag but not server tar - server transfer failed"
+				fail_with_exitcode 199
+			fi
+
+			echo "Found flag and server on host"
+			rm "$VSCH_DIR/vscode-server.tar.gz.done"
+			break
+		else
+			echo -n ' '
+			sleep 3
+		fi
+	done
+}
+
+do_client_download_or_fail() {
+	if [[ $DID_LOCAL_DOWNLOAD == "1" ]]; then
+		echo "Already attempted local download, failing"
+		fail_with_exitcode $1
+	elif [[ $ALLOW_CLIENT_DOWNLOAD == "1" ]]; then
+		do_client_download
+		LOCAL_DOWNLOAD_RESULT=success
+	else
+		fail_with_exitcode $1
+	fi
+}
+
+do_host_download() {
+	start=$(millis)
+	echo '392475ae2f59%%1%%'
+
+	DOWNLOAD_URL=https://update.code.visualstudio.com/commit:$COMMIT_ID/$PLATFORM_DOWNLOAD_PATH/stable
+
+	wget --version &> /dev/null
+	if (( $? == 0 ))
+	then
+		echo "Downloading with wget"
+		WGET_ERRORS=$(2>&1 wget --no-config --tries=1 --connect-timeout=7 --dns-timeout=7 -nv -O vscode-server.tar.gz $DOWNLOAD_URL)
+		if (( $? != 0 ))
+		then
+			echo "wget download failed"
+			echo $WGET_ERRORS
+			printenv_indent
+
+			do_client_download_or_fail 193
+		else
+			echo "Download complete"
+			DOWNLOAD_TIME=$(elapsed $start)
+		fi
+	else
+		curl --version &> /dev/null
+		if (( $? == 0 ))
+		then
+			echo "Downloading with curl"
+			CURL_OUTPUT=$(curl --disable --connect-timeout 7 -L $DOWNLOAD_URL --output vscode-server.tar.gz -w "%{http_code}")
+			if [[ ($? != 0) || ($CURL_OUTPUT != 2??) ]]
+			then
+				echo "curl download failed"
+				echo $CURL_OUTPUT
+				printenv_indent
+
+				do_client_download_or_fail 193
+			else
+				echo "Download complete"
+				DOWNLOAD_TIME=$(elapsed $start)
+			fi
+		else
+			printenv_indent
+			echo "Neither wget nor curl is installed"
+
+			do_client_download_or_fail 194
+		fi
+	fi
+}
+
+do_install() {
+	start=$(millis)
+	echo '392475ae2f59%%2%%'
+	UNPACK_RESULT=success
+	echo 'tar --version:'
+	tar --version
+	tar -xf vscode-server.tar.gz --no-same-owner
+	TAR_EXIT=$?
+	INSTALL_TIME=$(elapsed $start)
+
+	if (( $TAR_EXIT > 0 ))
+	then
+		echo "ERROR: tar exited with non-0 exit code: $?"
+		UNPACK_RESULT=error
+		do_client_download_or_fail 205
+		do_install
+		return
+	fi
+
+	mv vscode-server*/* .
+
+	# cheap sanity check
+	if [[ ! -f "$VSCH_DIR/node" || ! -f "$VSCH_SERVER_SCRIPT" ]]
+	then
+		UNPACK_RESULT=missingFiles
+		echo "ERROR: $VSCH_DIR/node or $VSCH_SERVER_SCRIPT don't exist"
+		do_client_download_or_fail 205
+		do_install
+		return
+	fi
+
+	if [[ "$PLATFORM" == "linux" && ! -f "$VSCH_SERVER_PREREQ_SCRIPT" ]]
+	then
+		UNPACK_RESULT=missingFiles
+		echo "ERROR: $VSCH_SERVER_PREREQ_SCRIPT doesn't exist"
+		do_client_download_or_fail 205
+		do_install
+		return
+	fi
+
+	# Delete the leftover folder which might have -web prefix, and the .tar.gz
+	rm -rf vscode-server*
+}
+
+do_extension_install() {
+	# install extensions
+	if [[ ! -z $EXTENSIONS ]]
+	then
+		echo "Installing extensions..."
+		start=$(millis)
+		"$VSCH_SERVER_SCRIPT" $TELEMETRY $EXTENSIONS
+		EXT_INSTALL_TIME=$(elapsed $start)
+	fi
+}
+
+#
+# Install if needed
+#
+if [[ ! -f "$VSCH_SERVER_SCRIPT" ]]
+then
+	echo "Installing to $VSCH_DIR..."
+	STASHED_WORKING_DIR="`pwd`"
+	cd "$VSCH_DIR"
+
+	if [[ $MANUAL_BOOTSTRAP == "1" ]]; then
+		do_manual_bootstrap
+	else
+		if [[ $FORCE_CLIENT_DOWNLOAD == "1" ]]; then
+			do_client_download
+		else
+			do_host_download
+		fi
+	fi
+
+	do_install
+
+	#
+	# Verify linux prereqs
+	#
+	if [[ $PLATFORM == linux ]]; then
+		cd "$STASHED_WORKING_DIR"
+		"$VSCH_SERVER_PREREQ_SCRIPT"
+		PREREQ_EXIT_CODE=$?
+		if (( $PREREQ_EXIT_CODE == 99 )); then
+			fail_with_exitcode 207
+		elif (( $PREREQ_EXIT_CODE == 100 )); then
+			if [[ $FORCE_CLIENT_DOWNLOAD != "1" ]]; then
+				PLATFORM_DOWNLOAD_PATH=server-linux-legacy-$VSCODE_ARCH
+				rm -rf "$VSCH_DIR"
+				do_create_install_dir
+				cd "$VSCH_DIR"
+				do_host_download
+				do_install
+			fi
+		fi
+	fi
+	cd "$STASHED_WORKING_DIR"
+else
+	echo "Found existing installation at $VSCH_DIR..."
+fi
+
+
+#
+# Generate a new connection token
+#
+write_connection_token() {
+	rm "$VSCH_TOKENFILE"
+	CONNECTION_TOKEN="4dd556b9-25b2-4986-b994-0320d4841562"
+	touch "$VSCH_TOKENFILE"
+	chmod 0700 "$VSCH_TOKENFILE"
+	echo $CONNECTION_TOKEN > "$VSCH_TOKENFILE"
+}
+
+#
+# Start the server
+#
+start_server() {
+	echo "Starting VS Code Server... \"$VSCH_SERVER_SCRIPT\" --start-server --server-data-dir \"$VSCODE_AGENT_FOLDER\" --host=127.0.0.1 --accept-server-license-terms --enable-remote-auto-shutdown $PORT_FLAG $TELEMETRY $SERVER_LISTEN_FLAG $EXTENSIONS &> \"$VSCH_LOGFILE\" < /dev/null"
+	echo "The VS Code Server log file is $VSCH_LOGFILE"
+	printenv_indent
+	start=$(millis)
+	write_connection_token
+	if [[ -f $VSCH_LOGFILE ]]; then
+		echo "Removing old logfile at $VSCH_LOGFILE"
+		rm "$VSCH_LOGFILE" # See #6265
+	fi
+	"$VSCH_SERVER_SCRIPT" --start-server --server-data-dir "$VSCODE_AGENT_FOLDER" --host=127.0.0.1 --accept-server-license-terms --enable-remote-auto-shutdown $PORT_FLAG $TELEMETRY $SERVER_LISTEN_FLAG $EXTENSIONS --connection-token-file "$VSCH_TOKENFILE" &> "$VSCH_LOGFILE" < /dev/null &
+	echo $! > "$VSCH_PIDFILE"
+	echo "Spawned remote server: $!"
+
+	stopTime=$((SECONDS+15))
+
+	while (($SECONDS < $stopTime))
+	do
+		LISTENING_ON=`cat "$VSCH_LOGFILE" | grep -a -E 'Extension host agent listening on .+' | grep -v grep | sed 's/Extension host agent listening on //'`
+		if [[ $LISTENING_ON != '' ]]
+		then
+			break
+		fi
+
+		echo "Waiting for server log..."
+		sleep .03
+	done
+
+	SERVER_START_TIME=$(elapsed $start)
+}
+
+echo "Checking $VSCH_LOGFILE and $VSCH_PIDFILE for a running server"
+if [[ -f "$VSCH_PIDFILE" ]]; then
+	SERVER_PID=`cat "$VSCH_PIDFILE"`
+	echo "Looking for server with pid: $SERVER_PID"
+	ALL_PROCS=`ps ax | grep "^\s*$SERVER_PID\s"`
+else
+	ALL_PROCS=`ps ax`
+fi
+
+RUNNING="`echo $ALL_PROCS | grep "$VSCH_SERVER_SCRIPT" | grep -v grep | wc -l | tr -d '[:space:]'`"
+if [[ $RUNNING == 0 ]]; then
+	start_server
+elif [[ ! -f "$VSCH_LOGFILE" ]]; then
+	echo "WARNING: VS Code Server is running but its logfile is missing. Don't delete the VS Code Server manually, run the command 'Uninstall VS Code Server'."
+	start_server
+else
+	echo "Found running server..."
+	do_extension_install
+	if [[ -f "$VSCH_TOKENFILE" ]]; then
+		CONNECTION_TOKEN=`cat "$VSCH_TOKENFILE"`
+	fi
+fi
+
+echo " "
+echo "*"
+echo "* Visual Studio Code Server"
+echo "*"
+echo "* By using the software, you agree to"
+echo "* the Visual Studio Code Server License Terms (https://aka.ms/vscode-server-license) and"
+echo "* the Microsoft Privacy Statement (https://privacy.microsoft.com/en-US/privacystatement)."
+echo "*"
+echo " "
+
+LISTENING_ON=`cat "$VSCH_LOGFILE" | grep -a -E 'Extension host agent listening on .+' | grep -v grep | sed 's/Extension host agent listening on //'`
+WEBUITOKEN=`cat "$VSCH_LOGFILE" | grep -a -E 'Web UI available at' | grep -o -E 'tkn=[0-9a-f-]+' | grep -o -E '[0-9a-f-]+'`
+if [[ -z $LISTENING_ON ]]
+then
+	echo "Server did not start successfully. Full server log at $VSCH_LOGFILE >>>"
+	cat "$VSCH_LOGFILE"
+	echo "<<< End of server log"
+	fail_with_exitcode 200
+fi
+
+#
+# If the server was already running, ensure that it won't shut down in the near future
+#
+if [[ $RUNNING != 0 ]]; then
+	# In case the server is close to timing out and shutting down, ask it to delay shutdown
+
+	wget --version &> /dev/null
+	if [[ $? == 0 && $LISTENING_ON =~ (^[[:digit:]]+$) ]]
+	then
+		echo "Checking server status on port $LISTENING_ON with wget"
+		WGET_OUT=$(wget --no-config --no-proxy -nv -O - http://127.0.0.1:$LISTENING_ON/delay-shutdown 2>&1)
+		if [[ $? != 0 ]]; then
+			echo $WGET_OUT
+			fail_with_exitcode 197
+		fi
+	else
+		curl --version &> /dev/null
+		if (( $? == 0 ))
+		then
+			if [[ $LISTENING_ON =~ (^[[:digit:]]+$) ]]
+			then
+				echo "Checking server status on port $LISTENING_ON with curl"
+				CURL_OUTPUT=$(curl --disable --noproxy 127.0.0.1 -s http://127.0.0.1:$LISTENING_ON/delay-shutdown -w " %{http_code}")
+			else
+				echo "Checking server status on socket $LISTENING_ON with curl"
+				CURL_OUTPUT=$(curl --disable --noproxy 127.0.0.1 -s --unix-socket $LISTENING_ON http://127.0.0.1/delay-shutdown -w " %{http_code}")
+			fi
+
+			if [[ ($? != 0) || ($CURL_OUTPUT != "OK 200") ]]; then
+				echo $CURL_OUTPUT
+				fail_with_exitcode 197
+			fi
+		else
+			echo "Neither wget nor curl is installed"
+			fail_with_exitcode 194
+		fi
+	fi
+fi
+
+
+# What we echo below cannot be wider than 80 characters
+echo "392475ae2f59: start"
+echo SSH_AUTH_SOCK==$SSH_AUTH_SOCK==
+echo DISPLAY==$DISPLAY==
+echo "webUiAccessToken==$WEBUITOKEN=="
+echo_common_results
+echo "connectionToken==$CONNECTION_TOKEN=="
+echo "392475ae2f59: end"
+
+unlock $MAIN_LOCKFD $COMMIT_ID
+
+while true; do sleep 180; echo -n ' '; done
+
+EOSSH'
+[12:45:53.742] Using connect timeout of 17 seconds
+[12:45:54.454] > bryan@192.168.1.75's password: 
+[12:45:54.454] Got some output, clearing connection timeout
+[12:45:54.455] Showing password prompt
+[12:45:57.593] > Read from remote host 192.168.1.75: Connection reset by peer
+> client_loop: send disconnect: Broken pipe
+[12:45:57.834] "install" terminal command done
+[12:45:57.834] Install terminal quit with output: client_loop: send disconnect: Broken pipe
+[12:46:02.834] Got password response
+[12:46:02.835] "install" wrote data to terminal: "*********"
+[12:46:02.848] > 
+[12:46:04.996] > 392475ae2f59: running
+[12:46:05.067] > Acquiring lock on /home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/vscode-remote-lock.bryan.bf9252a2fb45be6893dd8870c0bf37e2e1766d61
+[12:46:05.237] > Found existing installation at /home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61...
+> Checking /home/bryan/.vscode-server/.bf9252a2fb45be6893dd8870c0bf37e2e1766d61.log and /home/bryan/.vscode-server/.bf9252a2fb45be6893dd8870c0bf37e2e1766d61.pid for a running server
+> Looking for server with pid: 1489
+> Starting VS Code Server... "/home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/bin/code-server" --start-server --server-data-dir "/home/bryan/.vscode-server" --host=127.0.0.1 --accept-server-license-terms --enable-remote-auto-shutdown --port=0 --telemetry-level all   &> "/home/bryan/.vscode-server/.bf9252a2fb45be6893dd8870c0bf37e2e1766d61.log" < /dev/null
+> The VS Code Server log file is /home/bryan/.vscode-server/.bf9252a2fb45be6893dd8870c0bf37e2e1766d61.log
+[12:46:05.299] > Removing old logfile at /home/bryan/.vscode-server/.bf9252a2fb45be6893dd8870c0bf37e2e1766d61.log
+> Spawned remote server: 1421
+[12:46:05.311] > Waiting for server log...
+[12:46:05.376] > Waiting for server log...
+[12:46:05.545] > Waiting for server log...
+> Waiting for server log...
+> Waiting for server log...
+[12:46:05.698] > Waiting for server log...
+> Waiting for server log...
+> Waiting for server log...
+[12:46:05.753] > Waiting for server log...
+[12:46:05.802] > Waiting for server log...
+[12:46:05.852] > Waiting for server log...
+[12:46:05.898] > Waiting for server log...
+[12:46:05.944] > Waiting for server log...
+[12:46:05.994] > Waiting for server log...
+[12:46:06.044] > Waiting for server log...
+[12:46:06.101] > Waiting for server log...
+[12:46:06.161] > Waiting for server log...
+[12:46:06.224] > Waiting for server log...
+[12:46:06.290] > Waiting for server log...
+[12:46:06.354] > Waiting for server log...
+[12:46:06.424] > Waiting for server log...
+[12:46:06.519] > Waiting for server log...
+[12:46:06.566] > Waiting for server log...
+[12:46:06.617] > Waiting for server log...
+[12:46:06.669] > Waiting for server log...
+[12:46:06.718] > Waiting for server log...
+[12:46:06.768] > Waiting for server log...
+[12:46:06.819] > Waiting for server log...
+[12:46:06.875] > Waiting for server log...
+[12:46:06.927] > Waiting for server log...
+[12:46:07.007] > Waiting for server log...
+[12:46:07.059] > Waiting for server log...
+[12:46:07.107] > Waiting for server log...
+[12:46:07.167] > Waiting for server log...
+[12:46:07.203] > Waiting for server log...
+[12:46:07.255] > Waiting for server log...
+[12:46:07.298] > Waiting for server log...
+[12:46:07.347] > Waiting for server log...
+[12:46:07.392] > Waiting for server log...
+[12:46:07.436] > Waiting for server log...
+[12:46:07.492] > Waiting for server log...
+[12:46:07.543] > Waiting for server log...
+[12:46:07.594] > Waiting for server log...
+[12:46:07.639] > Waiting for server log...
+[12:46:07.685] > Waiting for server log...
+[12:46:07.736] > Waiting for server log...
+[12:46:07.787] > Waiting for server log...
+[12:46:07.845] > Waiting for server log...
+[12:46:07.893] > Waiting for server log...
+[12:46:07.946] > Waiting for server log...
+[12:46:07.993] > Waiting for server log...
+[12:46:08.039] > Waiting for server log...
+[12:46:08.084] > Waiting for server log...
+[12:46:08.130] > Waiting for server log...
+[12:46:08.177] > Waiting for server log...
+[12:46:08.223] > Waiting for server log...
+[12:46:08.270] > Waiting for server log...
+[12:46:08.314] > Waiting for server log...
+[12:46:08.362] > Waiting for server log...
+[12:46:08.413] > Waiting for server log...
+[12:46:08.459] > Waiting for server log...
+[12:46:08.542] > Waiting for server log...
+[12:46:08.589] > Waiting for server log...
+[12:46:08.644] > Waiting for server log...
+[12:46:08.693] > Waiting for server log...
+[12:46:08.745] > Waiting for server log...
+[12:46:08.837] >  
+> *
+> * Visual Studio Code Server
+> *
+> * By using the software, you agree to
+> * the Visual Studio Code Server License Terms (https://aka.ms/vscode-server-license) and
+> * the Microsoft Privacy Statement (https://privacy.microsoft.com/en-US/privacystatement).
+> *
+>  
+[12:46:08.848] > Server did not start successfully. Full server log at /home/bryan/.vscode-server/.bf9252a2fb45be6893dd8870c0bf37e2e1766d61.log >>>
+[12:46:08.856] > <<< End of server log
+> 392475ae2f59: start
+> exitCode==200==
+> listeningOn====
+> osReleaseId==raspbian==
+> arch==armv7l==
+> vscodeArch==armhf==
+> bitness==32==
+> tmpDir==/run/user/1000==
+> platform==linux==
+> unpackResult====
+> didLocalDownload==0==
+> downloadTime====
+> installTime====
+> extInstallTime====
+> serverStartTime==49366==
+> 392475ae2f59: end
+[12:46:08.856] Received install output: 
+exitCode==200==
+listeningOn====
+osReleaseId==raspbian==
+arch==armv7l==
+vscodeArch==armhf==
+bitness==32==
+tmpDir==/run/user/1000==
+platform==linux==
+unpackResult====
+didLocalDownload==0==
+downloadTime====
+installTime====
+extInstallTime====
+serverStartTime==49366==
+
+[12:46:08.857] Resolver error: Error: The VS Code Server failed to start
+	at y.ServerInstallError (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:744694)
+	at p (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:738315)
+	at t.handleInstallOutput (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:740589)
+	at t.tryInstall (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:865534)
+	at async /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:824246
+	at async t.withShowDetailsEvent (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:827501)
+	at async A (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:820760)
+	at async t.resolve (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:824898)
+	at async /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1113660
+[12:46:08.860] ------
+
+
+
+
+[12:46:08.863]  ---------- [Session Summary] ----------- 
+[12:46:08.863] [OfflineError]: Error: OfflineError (No route to host)
+[12:46:08.863] [OfflineError]: Error: OfflineError (No route to host)
+[12:46:08.863] [ServerFailedToStart]: Error: ServerFailedToStart (The VS Code Server failed to start)
+[12:46:08.863]  ---------------------------------------- 
+[12:46:09.200] "install" terminal command done
+[12:46:09.200] Install terminal quit with output: 
+[12:46:10.761] Terminal closed

@@ -1,0 +1,36 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "margin-bottom": 20,
+
+  "modules-center": [
+    "hyprland/workspaces",
+    "clock",
+    "pulseaudio",
+    "network",
+    "bluetooth"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "on-click": "activate"
+  },
+
+  "clock": {
+    "format": " {:%H:%M}",
+    "tooltip-format": "{:%A, %d %B %Y}"
+  },
+
+  "network": {
+    "format-wifi": " {signalStrength}%",
+    "format-disconnected": "⚠"
+  },
+
+  "bluetooth": {
+    "format": ""
+  },
+
+  "pulseaudio": {
+    "format": " {volume}%"
+  }
+}

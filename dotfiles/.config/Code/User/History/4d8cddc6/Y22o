@@ -1,0 +1,22 @@
+[
+  {
+    "label": "lock",
+    "action": "loginctl lock-session",
+    "text": "Lock"
+  },
+  {
+    "label": "sleep",
+    "action": "systemctl suspend",
+    "text": "Sleep"
+  },
+  {
+    "label": "reboot",
+    "action": "systemctl reboot",
+    "text": "Restart"
+  },
+  {
+    "label": "poweroff",
+    "action": "systemctl poweroff",
+    "text": "Shutdown"
+  }
+]

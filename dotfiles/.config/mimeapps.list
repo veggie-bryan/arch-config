@@ -1,0 +1,7 @@
+[Added Associations]
+application/pdf=firefox-6.desktop;firefox-5.desktop;firefox-4.desktop;firefox-3.desktop;firefox-2.desktop;
+
+[Default Applications]
+application/pdf=firefox-6.desktop;
+application/x-directory=org.kde.dolphin.desktop
+inode/directory=org.kde.dolphin.desktop

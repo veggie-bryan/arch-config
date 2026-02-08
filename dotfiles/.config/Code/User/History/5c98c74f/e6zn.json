@@ -1,0 +1,50 @@
+// Place your key bindings in this file to override the defaults
+[
+        
+    // Cursor Left
+    {
+        "key": "shift+h",
+        "command": "cursorLeft",
+        "when": "editorTextFocus"
+    },
+    // Cursor Down
+    {
+        "key": "shift+j",
+        "command": "cursorDown",
+        "when": "editorTextFocus"
+    },
+    // Cursor Up
+    {
+        "key": "shift+k",
+        "command": "cursorUp",
+        "when": "editorTextFocus"
+    },
+    // Cursor Right
+    {
+        "key": "shift+l",
+        "command": "cursorRight",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+n",
+        "command": "python.execInTerminal"
+    },
+    {
+        "key": "ctrl+shift+space",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "-workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    {
+        "key": "ctrl+shift+space ctrl+shift+space",
+        "command": "workbench.action.focusFirstEditorGroup"
+    },
+    {
+        "key": "ctrl+1",
+        "command": "-workbench.action.focusFirstEditorGroup"
+    }
+]

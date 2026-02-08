@@ -1,0 +1,21 @@
+2026-01-22 17:18:31.270 [info] update#setState idle
+2026-01-22 17:19:01.270 [info] update#setState checking for updates
+2026-01-22 17:19:01.316 [info] update#setState available for download
+2026-01-22 17:22:37.292 [info] Extension host with pid 10720 exited with code: 0, signal: unknown.
+2026-01-22 17:22:37.305 [error] [UtilityProcess id: 1, type: fileWatcher, pid: 10695]: crashed with code 15 and reason 'killed'
+2026-01-22 18:13:21.421 [info] Extension host with pid 12075 exited with code: 0, signal: unknown.
+2026-01-22 18:13:21.445 [error] [UtilityProcess id: 1, type: fileWatcher, pid: 12129]: crashed with code 15 and reason 'killed'
+2026-01-22 18:14:24.940 [info] Extension host with pid 28656 exited with code: 0, signal: unknown.
+2026-01-22 18:14:24.957 [error] [UtilityProcess id: 1, type: fileWatcher, pid: 28642]: crashed with code 15 and reason 'killed'
+2026-01-22 18:16:50.343 [info] Extension host with pid 29110 exited with code: 0, signal: unknown.
+2026-01-22 18:16:50.363 [error] [UtilityProcess id: 1, type: fileWatcher, pid: 29096]: crashed with code 15 and reason 'killed'
+2026-01-22 18:17:15.987 [info] Extension host with pid 30213 exited with code: 0, signal: unknown.
+2026-01-22 18:17:15.999 [error] [UtilityProcess id: 2, type: fileWatcher, pid: 30199]: crashed with code 15 and reason 'killed'
+2026-01-22 20:58:46.419 [error] ptyHost terminated unexpectedly with code 15
+2026-01-22 20:58:46.419 [warning] [UtilityProcess type: ptyHost, pid: 12096]: unable to kill the process
+2026-01-22 20:58:46.428 [error] [UtilityProcessWorker]: terminated unexpectedly with code 15, signal: unknown
+2026-01-22 20:58:46.429 [error] [UtilityProcess id: 2, type: fileWatcher, pid: 30477]: crashed with code 15 and reason 'killed'
+2026-01-22 20:58:46.432 [error] [UtilityProcess type: shared-process, pid: 10694]: crashed with code 15 and reason 'killed'
+2026-01-22 20:58:46.438 [info] Extension host with pid 30443 exited with code: 15, signal: unknown.
+2026-01-22 20:58:46.438 [error] [UtilityProcess id: 6, type: extensionHost, pid: 30443]: crashed with code 15 and reason 'killed'
+2026-01-22 20:58:46.448 [error] CodeWindow: renderer process gone (reason: clean-exit, code: <unknown>)

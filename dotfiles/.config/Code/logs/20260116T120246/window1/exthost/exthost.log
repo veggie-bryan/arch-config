@@ -1,0 +1,26 @@
+2026-01-16 12:02:47.610 [info] Extension host with pid 42484 started
+2026-01-16 12:02:47.610 [info] Skipping acquiring lock for /home/bryan/.config/Code/User/workspaceStorage/ef77342c4e9431afd55f0305d6290586.
+2026-01-16 12:02:47.635 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2026-01-16 12:02:47.657 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2026-01-16 12:02:47.728 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2026-01-16 12:02:47.739 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2026-01-16 12:02:47.778 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2026-01-16 12:02:47.873 [info] Eager extensions activated
+2026-01-16 12:02:47.892 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2026-01-16 12:02:47.893 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2026-01-16 12:02:47.906 [info] ExtensionService#_doActivateExtension tonybaloney.vscode-pets, startup: false, activationEvent: 'onStartupFinished'
+2026-01-16 12:06:32.069 [info] Extension host terminating: renderer closed the MessagePort
+2026-01-16 12:06:32.077 [info] Extension host with pid 42484 exiting with code 0
+2026-01-16 12:06:32.857 [info] Extension host with pid 43772 started
+2026-01-16 12:06:32.877 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2026-01-16 12:06:32.932 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2026-01-16 12:06:32.950 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2026-01-16 12:06:32.988 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2026-01-16 12:06:33.078 [info] Eager extensions activated
+2026-01-16 12:06:33.147 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2026-01-16 12:06:33.152 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2026-01-16 12:06:33.165 [info] ExtensionService#_doActivateExtension tonybaloney.vscode-pets, startup: false, activationEvent: 'onStartupFinished'
+2026-01-16 12:06:35.679 [info] ExtensionService#_doActivateExtension ms-vscode.remote-explorer, startup: false, activationEvent: 'onView:remoteTargets'
+2026-01-16 12:06:35.685 [info] ExtensionService#_doActivateExtension ms-vscode-remote.remote-ssh, startup: false, activationEvent: 'onCommand:remote-internal.getActiveSshRemote'
+2026-01-16 12:06:43.073 [info] Extension host terminating: renderer closed the MessagePort
+2026-01-16 12:06:43.084 [info] Extension host with pid 43772 exiting with code 0

@@ -1,0 +1,10 @@
+[Unit]
+Description=Fix Hyprland monitors after resume
+After=suspend.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/hypr/monitor-fix.sh
+
+[Install]
+WantedBy=suspend.target

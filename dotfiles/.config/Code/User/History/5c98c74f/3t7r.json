@@ -1,0 +1,30 @@
+// Place your key bindings in this file to override the defaults
+[
+        
+    // Cursor Left
+    {
+        "key": "super+h",
+        "command": "cursorLeft",
+        "when": "editorTextFocus"
+    },
+    // Cursor Down
+    {
+        "key": "super+j",
+        "command": "cursorDown",
+        "when": "editorTextFocus"
+    },
+    // Cursor Up
+    {
+        "key": "super+k",
+        "command": "cursorUp",
+        "when": "editorTextFocus"
+    },
+    // Cursor Right
+    {
+        "key": "super+l",
+        "command": "cursorRight",
+        "when": "editorTextFocus"
+    }
+    
+
+]

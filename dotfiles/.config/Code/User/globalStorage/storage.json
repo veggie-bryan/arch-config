@@ -1,0 +1,196 @@
+{
+    "telemetry.sqmId": "",
+    "telemetry.machineId": "07d7dbc029f4193cfb3d400137b703f85e9e7b1854eaf2c7b3423ce395ee5754",
+    "telemetry.devDeviceId": "21fc99e3-6f4a-4cb8-ad18-56dc4256eb53",
+    "backupWorkspaces": {
+        "workspaces": [],
+        "folders": [
+            {
+                "folderUri": "file:///usr/share/sddm/themes"
+            },
+            {
+                "folderUri": "vscode-remote://ssh-remote%2Bpi-zero/home/bryan/PICAM",
+                "remoteAuthority": "ssh-remote+pi-zero"
+            }
+        ],
+        "emptyWindows": []
+    },
+    "windowControlHeight": 35,
+    "profileAssociations": {
+        "workspaces": {
+            "file:///usr/share/sddm/themes": "__default__profile__",
+            "file:///home/bryan/.config/hypr": "__default__profile__",
+            "file:///home/bryan/.config/btop": "__default__profile__",
+            "file:///home/bryan/.config/waybar": "__default__profile__",
+            "file:///home/bryan/.config/neofetch": "__default__profile__",
+            "file:///home/bryan/Documents/Code/Sandbox": "__default__profile__",
+            "file:///home/bryan/.config/qt6ct": "__default__profile__",
+            "file:///etc": "__default__profile__",
+            "file:///home/bryan": "__default__profile__",
+            "file:///home/bryan/.config_backup": "__default__profile__",
+            "file:///etc/sddm.conf.d": "__default__profile__",
+            "file:///home/bryan/.config/wlogout/style.css": "__default__profile__",
+            "file:///home/bryan/Documents/Code/TaskFrog": "__default__profile__",
+            "file:///home/bryan/arch-config/hypr": "__default__profile__",
+            "file:///home/bryan/.config/wlogout": "__default__profile__",
+            "file:///home/bryan/Documents/Code/CamPi": "__default__profile__",
+            "file:///usr/lib/sddm/sddm.conf.d": "__default__profile__",
+            "file:///usr/share/sddm": "__default__profile__",
+            "file:///etc/X11/xorg.conf.d": "__default__profile__",
+            "file:///home/bryan/Documents/ObsidianVault": "__default__profile__",
+            "file:///home/bryan/Documents/ObsidianVault/ObsidianVault": "__default__profile__",
+            "file:///home/bryan/Documents/Code/PiCam": "__default__profile__",
+            "file:///home/bryan/.config/rofi": "__default__profile__",
+            "vscode-remote://ssh-remote%2Bpi-zero/home/bryan/PICAM": "__default__profile__"
+        },
+        "emptyWindows": {}
+    },
+    "windowsState": {
+        "lastActiveWindow": {
+            "folder": "vscode-remote://ssh-remote%2Bpi-zero/home/bryan/PICAM",
+            "backupPath": "/home/bryan/.config/Code/Backups/41c892058c9e3178762d27f99617c467",
+            "remoteAuthority": "ssh-remote+pi-zero",
+            "uiState": {
+                "mode": 1,
+                "x": 1092,
+                "y": 55,
+                "width": 2536,
+                "height": 1373
+            }
+        },
+        "openedWindows": []
+    },
+    "theme": "vs-dark",
+    "themeBackground": "#011627",
+    "windowSplash": {
+        "zoomLevel": 0,
+        "baseTheme": "vs-dark",
+        "colorInfo": {
+            "foreground": "#d6deeb",
+            "background": "#011627",
+            "editorBackground": "#011627",
+            "titleBarBackground": "#011627",
+            "activityBarBackground": "#011627",
+            "activityBarBorder": "#011627",
+            "sideBarBackground": "#011627",
+            "sideBarBorder": "#011627",
+            "statusBarBackground": "#011627",
+            "statusBarBorder": "#262a39",
+            "statusBarNoFolderBackground": "#011627"
+        },
+        "layoutInfo": {
+            "sideBarSide": "left",
+            "editorPartMinWidth": 220,
+            "titleBarHeight": 35,
+            "activityBarWidth": 48,
+            "sideBarWidth": 300,
+            "auxiliaryBarWidth": 0,
+            "statusBarHeight": 22,
+            "windowBorder": false
+        }
+    },
+    "windowSplashWorkspaceOverride": {
+        "layoutInfo": {
+            "sideBarWidth": 300,
+            "auxiliaryBarWidth": 260,
+            "workspaces": {
+                "e01ca95df37156d359757fe2d3aa127f": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "ef77342c4e9431afd55f0305d6290586": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "cc6ab608c7c21e466855b26c9c41ad32": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "17bda38f3255af2b67cdb8017fdb5df6": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "d582c388c934465ede2ffcb8da84422e": {
+                    "sideBarVisible": false,
+                    "auxiliaryBarVisible": false
+                },
+                "07858026d09d317314f917650622b4de": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "20b99623669c35410700012b6d056795": {
+                    "sideBarVisible": false,
+                    "auxiliaryBarVisible": false
+                },
+                "338588b3237ce0b536ffa2bd2c6bb1ee": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "4b6610a9027f5d3eb335fb1d3100634d": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "697ce13475a2975c1c11214466262595": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "66ec1931bb0de396b44eae38942dc620": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": true
+                },
+                "5f92f25b55d09ebf7abbac0c85adf454": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": true
+                },
+                "e93149f96db0398c240d4580374b7646": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "57797daf80f93661d05d83a785276d8a": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "6d503d0ee20d6479f5b50c2d644787d3": {
+                    "sideBarVisible": false,
+                    "auxiliaryBarVisible": false
+                },
+                "997477664433ebd0a893bfbdcfd6d778": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "bf99651a40d257856dfe04651e5512a2": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "b7d1ae17d21343810b198407fc0d73b2": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "9b8080c62737a9ea3fffad4a1e4ec50b": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "23b9e7dad8741ec04430c951c982b207": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "1ece818ef1f85d003cf9aa1e527bad05": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "b915af396208619dddbf0c34d65c1a3b": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "bbda21c94887a7428b522ce5da09881c": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "71db83a047e452e1780849dcc45a02d6": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                }
+            }
+        }
+    }
+}

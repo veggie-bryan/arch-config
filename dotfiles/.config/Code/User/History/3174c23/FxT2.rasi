@@ -1,0 +1,103 @@
+/* ============================
+      Night Owl Rofi Theme
+      (aligned + larger icons)
+   ============================ */
+
+* {
+    font: "JetBrainsMono Nerd Font 13";
+    background-color: transparent;
+    text-color: #d6deeb;
+}
+
+/* Window frame */
+window {
+    location: center;
+    anchor: center;
+    width: 520px;
+    border: 2px;
+    border-color: #7fdbca;
+    border-radius: 14px;
+
+    /* Transparency test (adjust alpha: 00..FF) */
+    background-color: #011627CC;
+
+    padding: 14px;
+}
+
+/* main container */
+mainbox {
+    background-color: transparent;
+    spacing: 10px;
+}
+
+/* Search row */
+inputbar {
+    background-color: #0b253aCC;
+    border: 2px;
+    border-color: #7fdbca;
+    border-radius: 12px;
+
+    padding: 10px;
+    spacing: 10px;
+
+    /* Ensures the bar aligns as a single row */
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: #e6b450;
+}
+
+entry {
+    background-color: transparent;
+    text-color: #d6deeb;
+    placeholder: "Type to search…";
+}
+
+/* Results list */
+listview {
+    background-color: transparent;
+    padding: 2px;
+    spacing: 6px;
+
+    /* Helps icon sizing look consistent */
+    lines: 8;
+    fixed-height: true;
+}
+
+element {
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 10px;
+    spacing: 10px;
+
+    /* Force each row to be tall enough for icons */
+    height: 44px;
+}
+
+element selected {
+    background-color: #0b253aCC;
+    border-left: 4px;
+    border-color: #e6b450;
+    text-color: #e6b450;
+}
+
+/* Icon + text styling */
+element-icon {
+    size: 28px;
+}
+
+element-text {
+    text-color: #d6deeb;
+}
+
+element-text selected {
+    text-color: #e6b450;
+}
+
+/* Scrollbar */
+scrollbar {
+    handle-color: #7fdbca;
+    border-radius: 8px;
+    width: 8px;
+}

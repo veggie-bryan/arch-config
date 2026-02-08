@@ -1,0 +1,9 @@
+@theme "~/.config/rofi/themes/nightowl.rasi"
+
+configuration {
+    show-icons: true;
+    icon-theme: "Papirus";
+
+    display-drun: "  Applications";
+    drun-display-format: "{icon}  {name}";
+}

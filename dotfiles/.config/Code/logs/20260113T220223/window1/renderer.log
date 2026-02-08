@@ -1,0 +1,532 @@
+2026-01-13 22:02:24.642 [info] Started local extension host with pid 204643.
+2026-01-13 22:02:25.041 [error] navigator is now a global in nodejs, please see https://aka.ms/vscode-extensions/navigator for additional info on this error.: PendingMigrationError: navigator is now a global in nodejs, please see https://aka.ms/vscode-extensions/navigator for additional info on this error.
+    at get (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:402:6611)
+    at Object.<anonymous> (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:486184)
+    at 19534 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:504894)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 92839 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:466959)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 49424 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:465816)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 17130 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:596135)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 87631 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:576866)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 65861 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:600705)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 91577 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:856974)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 94111 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:819912)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 35187 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:690327)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 64417 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:846572)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 24847 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:828930)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 54788 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:788284)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 30729 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:682648)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 24430 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:837945)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 52584 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:811300)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 69480 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:800490)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 71535 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:680397)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1109251
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1117584
+    at Object.<anonymous> (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1117690)
+    at Module._compile (node:internal/modules/cjs/loader:1714:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1848:10)
+    at Module.load (node:internal/modules/cjs/loader:1448:32)
+    at Module._load (node:internal/modules/cjs/loader:1270:12)
+    at c._load (node:electron/js2c/node_init:2:17993)
+    at e._load (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:402:5984)
+    at t._load (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:220:22582)
+    at r._load (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:212:24094)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+    at Module.require (node:internal/modules/cjs/loader:1470:12)
+    at require (node:internal/modules/helpers:147:16)
+    at kX.Cb (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:251:1253)
+2026-01-13 22:02:25.121 [error] navigator is now a global in nodejs, please see https://aka.ms/vscode-extensions/navigator for additional info on this error.: PendingMigrationError: navigator is now a global in nodejs, please see https://aka.ms/vscode-extensions/navigator for additional info on this error.
+    at get (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:402:6611)
+    at g (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:283829)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:283674
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:285048)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:285217
+    at Object.get (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:284567)
+    at _ (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:284134)
+    at O (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:229826)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:163430
+    at Object.p [as use] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:205291)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:206959
+    at s.<computed> [as watch] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:206970)
+    at B (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:207589)
+    at e.<computed> [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:162741)
+    at e.n [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:275397)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:170519
+    at g (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:239634)
+    at e.<computed> [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:169778)
+    at t.n [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:275397)
+    at Array.<anonymous> (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:244943)
+    at o (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:280977)
+    at u (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:244904)
+    at ge (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:213632)
+    at e.<computed> (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:216146)
+    at Object.initialize (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:276131)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:140366
+    at g (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:239634)
+    at e.<computed> [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:140291)
+    at t.n [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:275397)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:339701
+    at async t.oneDataSystemClientFactory (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:339100)
+2026-01-13 22:02:25.123 [info] Invoking resolveAuthority(ssh-remote)...
+2026-01-13 22:02:25.123 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][0ms] obtaining proxy...
+2026-01-13 22:02:25.127 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][4ms] invoking...
+2026-01-13 22:02:26.128 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][1004ms] waiting...
+2026-01-13 22:02:26.604 [info] MCP Registry configured: https://api.mcp.github.com
+2026-01-13 22:02:27.128 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][2004ms] waiting...
+2026-01-13 22:02:27.687 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-13 22:02:27.688 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.2]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-13 22:02:27.689 [error] [/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.122.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0.
+2026-01-13 22:02:27.690 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.36.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.108.0.
+2026-01-13 22:02:28.127 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][3004ms] waiting...
+2026-01-13 22:02:29.134 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][4010ms] waiting...
+2026-01-13 22:02:30.128 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][5004ms] waiting...
+2026-01-13 22:02:31.128 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][6004ms] waiting...
+2026-01-13 22:02:32.127 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][7004ms] waiting...
+2026-01-13 22:02:33.128 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][8004ms] waiting...
+2026-01-13 22:02:34.128 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][9004ms] waiting...
+2026-01-13 22:02:35.128 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][10005ms] waiting...
+2026-01-13 22:02:36.128 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][11004ms] waiting...
+2026-01-13 22:02:37.127 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][12004ms] waiting...
+2026-01-13 22:02:38.127 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][13004ms] waiting...
+2026-01-13 22:02:39.128 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][14004ms] waiting...
+2026-01-13 22:02:39.650 [error] [LocalProcess0][resolveAuthority(ssh-remote,1)][14527ms] returned an error {"code":"NotAvailable","message":"Connecting was canceled","detail":true}
+2026-01-13 22:02:39.650 [error] resolveAuthority(ssh-remote) returned an error after 14527 ms Connecting was canceled
+2026-01-13 22:02:39.650 [error] Error received from starting extension host (kind: Remote)
+2026-01-13 22:02:39.651 [error] CodeExpectedError: Connecting was canceled
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-13 22:02:39.651 [error] [remote-connection][attempt 1] An error occurred in initial connection! Will retry... Error:
+2026-01-13 22:02:39.651 [error] CodeExpectedError: Connecting was canceled
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-13 22:02:39.652 [error] [remote-connection][attempt 2] An error occurred in initial connection! Will retry... Error:
+2026-01-13 22:02:39.652 [error] CodeExpectedError: Connecting was canceled
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-13 22:02:39.657 [error] [remote-connection][attempt 3] An error occurred in initial connection! Will retry... Error:
+2026-01-13 22:02:39.657 [error] CodeExpectedError: Connecting was canceled
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-13 22:02:39.711 [error] [remote-connection][attempt 4] An error occurred in initial connection! Will retry... Error:
+2026-01-13 22:02:39.711 [error] CodeExpectedError: Connecting was canceled
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-13 22:02:39.714 [error] [remote-connection][attempt 5]  An error occurred in initial connection! It will be treated as a permanent error. Error:
+2026-01-13 22:02:39.714 [error] CodeExpectedError: Connecting was canceled
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-13 22:02:39.715 [error] CodeExpectedError: Connecting was canceled
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-13 22:02:39.716 [warning] Error getting remote process MCP environment Connecting was canceled
+2026-01-13 22:02:39.716 [error] Cannot register remote filesystem provider. Error while fetching remote environment. Connecting was canceled
+2026-01-13 22:02:39.717 [error] CodeExpectedError: Connecting was canceled
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-13 22:02:39.717 [error] CodeExpectedError: Connecting was canceled
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-13 22:02:39.717 [error] CodeExpectedError: Connecting was canceled
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-13 22:02:39.717 [error] CodeExpectedError: Connecting was canceled
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-13 22:02:39.720 [error] CodeExpectedError: Connecting was canceled
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-13 22:02:39.721 [warning] Ignoring the error while validating workspace folder vscode-remote://ssh-remote%2Bpi-zero/home/bryan/PICAM - ENOPRO: No file system provider found for resource 'vscode-remote://ssh-remote%2Bpi-zero/home/bryan/PICAM'
+2026-01-13 22:02:39.721 [error] CodeExpectedError
+    at Kkt.j (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:60758)
+    at async Kkt.cb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:71449)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:71175
+2026-01-13 22:02:39.721 [error] ENOPRO: No file system provider found for resource 'vscode-remote://ssh-remote%2Bpi-zero/home/bryan/PICAM/.git/config': CodeExpectedError
+    at Kkt.j (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:60758)
+    at async Kkt.exists (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:62887)
+    at async Promise.all (index 0)
+2026-01-13 22:02:39.723 [warning] Failed to get installed servers from vscode-remote://ssh-remote%2Bpi-zero/home/bryan/PICAM/.vscode/mcp.json ENOPRO: No file system provider found for resource 'vscode-remote://ssh-remote%2Bpi-zero/home/bryan/PICAM/.vscode/mcp.json'
+2026-01-13 22:02:39.724 [error] CodeExpectedError
+    at Kkt.j (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:60758)
+    at async Kkt.cb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:71449)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:71175
+2026-01-13 22:02:39.724 [error] CodeExpectedError
+    at Kkt.j (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:60758)
+    at async Kkt.m (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:60837)
+    at async Kkt.readFileStream (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:65215)
+    at async hxt.L (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3833:9998)
+    at async hxt.readStream (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3833:9773)
+    at async kye.Eb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:1313:12359)
+    at async kye.resolve (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:1313:10834)
+    at async axt.W (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3833:6644)
+    at async ont.jb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:1972:18720)
+    at async $Le.setInput (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:2723:80879)
+2026-01-13 22:02:39.732 [error] ENOPRO: No file system provider found for resource 'vscode-remote://ssh-remote%2Bpi-zero/home/bryan/PICAM/pom.xml': CodeExpectedError
+    at Kkt.j (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:60758)
+    at async Kkt.exists (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:62887)
+    at async Promise.all (index 0)
+2026-01-13 22:02:39.737 [error] CodeExpectedError
+    at Kkt.j (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:60758)
+    at async Kkt.cb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:71449)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:71175
+2026-01-13 22:02:39.772 [error] Connecting was canceled: CodeExpectedError: Connecting was canceled
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-13 22:02:39.772 [error] ENOPRO: No file system provider found for resource 'vscode-remote://ssh-remote%2Bpi-zero/home/bryan/PICAM': CodeExpectedError
+    at Kkt.j (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:60758)
+    at async Kkt.r (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:61448)
+    at async Kkt.resolve (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:61329)
+    at async PSt.j (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3791:27372)
+2026-01-13 22:02:39.772 [error] ENOPRO: No file system provider found for resource 'vscode-remote://ssh-remote%2Bpi-zero/home/bryan/PICAM/.vscode': CodeExpectedError
+    at Kkt.j (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:60758)
+    at async Kkt.exists (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3828:62887)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:577:21793
+    at async Promise.all (index 0)
+    at async Z_e.v (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:577:21900)
+2026-01-13 22:02:40.088 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2026-01-13 22:02:40.184 [error] CodeExpectedError: Connecting was canceled
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-13 22:02:40.574 [error] Connecting was canceled: CodeExpectedError: Connecting was canceled
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-13 22:02:41.645 [error] Connecting was canceled: CodeExpectedError: Connecting was canceled
+    at tEt.sb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15767)
+    at async tEt.rb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3875:15133)
+    at async tEt.fc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3881:3611)
+    at async vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:86012
+2026-01-13 22:02:41.964 [info] Started local extension host with pid 204885.
+2026-01-13 22:02:42.263 [info] MCP Registry configured: https://api.mcp.github.com
+2026-01-13 22:02:42.452 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2026-01-13 22:02:44.557 [info] [perf] Render performance baseline is 17ms
+2026-01-13 22:02:45.048 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-13 22:02:45.049 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.2]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-13 22:02:45.050 [error] [/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.122.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0.
+2026-01-13 22:02:45.053 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.36.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.108.0.
+2026-01-13 22:02:54.149 [info] Auto updating outdated extensions. github.copilot-chat, ms-vscode-remote.remote-ssh
+2026-01-13 22:02:55.400 [error] Cannot read the extension from /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.122.0: ScanningExtension: Cannot read the extension from /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.122.0
+    at Gh.scanLocalExtension (file:///opt/visual-studio-code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:74:75166)
+2026-01-13 22:02:55.405 [error] Cannot read the extension from /home/bryan/.vscode/extensions/github.copilot-chat-0.36.0: ScanningExtension: Cannot read the extension from /home/bryan/.vscode/extensions/github.copilot-chat-0.36.0
+    at Gh.scanLocalExtension (file:///opt/visual-studio-code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:74:75166)
+2026-01-13 22:08:03.225 [info] Started local extension host with pid 206778.
+2026-01-13 22:08:03.308 [error] [/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.122.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0.
+2026-01-13 22:08:03.309 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-13 22:08:03.310 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.2]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-13 22:08:03.312 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.36.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.108.0.
+2026-01-13 22:08:03.448 [info] Invoking resolveAuthority(ssh-remote)...
+2026-01-13 22:08:03.448 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][0ms] obtaining proxy...
+2026-01-13 22:08:03.458 [info] MCP Registry configured: https://api.mcp.github.com
+2026-01-13 22:08:03.590 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][142ms] invoking...
+2026-01-13 22:08:03.642 [error] navigator is now a global in nodejs, please see https://aka.ms/vscode-extensions/navigator for additional info on this error.: PendingMigrationError: navigator is now a global in nodejs, please see https://aka.ms/vscode-extensions/navigator for additional info on this error.
+    at get (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:402:6611)
+    at Object.<anonymous> (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:486184)
+    at 19534 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:504894)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 92839 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:466959)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 49424 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:465816)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 17130 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:596135)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 87631 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:576866)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 65861 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:600705)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 91577 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:856974)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 94111 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:819912)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 35187 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:690327)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 64417 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:846572)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 24847 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:828930)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 54788 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:788284)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 30729 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:682648)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 24430 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:837945)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 52584 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:811300)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 69480 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:800490)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 71535 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:680397)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1109251
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1117584
+    at Object.<anonymous> (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1117690)
+    at Module._compile (node:internal/modules/cjs/loader:1714:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1848:10)
+    at Module.load (node:internal/modules/cjs/loader:1448:32)
+    at Module._load (node:internal/modules/cjs/loader:1270:12)
+    at c._load (node:electron/js2c/node_init:2:17993)
+    at e._load (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:402:5984)
+    at t._load (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:220:22582)
+    at r._load (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:212:24094)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+    at Module.require (node:internal/modules/cjs/loader:1470:12)
+    at require (node:internal/modules/helpers:147:16)
+    at kX.Cb (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:251:1253)
+2026-01-13 22:08:03.723 [error] navigator is now a global in nodejs, please see https://aka.ms/vscode-extensions/navigator for additional info on this error.: PendingMigrationError: navigator is now a global in nodejs, please see https://aka.ms/vscode-extensions/navigator for additional info on this error.
+    at get (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:402:6611)
+    at g (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:283829)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:283674
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:285048)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:285217
+    at Object.get (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:284567)
+    at _ (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:284134)
+    at O (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:229826)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:163430
+    at Object.p [as use] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:205291)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:206959
+    at s.<computed> [as watch] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:206970)
+    at B (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:207589)
+    at e.<computed> [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:162741)
+    at e.n [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:275397)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:170519
+    at g (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:239634)
+    at e.<computed> [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:169778)
+    at t.n [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:275397)
+    at Array.<anonymous> (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:244943)
+    at o (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:280977)
+    at u (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:244904)
+    at ge (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:213632)
+    at e.<computed> (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:216146)
+    at Object.initialize (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:276131)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:140366
+    at g (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:239634)
+    at e.<computed> [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:140291)
+    at t.n [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:275397)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:339701
+    at async t.oneDataSystemClientFactory (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:339100)
+2026-01-13 22:08:04.590 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][1142ms] waiting...
+2026-01-13 22:08:05.590 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][2142ms] waiting...
+2026-01-13 22:08:06.595 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][3147ms] waiting...
+2026-01-13 22:08:07.590 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][4142ms] waiting...
+2026-01-13 22:08:08.590 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][5142ms] waiting...
+2026-01-13 22:08:09.590 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][6142ms] waiting...
+2026-01-13 22:08:10.590 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][7142ms] waiting...
+2026-01-13 22:08:11.590 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][8142ms] waiting...
+2026-01-13 22:08:12.590 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][9142ms] waiting...
+2026-01-13 22:08:13.590 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][10142ms] waiting...
+2026-01-13 22:08:14.590 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][11142ms] waiting...
+2026-01-13 22:08:15.590 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][12142ms] waiting...
+2026-01-13 22:08:16.590 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][13142ms] waiting...
+2026-01-13 22:08:17.227 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][13779ms] returned WebSocket(127.0.0.1:45341)
+2026-01-13 22:08:17.227 [info] resolveAuthority(ssh-remote) returned 'WebSocket(127.0.0.1:45341)' after 13779 ms
+2026-01-13 22:08:17.228 [info] Creating a socket (renderer-Management-720d9859-1d9e-4710-87f1-b5afdbeb8ee6)...
+2026-01-13 22:08:17.229 [info] Creating a socket (renderer-ExtensionHost-b022c3d2-b65b-4f9e-aaab-d233719ae4bd)...
+2026-01-13 22:08:18.547 [info] Creating a socket (renderer-Management-720d9859-1d9e-4710-87f1-b5afdbeb8ee6) was successful after 1318 ms.
+2026-01-13 22:08:18.938 [info] Creating a socket (renderer-ExtensionHost-b022c3d2-b65b-4f9e-aaab-d233719ae4bd) was successful after 1710 ms.
+2026-01-13 22:08:20.997 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2026-01-13 22:08:21.224 [info] [perf] Render performance baseline is 18ms
+2026-01-13 22:08:25.421 [info] Auto updating outdated extensions. github.copilot-chat
+2026-01-13 22:08:26.465 [error] Could not find pty 4 on pty host: CodeExpectedError: Could not find pty 4 on pty host
+    at R.X (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:46:6681)
+    at R.updateTitle (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:46:1839)
+    at N.i.<computed> (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:45:2938)
+    at Object.call (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:28:4202)
+    at kl.s (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:26:83796)
+    at kl.q (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:26:83319)
+    at vi.value (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:26:82721)
+    at E.C (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at E.fire (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.C (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:24:30422)
+    at process.emit (node:events:519:28)
+    at emit (node:internal/child_process:949:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:91:21)
+2026-01-13 22:08:26.465 [error] Could not find pty 4 on pty host: CodeExpectedError: Could not find pty 4 on pty host
+    at R.X (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:46:6681)
+    at R.updateIcon (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:46:1889)
+    at N.i.<computed> (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:45:2938)
+    at Object.call (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:28:4202)
+    at kl.s (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:26:83796)
+    at kl.q (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:26:83319)
+    at vi.value (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:26:82721)
+    at E.C (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:26:2373)
+    at E.fire (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:26:2591)
+    at process.C (file:///home/bryan/.vscode-server/bin/bf9252a2fb45be6893dd8870c0bf37e2e1766d61/out/vs/platform/terminal/node/ptyHostMain.js:24:30422)
+    at process.emit (node:events:519:28)
+    at emit (node:internal/child_process:949:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:91:21)
+2026-01-13 22:08:36.141 [info] Started local extension host with pid 207044.
+2026-01-13 22:08:36.517 [error] navigator is now a global in nodejs, please see https://aka.ms/vscode-extensions/navigator for additional info on this error.: PendingMigrationError: navigator is now a global in nodejs, please see https://aka.ms/vscode-extensions/navigator for additional info on this error.
+    at get (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:402:6611)
+    at Object.<anonymous> (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:486184)
+    at 19534 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:504894)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 92839 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:466959)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 49424 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:465816)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 17130 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:596135)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 87631 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:576866)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 65861 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:600705)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 91577 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:856974)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 94111 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:819912)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 35187 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:690327)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 64417 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:846572)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 24847 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:828930)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 54788 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:788284)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 30729 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:682648)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 24430 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:837945)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 52584 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:811300)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 69480 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:800490)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at 71535 (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:680397)
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1108387)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1109251
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1117584
+    at Object.<anonymous> (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:1117690)
+    at Module._compile (node:internal/modules/cjs/loader:1714:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1848:10)
+    at Module.load (node:internal/modules/cjs/loader:1448:32)
+    at Module._load (node:internal/modules/cjs/loader:1270:12)
+    at c._load (node:electron/js2c/node_init:2:17993)
+    at e._load (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:402:5984)
+    at t._load (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:220:22582)
+    at r._load (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:212:24094)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+    at Module.require (node:internal/modules/cjs/loader:1470:12)
+    at require (node:internal/modules/helpers:147:16)
+    at kX.Cb (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:251:1253)
+2026-01-13 22:08:36.586 [error] navigator is now a global in nodejs, please see https://aka.ms/vscode-extensions/navigator for additional info on this error.: PendingMigrationError: navigator is now a global in nodejs, please see https://aka.ms/vscode-extensions/navigator for additional info on this error.
+    at get (file:///opt/visual-studio-code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:402:6611)
+    at g (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:283829)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:283674
+    at r (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:285048)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:285217
+    at Object.get (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:284567)
+    at _ (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:284134)
+    at O (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:229826)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:163430
+    at Object.p [as use] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:205291)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:206959
+    at s.<computed> [as watch] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:206970)
+    at B (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:207589)
+    at e.<computed> [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:162741)
+    at e.n [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:275397)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:170519
+    at g (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:239634)
+    at e.<computed> [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:169778)
+    at t.n [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:275397)
+    at Array.<anonymous> (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:244943)
+    at o (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:280977)
+    at u (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:244904)
+    at ge (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:213632)
+    at e.<computed> (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:216146)
+    at Object.initialize (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:276131)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:140366
+    at g (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:239634)
+    at e.<computed> [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:140291)
+    at t.n [as initialize] (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:275397)
+    at /home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:339701
+    at async t.oneDataSystemClientFactory (/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.120.0/out/extension.js:2:339100)
+2026-01-13 22:08:36.588 [info] Invoking resolveAuthority(ssh-remote)...
+2026-01-13 22:08:36.588 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][0ms] obtaining proxy...
+2026-01-13 22:08:36.591 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][3ms] invoking...
+2026-01-13 22:08:37.592 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][1003ms] waiting...
+2026-01-13 22:08:38.128 [info] MCP Registry configured: https://api.mcp.github.com
+2026-01-13 22:08:38.592 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][2003ms] waiting...
+2026-01-13 22:08:39.221 [error] [/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.122.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0.
+2026-01-13 22:08:39.222 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-13 22:08:39.224 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.2]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-13 22:08:39.225 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.36.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.108.0.
+2026-01-13 22:08:39.592 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][3003ms] waiting...
+2026-01-13 22:08:40.592 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][4003ms] waiting...
+2026-01-13 22:08:41.592 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][5003ms] waiting...
+2026-01-13 22:08:42.592 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][6003ms] waiting...
+2026-01-13 22:08:43.592 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][7003ms] waiting...
+2026-01-13 22:08:44.592 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][8003ms] waiting...
+2026-01-13 22:08:45.592 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][9003ms] waiting...
+2026-01-13 22:08:46.592 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][10003ms] waiting...
+2026-01-13 22:08:47.592 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][11003ms] waiting...
+2026-01-13 22:08:48.592 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][12003ms] waiting...
+2026-01-13 22:08:49.592 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][13004ms] waiting...
+2026-01-13 22:08:50.592 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][14004ms] waiting...
+2026-01-13 22:08:51.592 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][15003ms] waiting...
+2026-01-13 22:08:52.592 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][16003ms] waiting...
+2026-01-13 22:08:53.108 [info] [LocalProcess0][resolveAuthority(ssh-remote,1)][16519ms] returned WebSocket(127.0.0.1:45675)
+2026-01-13 22:08:53.108 [info] resolveAuthority(ssh-remote) returned 'WebSocket(127.0.0.1:45675)' after 16519 ms
+2026-01-13 22:08:53.108 [info] Creating a socket (renderer-Management-03e55031-1128-410f-aded-2a06ace5c5b0)...
+2026-01-13 22:08:53.109 [info] Creating a socket (renderer-ExtensionHost-374a3e46-651c-48be-bf56-1ba322d163c3)...
+2026-01-13 22:08:53.141 [info] Creating a socket (renderer-Management-03e55031-1128-410f-aded-2a06ace5c5b0) was successful after 33 ms.
+2026-01-13 22:08:53.173 [info] Creating a socket (renderer-ExtensionHost-374a3e46-651c-48be-bf56-1ba322d163c3) was successful after 63 ms.
+2026-01-13 22:08:56.073 [error] Cannot change enablement of GitHub Copilot Chat extension because of its extension kind: Error: Cannot change enablement of GitHub Copilot Chat extension because of its extension kind
+    at vQe.U (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:1355:16893)
+    at vQe.S (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:1355:16593)
+    at vQe.setEnablement (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:1355:17641)
+    at async Vut.rc (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:2493:41838)
+    at async Mne.m (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:2237:43599)
+2026-01-13 22:08:56.447 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2026-01-13 22:08:58.473 [info] [perf] Render performance baseline is 17ms
+2026-01-13 22:23:00.192 [info] Started local extension host with pid 212374.
+2026-01-13 22:23:00.426 [info] MCP Registry configured: https://api.mcp.github.com
+2026-01-13 22:23:00.513 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2026-01-13 22:23:02.869 [info] [perf] Render performance baseline is 17ms
+2026-01-13 22:23:03.333 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-13 22:23:03.334 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.35.2]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0-20251119.
+2026-01-13 22:23:03.335 [error] [/home/bryan/.vscode/extensions/ms-vscode-remote.remote-ssh-0.122.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.107.0.
+2026-01-13 22:23:03.337 [error] [/home/bryan/.vscode/extensions/github.copilot-chat-0.36.0]: Extension is not compatible with Code 1.106.3. Extension requires: ^1.108.0.

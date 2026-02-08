@@ -1,0 +1,94 @@
+/* ============================
+      Night Owl Rofi Theme
+      (no transparency + big icons)
+   ============================ */
+
+* {
+    font: "JetBrainsMono Nerd Font 13";
+    background-color: transparent;
+    text-color: #d6deeb;
+}
+
+window {
+    location: center;
+    anchor: center;
+    width: 560px;
+
+    background-color: #011627;
+    border: 2px;
+    border-color: #7fdbca;
+    border-radius: 14px;
+    padding: 14px;
+}
+
+mainbox {
+    background-color: transparent;
+    spacing: 10px;
+}
+
+inputbar {
+    background-color: #0b253a;
+    border: 2px;
+    border-color: #7fdbca;
+    border-radius: 12px;
+
+    padding: 10px;
+    spacing: 10px;
+
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: #e6b450;
+}
+
+entry {
+    background-color: transparent;
+    text-color: #d6deeb;
+    placeholder: "Type to search…";
+}
+
+listview {
+    background-color: transparent;
+    padding: 2px;
+    spacing: 8px;
+
+    lines: 8;
+    fixed-height: true;
+}
+
+element {
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 10px;
+    spacing: 12px;
+
+    /* Taller rows so big icons never clip */
+    height: 54px;
+}
+
+element selected {
+    background-color: #0b253a;
+    border-left: 4px;
+    border-color: #e6b450;
+    text-color: #e6b450;
+}
+
+element-icon {
+    /* Bigger app logos/icons */
+    size: 36px;
+}
+
+element-text {
+    text-color: #d6deeb;
+}
+
+element-text selected {
+    text-color: #e6b450;
+}
+
+scrollbar {
+    handle-color: #7fdbca;
+    border-radius: 8px;
+    width: 8px;
+}

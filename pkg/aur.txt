@@ -1,0 +1,13 @@
+chicago95-theme
+hyprqt6engine
+hyprqt6engine-debug
+sddm-astronaut-theme
+spicetify-cli
+spicetify-cli-debug
+spotify
+ttf-ms-fonts
+visual-studio-code-bin
+wlogout
+wlogout-debug
+yay
+yay-debug
