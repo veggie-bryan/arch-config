@@ -1,0 +1,13 @@
+# Large or non-portable app data
+dotfiles/.config/discord/
+dotfiles/.config/spotify/
+dotfiles/.config/obsidian/
+dotfiles/.config/go/
+dotfiles/.config/pulse/
+dotfiles/.config/session/
+dotfiles/.config/yay/
+dotfiles/.config/mozilla/
+
+# Caches
+*.cache
+.cache/
